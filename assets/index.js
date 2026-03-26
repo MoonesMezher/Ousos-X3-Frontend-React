@@ -14,14 +14,14 @@ const lectures = [
         title: "Head Element, Links, Text Elements, Multimedia, Tables",
         description: "Head Element, Links and Anchor Elements, Text Elements, Text Formating, Multimedia, Images, Lists, Tables",
         image: "./assets/images/logos/html.webp",
-        status: "not-started",
+        status: "completed",
         content: "HTML"
     },
     {
         id: "html-3",
         number: 3,
         title: "Semantic Elements",
-        description: "Images and Multimedia, Lists, HTML Tables, Container Elements and Layout, Advanced Multimedia, Preformatted Text Element, IFrame Element, Intro to HTML Forms",
+        description: "Container Elements and Layout, Advanced Multimedia, Preformatted Text Element, IFrame Element, Intro to HTML Forms",
         image: "./assets/images/logos/html.webp",
         status: "not-started",
         content: "HTML"
