@@ -21,18 +21,18 @@ const lectures = [
         id: "html-3",
         number: 3,
         title: "Semantic Elements",
-        description: "Container Elements and Layout, Advanced Multimedia, Preformatted Text Element, IFrame Element, Intro to HTML Forms",
+        description: "Container Elements and Layout, Advanced Multimedia, Preformatted Text Element, IFrame Element, HTML Forms",
         image: "./assets/images/logos/html.webp",
-        status: "not-started",
+        status: "completed",
         content: "HTML"
     },
     {
         id: "html-4",
         number: 4,
-        title: "HTML Forms, CSS Introduction, Selectors",
-        description: "HTML Forms, HTML Entities and Special Characters, HTML5 Semantic Elements Deep Dive, HTML Accessibility",
+        title: "HTML5, CSS Introduction, Selectors",
+        description: "HTML Entities and Special Characters, HTML5 Semantic Elements Deep Dive, HTML Accessibility",
         image: "./assets/images/logos/html.webp",
-        status: "not-started",
+        status: "in-progress",
         content: "HTML"
     },
     {
