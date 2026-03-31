@@ -30,18 +30,18 @@ const lectures = [
         id: "html-4",
         number: 4,
         title: "HTML5, CSS Introduction, Selectors",
-        description: "HTML Entities and Special Characters, HTML5 Semantic Elements Deep Dive, HTML Accessibility",
+        description: "HTML Entities and Special Characters, HTML5 Semantic Elements Deep Dive, HTML Accessibility, CSS Introduction, Selectors",
         image: "./assets/images/logos/html.webp",
-        status: "in-progress",
+        status: "completed",
         content: "HTML"
     },
     {
         id: "css-1",
         number: 5,
         title: "Typography, Colors, Icons, Box Model",
-        description: "CSS Introduction & Syntax, CSS Selectors & Specificity, Typography, Colors & CSS Variables, Google Fonts Integration, Working with Icons, CSS Box Model - Complete Layout Foundation",
+        description: "CSS Selectors & Specificity, Typography, Colors & CSS Variables, Google Fonts Integration, Working with Icons, CSS Box Model - Complete Layout Foundation",
         image: "./assets/images/logos/CSS.webp",
-        status: "not-started",
+        status: "in-progress",
         content: "CSS"
     },
     {
