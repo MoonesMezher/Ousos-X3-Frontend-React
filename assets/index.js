@@ -38,19 +38,19 @@ const lectures = [
     {
         id: "css-1",
         number: 5,
-        title: "Typography, Colors, Icons, Box Model",
-        description: "CSS Selectors & Specificity, Typography, Colors & CSS Variables, Google Fonts Integration, Working with Icons, CSS Box Model - Complete Layout Foundation",
+        title: "Typography, Colors, Icons",
+        description: "CSS Selectors & Specificity, Typography, Colors & CSS Variables, Google Fonts Integration, Working with Icons",
         image: "./assets/images/logos/CSS.webp",
-        status: "in-progress",
+        status: "completed",
         content: "CSS"
     },
     {
         id: "css-2",
         number: 6,
-        title: "Borders, Backgrounds, Display",
-        description: "Borders, Backgrounds, Box Shadow, Radius, Outline, Display",
+        title: "Borders, Backgrounds, Display, CSS Box Model",
+        description: "CSS Box Model - Complete Layout Foundation, Borders, Backgrounds, Box Shadow, Radius, Outline, Display",
         image: "./assets/images/logos/CSS.webp",
-        status: "not-started",
+        status: "in-progress",
         content: "CSS"
     },
     {
