@@ -7,214 +7,6 @@ const courseData = {
     },
     topics: [
         {
-            id: "position-layout",
-            title: "Position, Z-index & Floats",
-            content: `
-                <h3>Position Values:</h3>
-                <ul>
-                    <li><strong>static</strong>: Default, normal document flow</li>
-                    <li><strong>relative</strong>: Positioned relative to normal position</li>
-                    <li><strong>absolute</strong>: Positioned relative to nearest positioned ancestor</li>
-                    <li><strong>fixed</strong>: Positioned relative to viewport</li>
-                    <li><strong>sticky</strong>: Hybrid of relative and fixed</li>
-                </ul>
-                
-                <h3>Offset Properties:</h3>
-                <ul>
-                    <li><strong>top, right, bottom, left</strong>: Positioning offsets</li>
-                    <li>Work with relative, absolute, fixed, sticky positions</li>
-                    <li>Negative values allowed</li>
-                </ul>
-                
-                <h3>Z-index Stacking:</h3>
-                <ul>
-                    <li>Controls stacking order of positioned elements</li>
-                    <li>Higher values appear in front</li>
-                    <li>Only works on positioned elements (non-static)</li>
-                    <li>Creates stacking context</li>
-                </ul>
-                
-                <h3>Float & Clear Properties:</h3>
-                <ul>
-                    <li><strong>float</strong>: left, right, none (wraps content around element)</li>
-                    <li><strong>clear</strong>: left, right, both, none (prevents floating)</li>
-                    <li>Originally for text wrapping around images</li>
-                </ul>
-                
-                <h3>Modern Layout Alternatives:</h3>
-                <ul>
-                    <li>Avoid floats for complex layouts</li>
-                    <li>Use Flexbox for 1D layouts</li>
-                    <li>Use CSS Grid for 2D layouts</li>
-                    <li>Floats still useful for simple text wrapping</li>
-                </ul>
-
-                <br><hr><br>
-                <div dir="rtl">
-                    <h3>قيم الموضع:</h3>
-                    <ul>
-                        <li><strong>static</strong>: افتراضي، تدفق المستند العادي</li>
-                        <li><strong>relative</strong>: يتم وضعه بالنسبة للموضع الطبيعي</li>
-                        <li><strong>absolute</strong>: يتم وضعه بالنسبة لأقرب سلف موضع</li>
-                        <li><strong>fixed</strong>: يتم وضعه بالنسبة لمنطقة العرض</li>
-                        <li><strong>sticky</strong>: هجين بين relative و fixed</li>
-                    </ul>
-                    
-                    <h3>خصائص الإزاحة:</h3>
-                    <ul>
-                        <li><strong>top, right, bottom, left</strong>: إزاحات الوضع</li>
-                        <li>تعمل مع المواضع النسبية، المطلقة، الثابتة، اللاصقة</li>
-                        <li>القيم السالبة مسموحة</li>
-                    </ul>
-                    
-                    <h3>ترتيب الطبقات Z-index:</h3>
-                    <ul>
-                        <li>يتحكم في ترتيب طبقات العناصر الموضوعة</li>
-                        <li>القيم الأعلى تظهر في المقدمة</li>
-                        <li>يعمل فقط على العناصر الموضوعة (غير static)</li>
-                        <li>ينشئ سياق تراص</li>
-                    </ul>
-                    
-                    <h3>خصائص Float و Clear:</h3>
-                    <ul>
-                        <li><strong>float</strong>: left, right, none (يلف المحتوى حول العنصر)</li>
-                        <li><strong>clear</strong>: left, right, both, none (يمنع الطفو)</li>
-                        <li>في الأصل لتفاف النص حول الصور</li>
-                    </ul>
-                    
-                    <h3>بدائل التخطيط الحديثة:</h3>
-                    <ul>
-                        <li>تجنب الطفو للتخطيطات المعقدة</li>
-                        <li>استخدم Flexbox للتخطيطات أحادية البعد</li>
-                        <li>استخدم CSS Grid للتخطيطات ثنائية البعد</li>
-                        <li>الطفو لا يزال مفيداً للتفاف النص البسيط</li>
-                    </ul>
-                </div>
-            `,
-            examples: [
-                {
-                    title: "Position Examples",
-                    content: `
-                        <pre class="code-block">
-/* Relative positioning */
-.relative-box {
-    position: relative;
-    top: 10px;
-    left: 20px;
-}
-
-/* Absolute positioning */
-.parent {
-    position: relative; /* Creates positioning context */
-}
-.absolute-child {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-/* Fixed header */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-/* Sticky navigation */
-.sticky-nav {
-    position: sticky;
-    top: 0;
-    background: white;
-    z-index: 100;
-}
-
-/* Z-index stacking */
-.back {
-    position: absolute;
-    z-index: 1;
-}
-.middle {
-    position: absolute;
-    z-index: 2;
-}
-.front {
-    position: absolute;
-    z-index: 3;
-}
-                        </pre>
-                    `
-                },
-                {
-                    title: "Float & Clear Examples",
-                    content: `
-                        <pre class="code-block">
-/* Image float */
-img {
-    float: left;
-    margin: 0 15px 15px 0;
-}
-
-/* Clear floats */
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Modern alternative to floats */
-.container {
-    display: flex;
-    gap: 20px;
-}
-
-/* Grid alternative */
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-/* Text wrapping with shape-outside */
-.circle {
-    float: left;
-    shape-outside: circle(50%);
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-}
-                        </pre>
-                    `
-                }
-            ],
-            practices: [
-                {
-                    title: "Positioning Practice",
-                    content: `
-                        <p>Practice with positioning and layout:</p>
-                        <ol>
-                            <li>Create a fixed navigation bar that stays at the top</li>
-                            <li>Build a modal dialog using absolute positioning</li>
-                            <li>Create a sticky sidebar that scrolls then sticks</li>
-                            <li>Experiment with z-index to create overlapping elements</li>
-                            <li>Create a simple layout using floats and clear them properly</li>
-                        </ol>
-                    `
-                }
-            ],
-            questions: [
-                {
-                    question: "When should you use position: sticky vs fixed?",
-                    answer: "Use sticky when you want an element to scroll normally until it reaches a certain point, then stick. Use fixed when you want an element to always stay in the same position relative to the viewport. Sticky requires a threshold (top, bottom, etc.) while fixed doesn't."
-                },
-                {
-                    question: "Why avoid floats for modern layouts?",
-                    answer: "Floats weren't designed for complex layouts, require clearfix hacks, can cause collapsing containers, have poor responsiveness, and are harder to maintain. Flexbox and Grid provide more predictable, flexible, and maintainable layout systems with better browser support for modern requirements."
-                }
-            ]
-        },
-        {
             id: "flexbox",
             title: "CSS Flexbox Layout",
             content: `
@@ -422,6 +214,217 @@ img {
                 {
                     question: "When should you use flex: 1 vs width: 100%?",
                     answer: "flex: 1 makes the item grow to fill available space, while width: 100% sets a fixed width. flex: 1 is more flexible in responsive layouts and works better with sibling elements. Use width: 100% when you need exact control, and flex: 1 when you want dynamic sizing."
+                }
+            ]
+        },
+        
+        {
+            id: "css-grid",
+            title: "CSS Grid Layout",
+            content: `
+                <h3>Grid Overview:</h3>
+                <p>Two-dimensional layout system for rows and columns.</p>
+                
+                <h3>Grid Container Properties:</h3>
+                <ul>
+                    <li><strong>display: grid</strong>: Creates grid container</li>
+                    <li><strong>grid-template-columns</strong>: Defines column tracks</li>
+                    <li><strong>grid-template-rows</strong>: Defines row tracks</li>
+                    <li><strong>gap</strong>: gap, row-gap, column-gap (space between tracks)</li>
+                    <li><strong>justify-items</strong>: Align items along row axis</li>
+                    <li><strong>align-items</strong>: Align items along column axis</li>
+                    <li><strong>grid-auto-flow</strong>: row, column, dense</li>
+                </ul>
+                
+                <h3>Track Sizing Units:</h3>
+                <ul>
+                    <li><strong>fr</strong>: Fractional unit (flexible space)</li>
+                    <li><strong>auto</strong>: Content-based sizing</li>
+                    <li><strong>minmax()</strong>: Size range (minmax(200px, 1fr))</li>
+                    <li><strong>repeat()</strong>: Repeat pattern (repeat(3, 1fr))</li>
+                </ul>
+                
+                <h3>Grid Item Properties:</h3>
+                <ul>
+                    <li><strong>grid-column</strong>: start / end (grid-column: 1 / 3)</li>
+                    <li><strong>grid-row</strong>: start / end (grid-row: 1 / 2)</li>
+                    <li><strong>grid-area</strong>: Named area or row/column shorthand</li>
+                    <li><strong>justify-self</strong>: Align individual item on row axis</li>
+                    <li><strong>align-self</strong>: Align individual item on column axis</li>
+                </ul>
+                
+                <h3>Grid Template Areas:</h3>
+                <p>Visual layout system using named areas:</p>
+                <pre class="code-block">
+grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+                </pre>
+
+                <br><hr><br>
+                <div dir="rtl">
+                    <h3>نظرة عامة على الشبكة:</h3>
+                    <p>نظام تخطيط ثنائي البعد للصفوف والأعمدة.</p>
+                    
+                    <h3>خصائص حاوية الشبكة:</h3>
+                    <ul>
+                        <li><strong>display: grid</strong>: ينشئ حاوية شبكة</li>
+                        <li><strong>grid-template-columns</strong>: يحدد مسارات الأعمدة</li>
+                        <li><strong>grid-template-rows</strong>: يحدد مسارات الصفوف</li>
+                        <li><strong>gap</strong>: gap, row-gap, column-gap (المسافة بين المسارات)</li>
+                        <li><strong>justify-items</strong>: محاذاة العناصر على طول محور الصف</li>
+                        <li><strong>align-items</strong>: محاذاة العناصر على طول محور العمود</li>
+                        <li><strong>grid-auto-flow</strong>: row, column, dense</li>
+                    </ul>
+                    
+                    <h3>وحدات حجم المسار:</h3>
+                    <ul>
+                        <li><strong>fr</strong>: وحدة كسرية (مساحة مرنة)</li>
+                        <li><strong>auto</strong>: تحديد الحجم بناءً على المحتوى</li>
+                        <li><strong>minmax()</strong>: نطاق الحجم (minmax(200px, 1fr))</li>
+                        <li><strong>repeat()</strong>: نمط التكرار (repeat(3, 1fr))</li>
+                    </ul>
+                    
+                    <h3>خصائص عنصر الشبكة:</h3>
+                    <ul>
+                        <li><strong>grid-column</strong>: البداية / النهاية (grid-column: 1 / 3)</li>
+                        <li><strong>grid-row</strong>: البداية / النهاية (grid-row: 1 / 2)</li>
+                        <li><strong>grid-area</strong>: منطقة مسماة أو اختصار صف/عمود</li>
+                        <li><strong>justify-self</strong>: محاذاة عنصر فردي على محور الصف</li>
+                        <li><strong>align-self</strong>: محاذاة عنصر فردي على محور العمود</li>
+                    </ul>
+                    
+                    <h3>مناطق قالب الشبكة:</h3>
+                    <p>نظام تخطيط بصري باستخدام المناطق المسماة:</p>
+                    <pre class="code-block" dir="ltr">
+grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+                    </pre>
+                </div>
+            `,
+            examples: [
+                {
+                    title: "Grid Container Examples",
+                    content: `
+                        <pre class="code-block">
+/* Basic grid */
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+/* Fixed columns */
+.fixed-grid {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    gap: 10px;
+}
+
+/* Flexible columns */
+.flexible-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+}
+
+/* Responsive grid */
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Complex grid layout */
+.complex-grid {
+    display: grid;
+    grid-template-columns: 100px 1fr 2fr 100px;
+    grid-template-rows: 80px 1fr 60px;
+    gap: 15px;
+}
+
+/* Grid with minmax */
+.minmax-grid {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr minmax(150px, 1fr);
+}
+                        </pre>
+                    `
+                },
+                {
+                    title: "Grid Item Placement Examples",
+                    content: `
+                        <pre class="code-block">
+/* Line-based placement */
+.item-1 {
+    grid-column: 1 / 3; /* Start at line 1, end at line 3 */
+    grid-row: 1;
+}
+
+.item-2 {
+    grid-column: 3;
+    grid-row: 1 / 3; /* Start at line 1, end at line 3 */
+}
+
+/* Span keyword */
+.span-2 {
+    grid-column: span 2;
+}
+
+.span-full {
+    grid-column: 1 / -1; /* Full width */
+}
+
+/* Named grid areas */
+.layout {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    grid-template-rows: 80px 1fr 60px;
+    grid-template-columns: 200px 1fr 1fr;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
+
+/* Self alignment */
+.center-item {
+    justify-self: center;
+    align-self: center;
+}
+                        </pre>
+                    `
+                }
+            ],
+            practices: [
+                {
+                    title: "CSS Grid Practice",
+                    content: `
+                        <p>Practice with CSS Grid layouts:</p>
+                        <ol>
+                            <li>Create a photo gallery with auto-fill and minmax</li>
+                            <li>Build a magazine-style layout with named grid areas</li>
+                            <li>Create a responsive dashboard layout</li>
+                            <li>Experiment with grid item placement using line numbers</li>
+                            <li>Build a holy grail layout using CSS Grid</li>
+                        </ol>
+                    `
+                }
+            ],
+            questions: [
+                {
+                    question: "What's the difference between auto-fit and auto-fill?",
+                    answer: "auto-fit expands tracks to fill available space when there are fewer items. auto-fill keeps tracks at specified size even when empty. Use auto-fit when you want items to expand, auto-fill when you want consistent track sizes regardless of item count."
+                },
+                {
+                    question: "When should you use Grid vs Flexbox?",
+                    answer: "Use Grid for two-dimensional layouts (both rows and columns). Use Flexbox for one-dimensional layouts (either row OR column). Grid is better for overall page layout, while Flexbox is better for component-level layout and content distribution within a single dimension."
                 }
             ]
         },

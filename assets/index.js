@@ -47,26 +47,26 @@ const lectures = [
     {
         id: "css-2",
         number: 6,
-        title: "Borders, Backgrounds, Display, CSS Box Model",
-        description: "CSS Box Model - Complete Layout Foundation, Borders, Backgrounds, Box Shadow, Radius, Outline, Display",
+        title: " CSS Box Model, Backgrounds, Display, Positioning",
+        description: "CSS Box Model - Complete Layout Foundation, Borders, Backgrounds, Box Shadow, Radius, Outline, Display, Position values (static, relative, absolute, fixed, sticky), top/right/bottom/left offsets, z-index stacking",
         image: "./assets/images/logos/CSS.webp",
-        status: "in-progress",
+        status: "completed",
         content: "CSS"
     },
     {
         id: "css-3",
         number: 7,
-        title: "Positioning & Flexbox",
-        description: "Position values (static, relative, absolute, fixed, sticky), top/right/bottom/left offsets, z-index stacking, float/clear properties, and when to avoid floats in modern layouts, Flexbox overview, display: flex, main/cross axis, flex-direction (row/column), justify-content (flex-start, center, space-between), align-items (stretch, center, baseline), and flex-wrap",
+        title: "Flex & Grid",
+        description: "Flexbox overview, display: flex, main/cross axis, flex-direction (row/column), justify-content (flex-start, center, space-between), align-items (stretch, center, baseline), and flex-wrap, Display: grid, grid-template-columns/rows (fixed, fr, auto), grid-gap (row/column), justify-items/align-items, and grid-auto-flow",
         image: "./assets/images/logos/CSS.webp",
-        status: "not-started",
+        status: "in-progress",
         content: "CSS"
     },
     {
         id: "css-4",
         number: 8,
-        title: "CSS Grid, CSS Units, Small CSS Properties",
-        description: "Display: grid, grid-template-columns/rows (fixed, fr, auto), grid-gap (row/column), justify-items/align-items, and grid-auto-flow, CSS Units & Measurements - Complete Guide, Small but Powerful CSS Properties",
+        title: "CSS Units, Small CSS Properties",
+        description: "CSS Units & Measurements - Complete Guide, Small but Powerful CSS Properties",
         image: "./assets/images/logos/CSS.webp",
         status: "not-started",
         content: "CSS"
