@@ -59,12 +59,22 @@ const lectures = [
         title: "Flex & Grid",
         description: "Flexbox overview, display: flex, main/cross axis, flex-direction (row/column), justify-content (flex-start, center, space-between), align-items (stretch, center, baseline), and flex-wrap, Display: grid, grid-template-columns/rows (fixed, fr, auto), grid-gap (row/column), justify-items/align-items, and grid-auto-flow",
         image: "./assets/images/logos/CSS.webp",
-        status: "in-progress",
+        status: "completed",
         content: "CSS"
     },
     {
         id: "css-4",
         number: 8,
+        title: "Project",
+        description: "Project",
+        image: "./assets/images/logos/Project.webp",
+        status: "in-progress",
+        content: "CSS",
+        hidden: true
+    },
+    {
+        id: "css-5",
+        number: 9,
         title: "CSS Units, Small CSS Properties",
         description: "CSS Units & Measurements - Complete Guide, Small but Powerful CSS Properties",
         image: "./assets/images/logos/CSS.webp",
@@ -73,7 +83,7 @@ const lectures = [
     },
     {
         id: "css-5",
-        number: 9,
+        number: 10,
         title: "Pseudo-elements, CSS Transitions, CSS Transforms",
         description: "Pseudo-elements & Pseudo-classes - Advanced Selectors, CSS Transitions - Smooth Animations, CSS Transforms - 2D & 3D Transformations",
         image: "./assets/images/logos/CSS.webp",
@@ -82,7 +92,7 @@ const lectures = [
     },
     {
         id: "css-6",
-        number: 10,
+        number: 11,
         title: "CSS Transforms, Responsive Design",
         description: "CSS Transforms - 2D & 3D Transformations, Width, Height & Responsive Properties, Responsive Design",
         image: "./assets/images/logos/CSS.webp",
@@ -91,7 +101,7 @@ const lectures = [
     },
     {
         id: "css-7",
-        number: 11,
+        number: 12,
         title: "Animations & Guides & Advanced Level",
         description: "Animations, Centering Elements - Complete Guide, Image Styling & Manipulation, CSS Methodologies & Architecture, CSS Performance Optimization, Cross-Browser Compatibility & Vendor Prefixes, Accessibility (A11y) Deep Dive",
         image: "./assets/images/logos/CSS.webp",
@@ -100,7 +110,7 @@ const lectures = [
     },
     {
         id: "tailwind",
-        number: 12,
+        number: 13,
         title: "Tailwind CSS",
         description: "Tailwind classes for flex (flex, justify, items), grid (grid-cols, gap), responsive prefixes (sm:, md:, lg:), and building mobile-first components with hover/focus states",
         image: "./assets/images/logos/tailwind-css.webp",
@@ -109,7 +119,7 @@ const lectures = [
     },
     {
         id: "project-1",
-        number: 13,
+        number: 14,
         title: "Rubic Agency Project - Part 1",
         description: "Project Setup, Header, Footer, Hero Section, Feedbacks Section, Results Section",
         image: "./assets/images/logos/Project.webp",
@@ -119,7 +129,7 @@ const lectures = [
     },
     {
         id: "project-2",
-        number: 14,
+        number: 15,
         title: "Rubic Agency Project - Part 2",
         description: "About Us Section, Services Section, FAQs Section, Contact Us Section",
         image: "./assets/images/logos/Project.webp",
@@ -129,7 +139,7 @@ const lectures = [
     },
     {
         id: "project-3",
-        number: 15,
+        number: 16,
         title: "Rubic Agency Project - Part 3",
         description: "Final Steps",
         image: "./assets/images/logos/Project.webp",
@@ -139,7 +149,7 @@ const lectures = [
     },
     {
         id: "JS-1",
-        number: 16,
+        number: 17,
         title: "JavaScript Syntax: Variables, Data Types, and Operators, Control Flow, Scope, Intro to Functions",
         description: "Intro, Logs, Declaring variables (var, let, const), primitive types (string, number, boolean, null, undefined, symbol, bigint), objects/arrays literals, type coercion, and operators (arithmetic, assignment, comparison, logical, ternary), if else, while, do while, for, switch, , scope (global, function, block)",
         image: "./assets/images/logos/JS.webp",
@@ -148,7 +158,7 @@ const lectures = [
     },
     {
         id: "JS-2",
-        number: 17,
+        number: 18,
         title: "Functions, Arrays",
         description: "Function declarations vs. expressions vs. arrow functions, parameters/rest/spread, default values, hoisting behavior, HOF, Common Array Methods",
         image: "./assets/images/logos/JS.webp",
@@ -157,7 +167,7 @@ const lectures = [
     },
     {
         id: "JS-3",
-        number: 18,
+        number: 19,
         title: "Arrays, Objects & Working with Strings, Numbers, and Booleans, Destructuring, Falsy & Truthy Values",
         description: "Arrays and Objects - Data Structures, Common Array Methods, Iteration Methods, Objects - Key-Value Collections, Working with Objects, Working with Strings, Numbers, and Booleans, Destructuring, Falsy & Truthy Values",
         image: "./assets/images/logos/JS.webp",
@@ -166,7 +176,7 @@ const lectures = [
     },
     {
         id: "JS-4",
-        number: 19,
+        number: 20,
         title: "Problem Solving",
         description: "Solve 10 Methods",
         image: "./assets/images/logos/JS.webp",
@@ -176,7 +186,7 @@ const lectures = [
     },
     {
         id: "JS-5",
-        number: 20,
+        number: 21,
         title: "Nullish and Other Modern Operators, DOM Manipulation - Interacting with Web Pages - Events",
         description: "Nullish and Other Modern Operators, What is the DOM, DOM Tree Structure, Selecting DOM Elements, Manipulating Elements, Creating and Modifying Elements, Events and Forms - User Interaction",
         image: "./assets/images/logos/JS.webp",
@@ -185,7 +195,7 @@ const lectures = [
     },
     {
         id: "JS-6",
-        number: 21,
+        number: 22,
         title: "Events and Forms - User Interaction",
         description: "Understanding Events, Common Event Types, Event Handling Methods, Working with Forms, Event Propagation",
         image: "./assets/images/logos/JS.webp",
@@ -194,7 +204,7 @@ const lectures = [
     },
     {
         id: "JS-7",
-        number: 22,
+        number: 23,
         title: "Events and Forms - User Interaction - BOM",
         description: "Understanding Events, Common Event Types, Event Handling Methods, Working with Forms, Event Propagation, Browser Object Model (BOM), Window Object, Other BOM Objects",
         image: "./assets/images/logos/JS.webp",
@@ -203,7 +213,7 @@ const lectures = [
     },
     {
         id: "JS-8",
-        number: 23,
+        number: 24,
         title: "Asynchronous JavaScript",
         description: "Asynchronous JavaScript, Async Techniques, Working with Time, Fetch, JSON, and Async Data Handling",
         image: "./assets/images/logos/JS.webp",
@@ -212,7 +222,7 @@ const lectures = [
     },
     {
         id: "GIT",
-        number: 24,
+        number: 25,
         title: "Git & Github",
         description: "Git Basics - Version Control Fundamentals, GitHub & Git Hosting Platforms, Terminal & Command Line Essentials, Git Setup & Configuration, Git Workflow & Areas - Understanding Git's Architecture, Essential Git Commands & Daily Workflow",
         image: "./assets/images/logos/github.webp",
@@ -221,7 +231,7 @@ const lectures = [
     },
     {
         id: "GIT",
-        number: 25,
+        number: 26,
         title: "Branching in Git & Serverless Deployment",
         description: "Git Branching & Merging Strategies, README Files & Markdown Documentation, Gitignore Files - Ignoring Files in Git, Serverless Deployment - Deploy Frontend Projects to Production",
         image: "./assets/images/logos/github.webp",
@@ -230,7 +240,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 26,
+        number: 27,
         title: "React Fundamentals: Setup, Components, and JSX",
         description: "React Introduction - What is React and Why Choose It?, Modern React Setup & Development Environment, React Fundamentals: Components, JSX & Props",
         image: "./assets/images/logos/React.webp",
@@ -239,7 +249,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 27,
+        number: 28,
         title: "Recap",
         description: "Recap React Fundamentals",
         image: "./assets/images/logos/React.webp",
@@ -249,7 +259,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 28,
+        number: 29,
         title: "React Hooks (useState)",
         description: "State Management & Event Handling, React Hooks: useState",
         image: "./assets/images/logos/React.webp",
@@ -258,7 +268,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 29,
+        number: 30,
         title: "useEffect, Advanced Hooks",
         description: "React Hooks: useEffect, Advanced Hooks & Performance Optimization",
         image: "./assets/images/logos/React.webp",
@@ -267,7 +277,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 30,
+        number: 31,
         title: "React Router",
         description: "React Router & Navigation",
         image: "./assets/images/logos/React.webp",
@@ -276,7 +286,7 @@ const lectures = [
     },
     {
         id: "API",
-        number: 31,
+        number: 32,
         title: "Understanding APIs and Web Communication",
         description: "APIs and JSON Data Format, Backend Role (Server), Frontend Role (User Interface), Request Components, Response Components",
         image: "./assets/images/logos/API.webp",
@@ -285,7 +295,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 32,
+        number: 33,
         title: "Context API, and State Management System, External Libraries",
         description: "Context API for global state (createContext, Provider, useContext), State Management wit Zustand, External Libraries & Ecosystem",
         image: "./assets/images/logos/React.webp",
@@ -294,7 +304,7 @@ const lectures = [
     },
     {
         id: "PROJECT",
-        number: 33,
+        number: 34,
         title: "Anime Project - Part 1",
         description: "",
         image: "./assets/images/logos/project.webp",
@@ -304,7 +314,7 @@ const lectures = [
     },
     {
         id: "PROJECT",
-        number: 34,
+        number: 35,
         title: "Anime Project - Part 2",
         description: "",
         image: "./assets/images/logos/project.webp",
@@ -314,7 +324,7 @@ const lectures = [
     },
     {
         id: "PROJECT",
-        number: 35,
+        number: 36,
         title: "Anime Project - Part 3",
         description: "",
         image: "./assets/images/logos/project.webp",
