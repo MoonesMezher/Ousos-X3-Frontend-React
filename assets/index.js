@@ -66,28 +66,28 @@ const lectures = [
         id: "css-4",
         number: 8,
         title: "Project",
-        description: "Project",
+        description: "Style Shop Landing Page",
         image: "./assets/images/logos/Project.webp",
-        status: "in-progress",
+        status: "completed",
         content: "CSS",
         hidden: true
     },
     {
         id: "css-5",
         number: 9,
-        title: "CSS Units, Small CSS Properties",
-        description: "CSS Units & Measurements - Complete Guide, Small but Powerful CSS Properties",
+        title: "CSS Units, Small CSS Properties, CSS Transforms",
+        description: "CSS Units & Measurements - Complete Guide, Small but Powerful CSS Properties, CSS Transforms",
         image: "./assets/images/logos/CSS.webp",
-        status: "not-started",
+        status: "completed",
         content: "CSS"
     },
     {
         id: "css-5",
         number: 10,
         title: "Pseudo-elements, CSS Transitions, CSS Transforms",
-        description: "Pseudo-elements & Pseudo-classes - Advanced Selectors, CSS Transitions - Smooth Animations, CSS Transforms - 2D & 3D Transformations",
+        description: "Pseudo-elements & Pseudo-classes - Advanced Selectors, CSS Transitions - Smooth Animations",
         image: "./assets/images/logos/CSS.webp",
-        status: "not-started",
+        status: "in-progress",
         content: "CSS"
     },
     {
