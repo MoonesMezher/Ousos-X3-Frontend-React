@@ -87,23 +87,24 @@ const lectures = [
         title: "Pseudo-elements, CSS Transitions, CSS Transforms",
         description: "Pseudo-elements & Pseudo-classes - Advanced Selectors, CSS Transitions - Smooth Animations",
         image: "./assets/images/logos/CSS.webp",
-        status: "in-progress",
+        status: "completed",
         content: "CSS"
     },
     {
         id: "css-6",
         number: 11,
-        title: "CSS Transforms, Responsive Design",
-        description: "CSS Transforms - 2D & 3D Transformations, Width, Height & Responsive Properties, Responsive Design",
+        title: "Pratical Quiz",
+        description: "Pratical Quiz",
         image: "./assets/images/logos/CSS.webp",
-        status: "not-started",
-        content: "CSS"
+        status: "completed",
+        content: "CSS",
+        hidden: true
     },
     {
         id: "css-7",
         number: 12,
-        title: "Animations & Guides & Advanced Level",
-        description: "Animations, Centering Elements - Complete Guide, Image Styling & Manipulation, CSS Methodologies & Architecture, CSS Performance Optimization, Cross-Browser Compatibility & Vendor Prefixes, Accessibility (A11y) Deep Dive",
+        title: "Responsive Design, Animations & Guides & Advanced Level",
+        description: "Responsive Design, Animations, Guides",
         image: "./assets/images/logos/CSS.webp",
         status: "not-started",
         content: "CSS"

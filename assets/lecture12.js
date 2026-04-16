@@ -7,646 +7,715 @@ const courseData = {
     },
     topics: [
         {
-    id: "tailwind-css-intro",
-    title: "Tailwind CSS - Introduction & Setup",
+            id: "responsive-animations",
+            title: "Responsive Design & Animations",
+            content: `
+                <h3>Media Queries:</h3>
+                <ul>
+                    <li><strong>@media</strong>: Rule for conditional CSS</li>
+                    <li><strong>Logical operators</strong>: and, not, only</li>
+                    <li><strong>Media types</strong>: screen, print, speech</li>
+                    <li><strong>Media features</strong>: width, height, orientation, hover</li>
+                </ul>
+                
+                <h3>Common Breakpoints:</h3>
+                <ul>
+                    <li>Mobile: 320px - 480px</li>
+                    <li>Tablet: 481px - 768px</li>
+                    <li>Small screens: 769px - 1024px</li>
+                    <li>Large screens: 1025px+</li>
+                </ul>
+                
+                <h3>Viewport Meta Tag:</h3>
+                <pre class="code-block">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                </pre>
+                
+                <h3>Fluid Sizing with clamp():</h3>
+                <p>clamp(min, preferred, max) - responsive values in one line</p>
+                
+                <h3>CSS Animations:</h3>
+                <ul>
+                    <li><strong>@keyframes</strong>: Define animation sequence</li>
+                    <li><strong>animation-name</strong>: Reference to @keyframes</li>
+                    <li><strong>animation-duration</strong>: How long animation runs</li>
+                    <li><strong>animation-iteration-count</strong>: infinite, number</li>
+                    <li><strong>animation-direction</strong>: normal, reverse, alternate</li>
+                </ul>
+
+                <br><hr><br>
+                <div dir="rtl">
+                    <h3>استعلامات الوسائط:</h3>
+                    <ul>
+                        <li><strong>@media</strong>: قاعدة لـ CSS الشرطي</li>
+                        <li><strong>المشغلات المنطقية</strong>: and, not, only</li>
+                        <li><strong>أنواع الوسائط</strong>: screen, print, speech</li>
+                        <li><strong>ميزات الوسائط</strong>: width, height, orientation, hover</li>
+                    </ul>
+                    
+                    <h3>نقاط التوقف الشائعة:</h3>
+                    <ul>
+                        <li>الجوال: 320px - 480px</li>
+                        <li>اللوحي: 481px - 768px</li>
+                        <li>الشاشات الصغيرة: 769px - 1024px</li>
+                        <li>الشاشات الكبيرة: 1025px+</li>
+                    </ul>
+                    
+                    <h3>وسم Viewport Meta:</h3>
+                    <pre class="code-block" dir="ltr">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    </pre>
+                    
+                    <h3>تحديد الحجم السائل مع clamp():</h3>
+                    <p>clamp(min, preferred, max) - قيم متجاوبة في سطر واحد</p>
+                    
+                    <h3>رسوم CSS المتحركة:</h3>
+                    <ul>
+                        <li><strong>@keyframes</strong>: تعريف تسلسل الرسوم المتحركة</li>
+                        <li><strong>animation-name</strong>: المرجع إلى @keyframes</li>
+                        <li><strong>animation-duration</strong>: كم من الوقت تعمل الرسوم المتحركة</li>
+                        <li><strong>animation-iteration-count</strong>: infinite, number</li>
+                        <li><strong>animation-direction</strong>: normal, reverse, alternate</li>
+                    </ul>
+                </div>
+            `,
+            examples: [
+                {
+                    title: "Media Query Examples",
+                    content: `
+                        <pre class="code-block">
+/* Mobile first approach */
+.container {
+    padding: 10px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .container {
+        padding: 20px;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        padding: 40px;
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #333;
+        color: white;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none;
+    }
+}
+
+/* Complex media query */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+                        </pre>
+                    `
+                },
+                {
+                    title: "Animations & Transforms Examples",
+                    content: `
+                        <pre class="code-block">
+/* Transitions */
+.button {
+    transition: all 0.3s ease;
+}
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Keyframes animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-element {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+/* Transform examples */
+.transform-1 {
+    transform: scale(1.1);
+}
+
+.transform-2 {
+    transform: rotate(45deg);
+}
+
+.transform-3 {
+    transform: translate(50px, 100px);
+}
+
+.transform-4 {
+    transform: skew(10deg, 5deg);
+}
+
+/* Multiple transforms */
+.complex-transform {
+    transform: scale(1.1) rotate(5deg) translateX(10px);
+}
+
+/* Fluid typography with clamp */
+.fluid-text {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+}
+                        </pre>
+                    `
+                }
+            ],
+            practices: [
+                {
+                    title: "Responsive & Animations Practice",
+                    content: `
+                        <p>Practice with responsive design and animations:</p>
+                        <ol>
+                            <li>Create a mobile-first responsive layout with 3 breakpoints</li>
+                            <li>Add smooth transitions to interactive elements</li>
+                            <li>Create a loading spinner using CSS animations</li>
+                            <li>Build a responsive navigation that transforms on mobile</li>
+                            <li>Use clamp() for fluid typography and spacing</li>
+                        </ol>
+                    `
+                }
+            ],
+            questions: [
+                {
+                    question: "What's the difference between transition and animation?",
+                    answer: "Transitions are for simple state changes (hover, focus) and need a trigger. Animations are more complex, can have multiple keyframes, run automatically, and offer more control. Use transitions for simple interactions, animations for complex sequences."
+                },
+                {
+                    question: "Why use mobile-first approach in media queries?",
+                    answer: "Mobile-first means styling for mobile first, then enhancing for larger screens. It's more efficient (less code to override), performs better, and aligns with progressive enhancement. Start with min-width queries going upward, rather than max-width going downward."
+                }
+            ]
+        },
+         {
+    id: "centering-techniques",
+    title: "Centering Elements - Complete Guide",
     content: `
-        <h3>What is Tailwind CSS?</h3>
-        <p>A utility-first CSS framework for rapidly building custom designs without writing custom CSS.</p>
-        
-        <h3>Key Features:</h3>
+        <h3>Horizontal Centering Methods:</h3>
         <ul>
-            <li><strong>Utility-First</strong>: Small, single-purpose classes</li>
-            <li><strong>Responsive Design</strong>: Built-in responsive prefixes</li>
-            <li><strong>Customizable</strong>: Extensible configuration</li>
-            <li><strong>Component-Friendly</strong>: Easy to extract components</li>
-            <li><strong>Production Ready</strong>: Purges unused CSS</li>
+            <li><strong>text-align: center</strong>: For inline/inline-block elements</li>
+            <li><strong>margin: 0 auto</strong>: For block elements with defined width</li>
+            <li><strong>Flexbox</strong>: justify-content: center</li>
+            <li><strong>CSS Grid</strong>: justify-items: center or place-items: center</li>
+            <li><strong>Place Self</strong>: place-self: center</li>
         </ul>
         
-        <h3>Installation Methods:</h3>
+        <h3>Vertical Centering Methods:</h3>
         <ul>
-            <li>CDN (Quick start)</li>
-            <li>npm/yarn (Recommended)</li>
-            <li>PostCSS (Advanced)</li>
-            <li>CLI (Standalone)</li>
+            <li><strong>line-height</strong>: Equal to container height (single line text)</li>
+            <li><strong>Flexbox</strong>: align-items: center</li>
+            <li><strong>CSS Grid</strong>: align-items: center</li>
+            <li><strong>Absolute positioning</strong>: top: 50% + transform: translateY(-50%)</li>
         </ul>
         
-        <h3>Basic Setup:</h3>
-        <p>1- Intsall 'nodejs' on your computer: <strong>https://nodejs.org/en/download/</strong></p>
-        <p>2- in your terminal => Install via npm: <strong>npm install tailwindcss @tailwindcss/cli</strong></p>
-        <p>3- Add the @import "tailwindcss"; import to your main CSS file.: <strong>@import "tailwindcss";</strong></p>
-        <p>4- Create <strong>src</strong> folder in your project them create inside it <strong>input.css</strong> file</p>
-        <p>5- Run: <strong>npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch</strong></p>
-        <p>Finish!</p>
+        <h3>Perfect Center (Both Axes):</h3>
+        <ul>
+            <li><strong>Flexbox</strong>: justify-content: center + align-items: center</li>
+            <li><strong>CSS Grid</strong>: place-items: center or place-content: center</li>
+            <li><strong>Absolute positioning</strong>: top/left 50% + transform translate -50%</li>
+            <li><strong>Margin auto</strong>: With absolute positioning</li>
+        </ul>
 
         <br><hr><br>
         <div dir="rtl">
-            <h3>ما هو Tailwind CSS؟</h3>
-            <p>إطار عمل CSS يعتمد على الأدوات المساعدة لبناء تصاميم مخصصة بسرعة دون كتابة CSS مخصص.</p>
-            
-            <h3>الميزات الرئيسية:</h3>
+            <h3>طرق المركز الأفقي:</h3>
             <ul>
-                <li><strong>الأولوية للأدوات المساعدة</strong>: فئات صغيرة ذات غرض واحد</li>
-                <li><strong>تصميم متجاوب</strong>: بادئات استجابة مدمجة</li>
-                <li><strong>قابل للتخصيص</strong>: إعدادات قابلة للتوسيع</li>
-                <li><strong>ملائم للمكونات</strong>: سهل لاستخراج المكونات</li>
-                <li><strong>جاهز للإنتاج</strong>: يحذف CSS غير المستخدم</li>
+                <li><strong>text-align: center</strong>: للعناصر المضمنة/المضمنة-الكتلة</li>
+                <li><strong>margin: 0 auto</strong>: لعناصر الكتلة ذات العرض المحدد</li>
+                <li><strong>Flexbox</strong>: justify-content: center</li>
+                <li><strong>CSS Grid</strong>: justify-items: center أو place-items: center</li>
             </ul>
             
-            <h3>طرق التثبيت:</h3>
+            <h3>طرق المركز العمودي:</h3>
             <ul>
-                <li>CDN (بدء سريع)</li>
-                <li>npm/yarn (موصى به)</li>
-                <li>PostCSS (متقدم)</li>
-                <li>CLI (منفرد)</li>
+                <li><strong>line-height</strong>: يساوي ارتفاع الحاوية (نص سطر واحد)</li>
+                <li><strong>Flexbox</strong>: align-items: center</li>
+                <li><strong>CSS Grid</strong>: align-items: center</li>
+                <li><strong>الوضع المطلق</strong>: top: 50% + transform: translateY(-50%)</li>
+            </ul>
+            
+            <h3>المركز المثالي (كلا المحورين):</h3>
+            <ul>
+                <li><strong>Flexbox</strong>: justify-content: center + align-items: center</li>
+                <li><strong>CSS Grid</strong>: place-items: center أو place-content: center</li>
+                <li><strong>الوضع المطلق</strong>: top/left 50% + transform translate -50%</li>
+                <li><strong>Margin auto</strong>: مع الوضع المطلق</li>
             </ul>
         </div>
     `,
     examples: [
         {
-            title: "Tailwind Config Setup",
+            title: "All Centering Methods",
             content: `
-                <h4>Configuration</h4>
-If you want to change things like your color palette, spacing scale, typography scale, or breakpoints, add your customizations using the @theme directive in your CSS:
                 <pre class="code-block">
-@theme {
-  --font-display: "Satoshi", "sans-serif";
-  --breakpoint-3xl: 120rem;
-  --color-avocado-100: oklch(0.99 0 0);
-  --color-avocado-200: oklch(0.98 0.04 113.22);
-  --color-avocado-300: oklch(0.94 0.11 115.03);
-  --color-avocado-400: oklch(0.92 0.19 114.08);
-  --color-avocado-500: oklch(0.84 0.18 117.33);
-  --color-avocado-600: oklch(0.53 0.12 118.34);
-  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
-  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
-  /* ... */
-}
-                </pre>
-
-                <h4>CSS File Setup</h4>
-                <pre class="code-block">
-/* Add to your main CSS file */
-@import "tailwindcss";
-
-/* Custom components using @apply */
-.btn {
-  @apply px-4 py-2 rounded font-medium transition-all duration-200;
+/* Method 1: Flexbox (Recommended) */
+.center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
 }
 
-.btn-primary {
-  @apply bg-primary-500 text-white hover:bg-primary-600;
+/* Method 2: CSS Grid */
+.center-grid {
+    display: grid;
+    place-items: center;
+    height: 100vh;
 }
-                </pre>
 
-                <h4>HTML Usage</h4>
-                <pre class="code-block">
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Tailwind Setup&lt;/title&gt;
-    &lt;link href="./output.css" rel="stylesheet"&gt;
-&lt;/head&gt;
-&lt;body class="bg-gray-100"&gt;
-    &lt;div class="container mx-auto p-4"&gt;
-        &lt;button class="btn btn-primary"&gt;Custom Button&lt;/button&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+/* Method 3: Absolute Positioning */
+.center-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Method 4: Margin Auto */
+.center-margin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 200px;
+    height: 100px;
+}
+
+/* Horizontal only */
+.center-horizontal {
+    margin: 0 auto;
+    width: 80%;
+}
+
+/* Vertical only - line height */
+.center-vertical-text {
+    height: 100px;
+    line-height: 100px;
+}
+
+/* Vertical only - flexbox */
+.center-vertical-flex {
+    display: flex;
+    align-items: center;
+    height: 300px;
+}
+
+/* Login form centering */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f5f5f5;
+}
+
+.login-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
                 </pre>
             `
         }
     ],
     practices: [
         {
-            title: "Tailwind Setup Practice",
+            title: "Centering Practice",
             content: `
-                <p>Practice setting up Tailwind CSS:</p>
+                <p>Practice all centering techniques:</p>
                 <ol>
-                    <li>Create a new project and install Tailwind via npm</li>
-                    <li>Configure tailwind.config.js with custom colors and spacing</li>
-                    <li>Set up the build process with PostCSS</li>
-                    <li>Create a basic HTML file with Tailwind classes</li>
-                    <li>Test the responsive prefixes</li>
-                    <li>Add custom animations to the config</li>
-                    <li>Configure PurgeCSS for production</li>
+                    <li>Center a login form perfectly in the middle of the page</li>
+                    <li>Create a hero section with centered content</li>
+                    <li>Center navigation items vertically within a header</li>
+                    <li>Create a modal dialog that stays centered when scrolling</li>
+                    <li>Center an image gallery with consistent spacing</li>
                 </ol>
             `
         }
     ],
     questions: [
         {
-            question: "What's the main difference between Tailwind and traditional CSS frameworks?",
-            answer: "Tailwind is utility-first, meaning you build components by combining small, single-purpose classes rather than using pre-built component classes like in Bootstrap. This gives more design control but requires more HTML class attributes."
+            question: "Which centering method is most recommended and why?",
+            answer: "Flexbox is most recommended because it's designed for layout, has excellent browser support, works for both axes simultaneously, handles dynamic content well, and doesn't require knowing element dimensions. It's also more semantic and maintainable than absolute positioning."
+        },
+        {
+            question: "When should you use absolute positioning for centering?",
+            answer: "Use absolute positioning when you need to center within a specific positioned container, for overlay elements, or when Flexbox/Grid aren't suitable. However, it removes the element from normal document flow and requires knowing dimensions for proper centering with margin: auto."
         }
     ]
 },
 {
-    id: "tailwind-utility-classes",
-    title: "Tailwind Utility Classes & Configuration",
+    id: "image-styling",
+    title: "Image Styling & Manipulation",
     content: `
-        <h3>Core Utility Classes:</h3>
+        <h3>Image Display Properties:</h3>
         <ul>
-            <li><strong>Layout</strong>: flex, grid, container, box-sizing</li>
-            <li><strong>Spacing</strong>: p-, m-, space-, gap-</li>
-            <li><strong>Sizing</strong>: w-, h-, min-w-, max-h-</li>
-            <li><strong>Typography</strong>: text-, font-, leading-, tracking-</li>
-            <li><strong>Colors</strong>: bg-, text-, border-, ring-</li>
-            <li><strong>Effects</strong>: shadow, opacity, mix-blend</li>
-            <li><strong>Transforms</strong>: rotate, scale, translate, skew</li>
+            <li><strong>width/height</strong>: Control dimensions</li>
+            <li><strong>object-fit</strong>: cover, contain, fill, scale-down</li>
+            <li><strong>object-position</strong>: Position within container</li>
+            <li><strong>border-radius</strong>: Rounded corners and circles</li>
+            <li><strong>filter</strong>: Visual effects (blur, brightness, contrast)</li>
         </ul>
         
-        <h3>Custom Configuration:</h3>
+        <h3>Responsive Images:</h3>
         <ul>
-            <li><strong>Colors</strong>: Extend default color palette</li>
-            <li><strong>Spacing</strong>: Custom spacing scale</li>
-            <li><strong>Fonts</strong>: Custom font families</li>
-            <li><strong>Screens</strong>: Custom breakpoints</li>
-            <li><strong>Animations</strong>: Custom keyframes and timing</li>
+            <li>max-width: 100% for responsive scaling</li>
+            <li>height: auto to maintain aspect ratio</li>
+            <li>srcset for different screen sizes</li>
+            <li>picture element for art direction</li>
         </ul>
         
-        <h3>Using @apply Directive:</h3>
-        <p>Extract repeated utility patterns into CSS classes</p>
-        
-        <h3>Parent & Child States:</h3>
+        <h3>Advanced Techniques:</h3>
         <ul>
-            <li><strong>group</strong>: Parent container for child states</li>
-            <li><strong>peer</strong>: Style based on sibling state</li>
-            <li><strong>group-hover</strong>: Child hover states</li>
-            <li><strong>peer-checked</strong>: Style based on sibling checkbox</li>
+            <li>CSS masks and clipping</li>
+            <li>Blend modes for creative effects</li>
+            <li>Gradient overlays</li>
+            <li>Shape-outside for text wrapping</li>
+            <li>Background images with multiple layers</li>
+        </ul>
+        
+        <h3>Performance Considerations:</h3>
+        <ul>
+            <li>Optimize image file sizes</li>
+            <li>Use modern formats (WebP, AVIF)</li>
+            <li>Lazy loading with loading="lazy"</li>
+            <li>Responsive images with srcset</li>
+            <li>CSS filters vs image editing</li>
         </ul>
 
         <br><hr><br>
         <div dir="rtl">
-            <h3>فئات الأدوات الأساسية:</h3>
+            <h3>خصائص عرض الصورة:</h3>
             <ul>
-                <li><strong>التخطيط</strong>: flex, grid, container, box-sizing</li>
-                <li><strong>المسافات</strong>: p-, m-, space-, gap-</li>
-                <li><strong>الأحجام</strong>: w-, h-, min-w-, max-h-</li>
-                <li><strong>الطباعة</strong>: text-, font-, leading-, tracking-</li>
-                <li><strong>الألوان</strong>: bg-, text-, border-, ring-</li>
-                <li><strong>التأثيرات</strong>: shadow, opacity, mix-blend</li>
-                <li><strong>التحويلات</strong>: rotate, scale, translate, skew</li>
+                <li><strong>width/height</strong>: التحكم في الأبعاد</li>
+                <li><strong>object-fit</strong>: cover, contain, fill, scale-down</li>
+                <li><strong>object-position</strong>: الموضع داخل الحاوية</li>
+                <li><strong>border-radius</strong>: زوايا مستديرة ودوائر</li>
+                <li><strong>filter</strong>: تأثيرات بصرية (طمس، سطوع، تباين)</li>
             </ul>
             
-            <h3>التخصيص في الإعدادات:</h3>
+            <h3>الصور المتجاوبة:</h3>
             <ul>
-                <li><strong>الألوان</strong>: توسيع لوحة الألوان الافتراضية</li>
-                <li><strong>المسافات</strong>: مقياس مسافات مخصص</li>
-                <li><strong>الخطوط</strong>: عائلات خطوط مخصصة</li>
-                <li><strong>الشاشات</strong>: نقاط التوقف المخصصة</li>
-                <li><strong>الرسوم المتحركة</strong>: الإطارات الرئيسية والتوقيت المخصص</li>
+                <li>max-width: 100% للتحجيم المتجاوب</li>
+                <li>height: auto للحفاظ على نسبة العرض إلى الارتفاع</li>
+                <li>srcset لأحجام الشاشات المختلفة</li>
+                <li>عنصر picture للتوجيه الفني</li>
             </ul>
             
-            <h3>استخدام توجيه @apply:</h3>
-            <p>استخراج أنماط الأدوات المتكررة إلى فئات CSS</p>
-            
-            <h3>حالات الوالد والابن:</h3>
+            <h3>التقنيات المتقدمة:</h3>
             <ul>
-                <li><strong>group</strong>: الحاوية الأم لحالات الأبناء</li>
-                <li><strong>peer</strong>: التنسيق بناءً على حالة الشقيق</li>
-                <li><strong>group-hover</strong>: حالات التحويم للأبناء</li>
-                <li><strong>peer-checked</strong>: التنسيق بناءً على خانة اختيار الشقيق</li>
+                <li>أقنعة CSS والقص</li>
+                <li>أنماط المزج للتأثيرات الإبداعية</li>
+                <li>تراكبات التدرج</li>
+                <li>Shape-outside لتفاف النص</li>
+                <li>صور الخلفية مع طبقات متعددة</li>
+            </ul>
+            
+            <h3>اعتبارات الأداء:</h3>
+            <ul>
+                <li>تحسين أحجام ملفات الصور</li>
+                <li>استخدم الصيغ الحديثة (WebP, AVIF)</li>
+                <li>التحميل المتأخر مع loading="lazy"</li>
+                <li>صور متجاوبة مع srcset</li>
+                <li>مرشحات CSS مقابل تحرير الصور</li>
             </ul>
         </div>
     `,
     examples: [
         {
-            title: "@apply Directive - CSS Examples",
+            title: "Basic Image Styling",
             content: `
-                <h4>CSS with @apply Directive</h4>
                 <pre class="code-block">
-/* Using @apply to create component classes */
-.btn {
-  @apply px-4 py-2 rounded font-medium transition-all duration-200;
+/* Responsive images */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-.btn-primary {
-  @apply bg-blue-500 text-white hover:bg-blue-600 focus:ring-2 focus:ring-blue-300;
+/* Circular images */
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
 }
 
-.btn-secondary {
-  @apply bg-gray-500 text-white hover:bg-gray-600 focus:ring-2 focus:ring-gray-300;
-}
-
-/* Custom component with hover states */
-.card {
-  @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300;
-}
-
-.card:hover {
-  @apply shadow-lg transform -translate-y-1;
-}
-
-/* Custom utilities with configuration */
-.custom-gradient {
-  @apply bg-gradient-to-r from-purple-500 to-pink-500;
-}
-
-.custom-animation {
-  @apply animate-bounce-slow;
-}
-
-/* Responsive utilities */
-.responsive-card {
-  @apply w-full p-4 md:p-6 lg:p-8;
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
-}
-
-/* Dark mode support */
-.themed-element {
-  @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-white;
-}
-                </pre>
-
-                <h4>HTML Usage</h4>
-                <pre class="code-block">
-&lt;!-- Using custom component classes --&gt;
-&lt;button class="btn btn-primary"&gt;Primary Button&lt;/button&gt;
-&lt;button class="btn btn-secondary"&gt;Secondary Button&lt;/button&gt;
-
-&lt;div class="card"&gt;
-  This is a custom card component
-&lt;/div&gt;
-
-&lt;div class="custom-gradient text-white p-4"&gt;
-  Custom Gradient Background
-&lt;/div&gt;
-
-&lt;div class="custom-animation"&gt;
-  Animated Element
-&lt;/div&gt;
-                </pre>
-            `
-        },
-        {
-            title: "Group & Peer Classes - HTML Examples",
-            content: `
-                <h4>Group Hover Example</h4>
-                <pre class="code-block">
-&lt;!-- Group hover parent --&gt;
-&lt;div class="group border rounded-lg p-4 hover:bg-gray-50 transition-colors"&gt;
-  &lt;h3 class="text-lg font-semibold group-hover:text-blue-600 transition-colors"&gt;
-    Group Title
-  &lt;/h3&gt;
-  &lt;p class="text-gray-600 group-hover:text-gray-800 transition-colors"&gt;
-    Content that changes on parent hover
-  &lt;/p&gt;
-  &lt;button class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-500 text-white px-4 py-2 rounded"&gt;
-    Action Button
-  &lt;/button&gt;
-&lt;/div&gt;
-                </pre>
-
-                <h4>Peer Styling Example</h4>
-                <pre class="code-block">
-&lt;!-- Peer example for form styling --&gt;
-&lt;div class="relative"&gt;
-  &lt;input type="text" class="peer border rounded p-2 w-full focus:border-blue-500 focus:ring-1 focus:ring-blue-500" /&gt;
-  &lt;label class="absolute left-2 top-2 text-gray-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-600 bg-white px-1 transition-all duration-200"&gt;
-    Username
-  &lt;/label&gt;
-&lt;/div&gt;
-
-&lt;!-- Peer checked example --&gt;
-&lt;div class="flex items-center space-x-2"&gt;
-  &lt;input type="checkbox" class="peer" id="toggle" /&gt;
-  &lt;label for="toggle" class="peer-checked:text-green-600 peer-checked:font-bold transition-all"&gt;
-    Toggle me
-  &lt;/label&gt;
-&lt;/div&gt;
-                </pre>
-            `
-        }
-    ],
-    practices: [
-        {
-            title: "Utility Classes Practice",
-            content: `
-                <p>Practice with Tailwind utility classes:</p>
-                <ol>
-                    <li>Create button components using @apply directive</li>
-                    <li>Build cards with hover effects using group classes</li>
-                    <li>Style form elements with peer classes</li>
-                    <li>Create responsive layouts using breakpoint prefixes</li>
-                    <li>Implement dark mode support</li>
-                    <li>Build navigation with hover and focus states</li>
-                    <li>Create animated components with transition utilities</li>
-                    <li>Style nested elements using parent-child relationships</li>
-                </ol>
-            `
-        }
-    ],
-    questions: [
-        {
-            question: "When should you use @apply vs regular utility classes?",
-            answer: "Use @apply when you have repeated patterns of utility classes that form a component. Use regular utility classes for one-off styles or when you need to make quick adjustments. @apply helps maintain consistency but can lead to larger CSS files if overused."
-        }
-    ]
-},
-{
-    id: "responsive-mobile-first",
-    title: "Responsive Design & Mobile-First Components",
-    content: `
-        <h3>Mobile-First Approach:</h3>
-        <p>Start with mobile styles and enhance for larger screens using responsive prefixes.</p>
-        
-        <h3>Responsive Breakpoints:</h3>
-        <ul>
-            <li><strong>sm:</strong> 640px+ (Small screens)</li>
-            <li><strong>md:</strong> 768px+ (Medium screens)</li>
-            <li><strong>lg:</strong> 1024px+ (Large screens)</li>
-            <li><strong>xl:</strong> 1280px+ (Extra large)</li>
-            <li><strong>2xl:</strong> 1536px+ (2X large)</li>
-        </ul>
-        
-        <h3>State Variants:</h3>
-        <ul>
-            <li><strong>hover:</strong> Mouse hover states</li>
-            <li><strong>focus:</strong> Keyboard focus states</li>
-            <li><strong>active:</strong> Element activation</li>
-            <li><strong>disabled:</strong> Disabled elements</li>
-            <li><strong>group-hover:</strong> Parent hover states</li>
-            <li><strong>focus-within:</strong> Child focus states</li>
-        </ul>
-        
-        <h3>Building Mobile-First Components:</h3>
-        <ul>
-            <li>Start with mobile layout</li>
-            <li>Add responsive modifiers</li>
-            <li>Consider touch targets (min 44px)</li>
-            <li>Optimize images for different screens</li>
-            <li>Test on actual devices</li>
-        </ul>
-
-        <br><hr><br>
-        <div dir="rtl">
-            <h3>نهج Mobile-First:</h3>
-            <p>ابدأ بتصاميم الجوال وقم بالتحسين للشاشات الأكبر باستخدام البادئات المتجاوبة.</p>
-            
-            <h3>نقاط التوقف المتجاوبة:</h3>
-            <ul>
-                <li><strong>sm:</strong> 640px+ (شاشات صغيرة)</li>
-                <li><strong>md:</strong> 768px+ (شاشات متوسطة)</li>
-                <li><strong>lg:</strong> 1024px+ (شاشات كبيرة)</li>
-                <li><strong>xl:</strong> 1280px+ (شاشات كبيرة جداً)</li>
-                <li><strong>2xl:</strong> 1536px+ (شاشات كبيرة مزدوجة)</li>
-            </ul>
-            
-            <h3>متغيرات الحالة:</h3>
-            <ul>
-                <li><strong>hover:</strong> حالات تحويم الماوس</li>
-                <li><strong>focus:</strong> حالات تركيز لوحة المفاتيح</li>
-                <li><strong>active:</strong> تنشيط العنصر</li>
-                <li><strong>disabled:</strong> العناصر المعطلة</li>
-                <li><strong>group-hover:</strong> حالات تحويم الوالد</li>
-                <li><strong>focus-within:</strong> حالات تركيز الابن</li>
-            </ul>
-            
-            <h3>بناء مكونات Mobile-First:</h3>
-            <ul>
-                <li>ابدأ بتخطيط الجوال</li>
-                <li>أضف معدلات الاستجابة</li>
-                <li>ضع في الاعتبار أهداف اللمس (44px كحد أدنى)</li>
-                <li>حسن الصور للشاشات المختلفة</li>
-                <li>اختبر على أجهزة حقيقية</li>
-            </ul>
-        </div>
-    `,
-    examples: [
-        {
-            title: "Mobile-First Navigation",
-            content: `
-                <h4>HTML - Responsive Navigation</h4>
-                <pre class="code-block">
-&lt;nav class="bg-white shadow-sm"&gt;
-  &lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
-    &lt;div class="flex justify-between items-center h-16"&gt;
-      &lt;!-- Logo --&gt;
-      &lt;div class="flex-shrink-0"&gt;
-        &lt;img class="h-8 w-auto" src="/logo.png" alt="Logo"&gt;
-      &lt;/div&gt;
-      
-      &lt;!-- Mobile menu button --&gt;
-      &lt;div class="md:hidden"&gt;
-        &lt;button class="p-2 rounded-md text-gray-400 hover:text-gray-500 
-                      hover:bg-gray-100 focus:outline-none focus:ring-2 
-                      focus:ring-inset focus:ring-blue-500 transition-colors"&gt;
-          &lt;span class="sr-only"&gt;Open menu&lt;/span&gt;
-          &lt;!-- Menu icon would go here --&gt;
-          &lt;svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;
-            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /&gt;
-          &lt;/svg&gt;
-        &lt;/button&gt;
-      &lt;/div&gt;
-      
-      &lt;!-- Desktop menu --&gt;
-      &lt;div class="hidden md:block"&gt;
-        &lt;div class="ml-10 flex items-baseline space-x-4"&gt;
-          &lt;a href="#" class="px-3 py-2 rounded-md text-sm font-medium 
-                           text-gray-900 hover:text-blue-600 
-                           transition-colors duration-200"&gt;
-            Home
-          &lt;/a&gt;
-          &lt;a href="#" class="px-3 py-2 rounded-md text-sm font-medium 
-                           text-gray-500 hover:text-blue-600 
-                           transition-colors duration-200"&gt;
-            About
-          &lt;/a&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/nav&gt;
-                </pre>
-
-                <h4>CSS - Custom Component Styles</h4>
-                <pre class="code-block">
-/* Mobile-first responsive utilities */
-.nav-item {
-  @apply block px-3 py-2 rounded-md text-base font-medium;
-  @apply md:inline-block md:text-sm md:px-3 md:py-2;
-}
-
-.nav-item-mobile {
-  @apply text-gray-700 hover:text-gray-900 hover:bg-gray-50;
-  @apply md:hover:bg-transparent;
-}
-
-.nav-item-desktop {
-  @apply text-gray-500 hover:text-gray-700;
-}
-
-/* Responsive container */
-.responsive-container {
-  @apply w-full px-4;
-  @apply sm:max-w-screen-sm sm:mx-auto;
-  @apply md:max-w-screen-md;
-  @apply lg:max-w-screen-lg;
-  @apply xl:max-w-screen-xl;
-}
-                </pre>
-            `
-        },
-        {
-            title: "Responsive Card Component",
-            content: `
-                <h4>HTML - Responsive Card</h4>
-                <pre class="code-block">
-&lt;div class="max-w-sm mx-auto bg-white rounded-xl shadow-md 
-            overflow-hidden md:max-w-2xl hover:shadow-lg transition-shadow"&gt;
-  &lt;div class="md:flex"&gt;
-    &lt;div class="md:flex-shrink-0"&gt;
-      &lt;img class="h-48 w-full object-cover md:w-48 
-                 hover:scale-105 transition-transform duration-300" 
-           src="/image.jpg" alt="Card image"&gt;
-    &lt;/div&gt;
-    &lt;div class="p-4 md:p-8"&gt;
-      &lt;div class="uppercase tracking-wide text-sm text-blue-500 
-                  font-semibold hover:text-blue-600 transition-colors"&gt;
-        Category
-      &lt;/div&gt;
-      &lt;a href="#" class="block mt-1 text-lg leading-tight font-medium 
-                        text-black hover:text-blue-600 transition-colors
-                        focus:text-blue-700 focus:outline-none"&gt;
-        Card Title
-      &lt;/a&gt;
-      &lt;p class="mt-2 text-gray-500 text-sm md:text-base"&gt;
-        Card description that changes based on screen size.
-      &lt;/p&gt;
-      &lt;button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded 
-                     hover:bg-blue-600 focus:bg-blue-700 
-                     focus:ring-2 focus:ring-blue-300 focus:outline-none
-                     active:bg-blue-800 transition-colors duration-200
-                     disabled:opacity-50 disabled:cursor-not-allowed"&gt;
-        Learn More
-      &lt;/button&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-                </pre>
-
-                <h4>CSS - Card Component Styles</h4>
-                <pre class="code-block">
-/* Mobile-first card styles */
-.card {
-  @apply bg-white rounded-lg shadow-md overflow-hidden;
-  @apply transition-all duration-300;
-}
-
-.card:hover {
-  @apply shadow-lg transform -translate-y-1;
-}
-
+/* Image with object-fit */
 .card-image {
-  @apply w-full h-48 object-cover;
-  @apply md:w-48 md:h-auto;
-  @apply transition-transform duration-300;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
 }
 
-.card-image:hover {
-  @apply scale-105;
+.contain-image {
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    background: #f8f9fa;
 }
 
-.card-content {
-  @apply p-4;
-  @apply md:p-6;
-  @apply lg:p-8;
+/* Image filters */
+.filter-blur {
+    filter: blur(2px);
 }
 
-.card-title {
-  @apply text-lg font-semibold mb-2;
-  @apply md:text-xl;
-  @apply hover:text-blue-600 transition-colors;
+.filter-brightness {
+    filter: brightness(1.2);
 }
 
-.card-description {
-  @apply text-gray-600 text-sm;
-  @apply md:text-base;
+.filter-contrast {
+    filter: contrast(1.5);
+}
+
+.filter-grayscale {
+    filter: grayscale(100%);
+}
+
+.filter-sepia {
+    filter: sepia(100%);
+}
+
+.filter-multiple {
+    filter: brightness(1.1) contrast(1.2) saturate(1.3);
+}
+
+/* Hover effects */
+.image-hover {
+    transition: all 0.3s ease;
+}
+
+.image-hover:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Image with overlay */
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+/* Gradient overlay */
+.gradient-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0,0,0,0.7) 100%
+    );
 }
                 </pre>
             `
         },
         {
-            title: "Form with Interactive States",
+            title: "Advanced Image Techniques",
             content: `
-                <h4>HTML - Form with States</h4>
                 <pre class="code-block">
-&lt;form class="space-y-4 max-w-md mx-auto p-4 md:p-6"&gt;
-  &lt;div class="space-y-2"&gt;
-    &lt;label for="email" class="block text-sm font-medium text-gray-700 
-                              md:text-base"&gt;
-      Email Address
-    &lt;/label&gt;
-    &lt;input type="email" id="email" 
-           class="mt-1 block w-full px-3 py-2 border border-gray-300 
-                  rounded-md shadow-sm placeholder-gray-400
-                  focus:outline-none focus:ring-blue-500 
-                  focus:border-blue-500 transition-colors duration-200
-                  hover:border-gray-400
-                  disabled:bg-gray-100 disabled:text-gray-500
-                  disabled:cursor-not-allowed"
-           placeholder="Enter your email"&gt;
-  &lt;/div&gt;
-  
-  &lt;div class="space-y-2"&gt;
-    &lt;label for="password" class="block text-sm font-medium text-gray-700
-                                 md:text-base"&gt;
-      Password
-    &lt;/label&gt;
-    &lt;input type="password" id="password" 
-           class="mt-1 block w-full px-3 py-2 border border-gray-300 
-                  rounded-md shadow-sm placeholder-gray-400
-                  focus:outline-none focus:ring-blue-500 
-                  focus:border-blue-500 transition-colors duration-200
-                  hover:border-gray-400"&gt;
-  &lt;/div&gt;
-  
-  &lt;button type="submit" 
-          class="w-full flex justify-center py-2 px-4 border border-transparent 
-                 rounded-md shadow-sm text-sm font-medium text-white 
-                 bg-blue-600 hover:bg-blue-700 focus:outline-none 
-                 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 
-                 disabled:opacity-50 disabled:cursor-not-allowed 
-                 active:bg-blue-800 transition-all duration-200
-                 md:py-3 md:text-base"&gt;
-    Sign In
-  &lt;/button&gt;
-&lt;/form&gt;
-                </pre>
-
-                <h4>CSS - Form Component Styles</h4>
-                <pre class="code-block">
-/* Form input styles */
-.form-input {
-  @apply block w-full px-3 py-2 border border-gray-300 rounded-md;
-  @apply placeholder-gray-400;
-  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
-  @apply hover:border-gray-400;
-  @apply disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-not-allowed;
-  @apply transition-colors duration-200;
+/* CSS Masks */
+.masked-image {
+    width: 300px;
+    height: 300px;
+    -webkit-mask-image: url('mask.png');
+    mask-image: url('mask.png');
+    -webkit-mask-size: cover;
+    mask-size: cover;
 }
 
-.form-input-error {
-  @apply border-red-300 text-red-900 placeholder-red-300;
-  @apply focus:ring-red-500 focus:border-red-500;
+/* Blend modes */
+.blend-multiply {
+    mix-blend-mode: multiply;
 }
 
-.form-label {
-  @apply block text-sm font-medium text-gray-700;
-  @apply md:text-base;
+.blend-overlay {
+    mix-blend-mode: overlay;
 }
 
-/* Button states */
-.btn-submit {
-  @apply w-full flex justify-center py-2 px-4 border border-transparent;
-  @apply rounded-md shadow-sm text-sm font-medium text-white;
-  @apply bg-blue-600 hover:bg-blue-700 focus:outline-none;
-  @apply focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
-  @apply disabled:opacity-50 disabled:cursor-not-allowed;
-  @apply active:bg-blue-800 transition-all duration-200;
-  @apply md:py-3 md:text-base;
+.blend-screen {
+    mix-blend-mode: screen;
+}
+
+/* Text wrapping around images */
+.wrap-shape {
+    float: left;
+    shape-outside: circle(50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.wrap-polygon {
+    float: right;
+    shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    width: 150px;
+    height: 150px;
+    margin-left: 20px;
+}
+
+/* Background image techniques */
+.hero-background {
+    background-image: 
+        linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.7)),
+        url('hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Multiple background images */
+.layered-background {
+    background-image: 
+        url('pattern.png'),
+        url('main-image.jpg');
+    background-size: 50px 50px, cover;
+    background-position: top left, center;
+    background-repeat: repeat, no-repeat;
+}
+
+/* Parallax effect */
+.parallax {
+    background-image: url('parallax-bg.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+}
+
+/* Image gallery layout */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    padding: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Loading states */
+.image-loading {
+    background: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { left: -100%; }
+    100% { left: 100%; }
 }
                 </pre>
             `
@@ -654,272 +723,894 @@ If you want to change things like your color palette, spacing scale, typography 
     ],
     practices: [
         {
-            title: "Mobile-First Practice",
+            title: "Image Styling Practice",
             content: `
-                <p>Practice building mobile-first components:</p>
+                <p>Practice with image styling techniques:</p>
                 <ol>
-                    <li>Create a responsive navigation that collapses on mobile</li>
-                    <li>Build a card component that changes layout on different screens</li>
-                    <li>Design a form with proper focus states and validation styles</li>
-                    <li>Create a responsive grid layout</li>
-                    <li>Build buttons with hover, focus, and active states</li>
-                    <li>Implement a mobile-first pricing table</li>
-                    <li>Create animated components with transition utilities</li>
-                    <li>Build a responsive image gallery</li>
+                    <li>Create a responsive image gallery with hover effects</li>
+                    <li>Build user profile cards with circular avatars</li>
+                    <li>Design hero sections with background images and overlays</li>
+                    <li>Experiment with CSS filters for different visual effects</li>
+                    <li>Create image cards with text that wraps around shaped images</li>
+                    <li>Build a parallax scrolling section</li>
+                    <li>Create loading states for images</li>
+                    <li>Design a product showcase with multiple image techniques</li>
                 </ol>
             `
         }
     ],
     questions: [
         {
-            question: "Why use mobile-first approach in Tailwind?",
-            answer: "Mobile-first is more efficient because it's easier to add complexity for larger screens than to remove it for smaller screens. Tailwind's responsive prefixes build upon mobile styles, making your CSS more maintainable and performance-focused."
+            question: "What's the difference between object-fit: cover and contain?",
+            answer: "cover scales the image to cover the entire container, potentially cropping edges to maintain aspect ratio. contain scales the image to fit entirely within the container, potentially leaving empty space but showing the whole image. Use cover for full-bleed backgrounds and contain when you need to see the entire image without cropping."
+        },
+        {
+            question: "How do you optimize images for web performance?",
+            answer: "Use modern formats (WebP, AVIF), compress images appropriately, implement responsive images with srcset, use lazy loading, consider CSS filters instead of multiple image versions, optimize loading with placeholder techniques, and use CDNs for delivery. Always balance quality with file size for optimal performance."
         }
     ]
 },
 {
-    id: "tailwind-arbitrary-values",
-    title: "Arbitrary Values & Custom Utilities",
+    id: "css-methodologies",
+    title: "CSS Methodologies & Architecture (Advanced)",
     content: `
-        <h3>Arbitrary Values in Tailwind:</h3>
-        <p>Use square brackets to create custom values on the fly when Tailwind doesn't have a predefined class.</p>
+        <h3>Why CSS Methodologies?</h3>
+        <p>As projects grow, CSS becomes harder to maintain. Methodologies provide structure and rules for scalable, maintainable code.</p>
         
-        <h3>Common Use Cases:</h3>
+        <h3>BEM (Block Element Modifier):</h3>
         <ul>
-            <li><strong>Custom Sizing</strong>: w-[200px], h-[calc(100vh-50px)]</li>
-            <li><strong>Custom Colors</strong>: bg-[#1a1a1a], text-[rgb(255,0,0)]</li>
-            <li><strong>Custom Spacing</strong>: p-[12px], m-[3rem]</li>
-            <li><strong>Custom Grid</strong>: grid-cols-[1fr,2fr,1fr]</li>
-            <li><strong>Custom Transforms</strong>: rotate-[25deg], scale-[1.1]</li>
-            <li><strong>Custom Shadows</strong>: shadow-[0_0_15px_rgba(0,0,0,0.3)]</li>
+            <li><strong>Block</strong>: Standalone component (e.g., .menu, .button)</li>
+            <li><strong>Element</strong>: Part of a block (e.g., .menu__item, .button__icon)</li>
+            <li><strong>Modifier</strong>: Variation of a block/element (e.g., .button--large, .menu--dark)</li>
         </ul>
         
-        <h3>Arbitrary Properties:</h3>
-        <p>When you need a CSS property that Tailwind doesn't support out of the box.</p>
+        <h3>Other Methodologies:</h3>
         <ul>
-            <li><code>[property:value]</code> syntax</li>
-            <li>Use for CSS custom properties</li>
-            <li>Support for vendor prefixes</li>
+            <li><strong>SMACSS</strong>: Scalable and Modular Architecture</li>
+            <li><strong>OOCSS</strong>: Object-Oriented CSS</li>
+            <li><strong>ITCSS</strong>: Inverted Triangle CSS</li>
+            <li><strong>Atomic CSS</strong>: Single-purpose utility classes</li>
         </ul>
         
-        <h3>Best Practices:</h3>
+        <h3>CSS Architecture Principles:</h3>
         <ul>
-            <li>Use for one-off values only</li>
-            <li>Extract repeated values to config</li>
-            <li>Consider performance implications</li>
-            <li>Use with responsive and state variants</li>
+            <li>Separation of concerns (structure vs presentation)</li>
+            <li>Consistent naming conventions</li>
+            <li>Modular component-based structure</li>
+            <li>Predictable specificity</li>
+            <li>Reusable utility classes</li>
+        </ul>
+        
+        <h3>File Organization Strategies:</h3>
+        <ul>
+            <li>Base/Reset styles</li>
+            <li>Layout/grid systems</li>
+            <li>Components/modules</li>
+            <li>Utilities/helpers</li>
+            <li>Themes/variants</li>
         </ul>
 
         <br><hr><br>
         <div dir="rtl">
-            <h3>القيم المخصصة في Tailwind:</h3>
-            <p>استخدم الأقواس المربعة لإنشاء قيم مخصصة على الفور عندما لا يكون لدى Tailwind فئة محددة مسبقاً.</p>
+            <h3>لماذا منهجيات CSS؟</h3>
+            <p>مع نمو المشاريع، يصبح CSS أكثر صعوبة في الصيانة. توفر المنهجيات هيكلاً وقواعدًا للقابلة للتطوير وسهلة الصيانة.</p>
             
-            <h3>حالات الاستخدام الشائعة:</h3>
+            <h3>BEM (Block Element Modifier):</h3>
             <ul>
-                <li><strong>الأحجام المخصصة</strong>: w-[200px], h-[calc(100vh-50px)]</li>
-                <li><strong>الألوان المخصصة</strong>: bg-[#1a1a1a], text-[rgb(255,0,0)]</li>
-                <li><strong>المسافات المخصصة</strong>: p-[12px], m-[3rem]</li>
-                <li><strong>الشبكات المخصصة</strong>: grid-cols-[1fr,2fr,1fr]</li>
-                <li><strong>التحويلات المخصصة</strong>: rotate-[25deg], scale-[1.1]</li>
-                <li><strong>الظلال المخصصة</strong>: shadow-[0_0_15px_rgba(0,0,0,0.3)]</li>
+                <li><strong>Block</strong>: مكون مستقل (مثال: .menu, .button)</li>
+                <li><strong>Element</strong>: جزء من كتلة (مثال: .menu__item, .button__icon)</li>
+                <li><strong>Modifier</strong>: اختلاف في الكتلة/العنصر (مثال: .button--large, .menu--dark)</li>
             </ul>
             
-            <h3>الخصائص المخصصة:</h3>
-            <p>عندما تحتاج إلى خاصية CSS لا يدعمها Tailwind افتراضياً.</p>
+            <h3>منهجيات أخرى:</h3>
             <ul>
-                <li>صيغة <code>[property:value]</code></li>
-                <li>استخدم لخصائص CSS المخصصة</li>
-                <li>دعم للبادئات الخاصة بالبائعين</li>
+                <li><strong>SMACSS</strong>: هندسة قابلة للتطوير ومعيارية</li>
+                <li><strong>OOCSS</strong>: CSS كائنية التوجه</li>
+                <li><strong>ITCSS</strong>: CSS المثلث المقلوب</li>
+                <li><strong>Atomic CSS</strong>: فئات مساعدة ذات غرض واحد</li>
             </ul>
             
-            <h3>أفضل الممارسات:</h3>
+            <h3>مبادئ هندسة CSS:</h3>
             <ul>
-                <li>استخدم للقيم الفردية فقط</li>
-                <li>استخرج القيم المتكررة إلى الإعدادات</li>
-                <li>ضع في الاعتبار تأثيرات الأداء</li>
-                <li>استخدم مع متغيرات الاستجابة والحالة</li>
+                <li>فصل الاهتمامات (الهيكل مقابل العرض)</li>
+                <li>اتفاقيات تسمية متناسقة</li>
+                <li>هيكل معياري قائم على المكونات</li>
+                <li>أولوية متوقعة</li>
+                <li>فئات أدوات قابلة لإعادة الاستخدام</li>
+            </ul>
+            
+            <h3>استراتيجيات تنظيم الملفات:</h3>
+            <ul>
+                <li>أنماط الأساس/إعادة التعيين</li>
+                <li>أنظمة التخطيط/الشبكة</li>
+                <li>المكونات/الوحدات</li>
+                <li>الأدوات المساعدة</li>
+                <li>السمات/المتغيرات</li>
             </ul>
         </div>
     `,
     examples: [
         {
-            title: "Arbitrary Values Examples",
+            title: "BEM Implementation Examples",
             content: `
-                <h4>Custom Sizing and Colors</h4>
                 <pre class="code-block">
-&lt;!-- Custom width and height --&gt;
-&lt;div class="w-[200px] h-[150px] bg-blue-500"&gt;
-  Fixed custom size
+/* BEM Structure Example */
+.card { /* Block */ }
+.card__header { /* Element */ }
+.card__title { /* Element */ }
+.card__body { /* Element */ }
+.card__footer { /* Element */ }
+.card--featured { /* Modifier */ }
+.card--dark { /* Modifier */ }
+
+/* HTML Structure */
+&lt;div class="card card--featured"&gt;
+    &lt;div class="card__header"&gt;
+        &lt;h3 class="card__title"&gt;Featured Card&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class="card__body"&gt;
+        &lt;p&gt;Card content here&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card__footer"&gt;
+        &lt;button class="card__button"&gt;Action&lt;/button&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;!-- Complex calculations --&gt;
-&lt;div class="h-[calc(100vh-80px)] w-[50%] bg-gray-100"&gt;
-  Calculated height
-&lt;/div&gt;
+/* SMACSS Organization */
+/* Base */
+html, body { margin: 0; padding: 0; }
+a { color: #007bff; }
 
-&lt;!-- Custom colors --&gt;
-&lt;div class="bg-[#1a1a1a] text-[rgb(255,255,255)] p-4"&gt;
-  Custom color values
-&lt;/div&gt;
+/* Layout */
+.l-header { grid-area: header; }
+.l-main { grid-area: main; }
+.l-sidebar { grid-area: sidebar; }
 
-&lt;!-- Brand colors --&gt;
-&lt;button class="bg-[#ff6b35] hover:bg-[#e55a2b] text-white px-4 py-2 rounded"&gt;
-  Brand button
-&lt;/button&gt;
+/* Module */
+.button { /* component styles */ }
+.media-object { /* component styles */ }
 
-&lt;!-- Custom spacing --&gt;
-&lt;div class="p-[15px] m-[2rem] border-2 border-[#333]"&gt;
-  Custom padding and margin
-&lt;/div&gt;
-                </pre>
+/* State */
+.is-active { display: block; }
+.is-hidden { display: none; }
 
-                <h4>Custom Grid and Transforms</h4>
-                <pre class="code-block">
-&lt;!-- Custom grid templates --&gt;
-&lt;div class="grid grid-cols-[200px_1fr_300px] gap-4"&gt;
-  &lt;div&gt;Sidebar&lt;/div&gt;
-  &lt;div&gt;Main content&lt;/div&gt;
-  &lt;div&gt;Sidebar&lt;/div&gt;
-&lt;/div&gt;
+/* Theme */
+.theme-dark { background: #333; color: white; }
 
-&lt;!-- Complex grid --&gt;
-&lt;div class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4"&gt;
-  &lt;div class="bg-white p-4"&gt;Item 1&lt;/div&gt;
-  &lt;div class="bg-white p-4"&gt;Item 2&lt;/div&gt;
-  &lt;div class="bg-white p-4"&gt;Item 3&lt;/div&gt;
-&lt;/div&gt;
+/* ITCSS Layers */
+/* Settings - variables, config */
+:root { --primary-color: #007bff; }
 
-&lt;!-- Custom transforms --&gt;
-&lt;div class="transform rotate-[15deg] scale-[1.05] hover:rotate-[0deg] transition-transform"&gt;
-  Custom rotation
-&lt;/div&gt;
+/* Tools - mixins, functions */
+@mixin responsive($breakpoint) { /*...*/ }
 
-&lt;!-- Custom shadows and effects --&gt;
-&lt;div class="shadow-[0_10px_30px_rgba(0,0,0,0.3)] backdrop-blur-[2px]"&gt;
-  Custom shadow and blur
-&lt;/div&gt;
-                </pre>
+/* Generic - reset, normalize */
+* { box-sizing: border-box; }
 
-                <h4>Arbitrary Properties</h4>
-                <pre class="code-block">
-&lt;!-- CSS custom properties --&gt;
-&lt;div class="[--custom-width:250px] [--primary-color:#3b82f6]"&gt;
-  &lt;div class="w-[var(--custom-width)] bg-[var(--primary-color)] text-white p-4"&gt;
-    Using CSS variables
-  &lt;/div&gt;
-&lt;/div&gt;
+/* Elements - base element styles */
+h1, h2, h3 { margin: 0; }
 
-&lt;!-- Unsupported properties --&gt;
-&lt;div class="[clip-path:polygon(0_0,100%_0,100%_80%,0_100%)] bg-gray-200 p-8"&gt;
-  Custom clip path
-&lt;/div&gt;
+/* Objects - layout patterns */
+.o-container { max-width: 1200px; margin: 0 auto; }
 
-&lt;!-- Vendor prefixes --&gt;
-&lt;div class="[-webkit-line-clamp:3] [display:-webkit-box] [-webkit-box-orient:vertical] overflow-hidden"&gt;
-  This text will be clamped to three lines with ellipsis in WebKit browsers
-&lt;/div&gt;
+/* Components - specific UI components */
+.c-button { /*...*/ }
 
-&lt;!-- Complex animations --&gt;
-&lt;div class="[animation:custom-bounce_1s_ease-in-out_infinite]"&gt;
-  Custom animation
-&lt;/div&gt;
-                </pre>
-            `
-        },
-        {
-            title: "Responsive and State Variants with Arbitrary Values",
-            content: `
-                <h4>Responsive Arbitrary Values</h4>
-                <pre class="code-block">
-&lt;!-- Responsive custom values --&gt;
-&lt;div class="w-full md:w-[400px] lg:w-[600px] xl:w-[800px]"&gt;
-  Responsive custom widths
-&lt;/div&gt;
-
-&lt;!-- Responsive grid --&gt;
-&lt;div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] lg:grid-cols-[300px_1fr_200px] gap-4"&gt;
-  &lt;div&gt;Content&lt;/div&gt;
-  &lt;div&gt;Sidebar&lt;/div&gt;
-  &lt;div&gt;Navigation&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Responsive custom spacing --&gt;
-&lt;div class="p-4 md:p-[30px] lg:p-[50px]"&gt;
-  Responsive custom padding
-&lt;/div&gt;
-
-&lt;!-- Responsive text sizes --&gt;
-&lt;h1 class="text-[24px] md:text-[32px] lg:text-[48px] font-bold"&gt;
-  Responsive custom text
-&lt;/h1&gt;
-                </pre>
-
-                <h4>State Variants with Arbitrary Values</h4>
-                <pre class="code-block">
-&lt;!-- Hover states --&gt;
-&lt;button class="bg-blue-500 text-white px-4 py-2 rounded 
-               hover:bg-[#1e40af] hover:scale-[1.05] transition-all"&gt;
-  Hover effects
-&lt;/button&gt;
-
-&lt;!-- Focus states --&gt;
-&lt;input class="border p-2 focus:border-[#3b82f6] focus:ring-[2px] 
-              focus:ring-[#3b82f6] focus:outline-none transition-all" 
-       placeholder="Focus me"&gt;
-
-&lt;!-- Group hover with arbitrary values --&gt;
-&lt;div class="group border rounded-lg p-4"&gt;
-  &lt;h3 class="text-lg group-hover:text-[#dc2626] transition-colors"&gt;
-    Group title
-  &lt;/h3&gt;
-  &lt;p class="text-gray-600 group-hover:text-[#1f2937] transition-colors"&gt;
-    Group content
-  &lt;/p&gt;
-&lt;/div&gt;
-
-&lt;!-- Dark mode support --&gt;
-&lt;div class="bg-white dark:bg-[#1a1a1a] text-[#333] dark:text-[#fff] p-4"&gt;
-  Dark mode with custom colors
-&lt;/div&gt;
-
-&lt;!-- Custom active states --&gt;
-&lt;button class="bg-green-500 text-white px-4 py-2 rounded 
-               active:bg-[#059669] active:scale-[0.95] transition-transform"&gt;
-  Click me
-&lt;/button&gt;
+/* Utilities - helper classes */
+.u-text-center { text-align: center; }
+.u-mt-1 { margin-top: 1rem; }
                 </pre>
             `
         }
     ],
     practices: [
         {
-            title: "Arbitrary Values Practice",
+            title: "CSS Architecture Practice",
             content: `
-                <p>Practice using arbitrary values and custom utilities:</p>
+                <p>Practice CSS methodologies and architecture:</p>
                 <ol>
-                    <li>Create components with custom color values using square brackets</li>
-                    <li>Build layouts with custom grid templates and calculations</li>
-                    <li>Implement custom shadows and backdrop effects</li>
-                    <li>Use arbitrary values with responsive breakpoints</li>
-                    <li>Create hover and focus states with custom values</li>
-                    <li>Implement CSS custom properties with arbitrary values</li>
-                    <li>Build components with vendor-prefixed properties</li>
-                    <li>Create custom animations using arbitrary values</li>
-                    <li>Practice using calc() and other CSS functions</li>
-                    <li>Combine arbitrary values with Tailwind's state variants</li>
+                    <li>Refactor existing CSS to use BEM naming convention</li>
+                    <li>Organize a project using SMACSS folder structure</li>
+                    <li>Create a component library with consistent naming</li>
+                    <li>Build utility classes for common patterns</li>
+                    <li>Set up CSS architecture for a large-scale project</li>
                 </ol>
             `
         }
     ],
     questions: [
         {
-            question: "When should you use arbitrary values vs extending Tailwind config?",
-            answer: "Use arbitrary values for one-off, unique values that won't be reused across your project. Extend the Tailwind config when you have design tokens, brand colors, or spacing values that will be used consistently throughout your application. Arbitrary values are great for prototyping and quick fixes, while config extensions are better for maintaining design consistency."
+            question: "What are the main benefits of using CSS methodologies like BEM?",
+            answer: "BEM provides: Clear naming conventions that are self-documenting, reduced specificity conflicts, modular and reusable components, easier team collaboration, predictable styling, and better scalability for large projects. It makes CSS more maintainable and reduces style conflicts."
         },
         {
-            question: "What are the performance implications of arbitrary values?",
-            answer: "Arbitrary values generate CSS on-demand, which can increase your CSS bundle size if overused. Each unique arbitrary value creates a new CSS rule. For best performance, use arbitrary values sparingly and prefer extending your Tailwind config for values that are reused. The built-in PurgeCSS will remove unused arbitrary values in production."
+            question: "When should you use utility classes vs component classes?",
+            answer: "Use utility classes for single-purpose, reusable styles (margin, padding, text alignment). Use component classes for complex, multi-property patterns that represent specific UI elements. Utility classes are great for layout and spacing, while component classes are better for self-contained UI components with multiple states."
+        }
+    ]
+},
+{
+    id: "performance-optimization",
+    title: "CSS Performance Optimization (Advanced)",
+    content: `
+        <h3>Why CSS Performance Matters:</h3>
+        <p>CSS is render-blocking and affects Core Web Vitals like Largest Contentful Paint (LCP) and Cumulative Layout Shift (CLS).</p>
+        
+        <h3>Critical CSS:</h3>
+        <ul>
+            <li>Extract styles needed for above-the-fold content</li>
+            <li>Inline critical CSS in &lt;head&gt;</li>
+            <li>Load non-critical CSS asynchronously</li>
+            <li>Tools: critical, penthouse, webpack plugins</li>
+        </ul>
+        
+        <h3>Reducing Unused CSS:</h3>
+        <ul>
+            <li>Remove dead code with PurgeCSS</li>
+            <li>Use CSS coverage tool in DevTools</li>
+            <li>Modularize CSS with components</li>
+            <li>Avoid overly generic selectors</li>
+        </ul>
+        
+        <h3>Optimization Techniques:</h3>
+        <ul>
+            <li><strong>Minification</strong>: Remove whitespace and comments</li>
+            <li><strong>Compression</strong>: Gzip/Brotli compression</li>
+            <li><strong>Concatenation</strong>: Combine multiple files</li>
+            <li><strong>CDN Delivery</strong>: Faster global distribution</li>
+            <li><strong>Caching</strong>: Proper cache headers</li>
+        </ul>
+        
+        <h3>CSS Delivery Optimization:</h3>
+        <ul>
+            <li>Preload important resources</li>
+            <li>Use media attributes for conditional loading</li>
+            <li>Implement lazy loading for non-critical CSS</li>
+            <li>Reduce @import usage (causes render blocking)</li>
+        </ul>
+
+        <br><hr><br>
+        <div dir="rtl">
+            <h3>لماذا أداء CSS مهم:</h3>
+            <p>CSS تعيق التقدير وتؤثر على مؤشرات الويب الأساسية مثل أكبر رسم محتوى وتحول التخطيط التراكمي.</p>
+            
+            <h3>CSS الحرج:</h3>
+            <ul>
+                <li>استخرج الأنماط اللازمة للمحتوى فوق الطية</li>
+                <li>أدرج CSS الحرج مضمنة في &lt;head&gt;</li>
+                <li>حمّل CSS غير الحرجة بشكل غير متزامن</li>
+                <li>الأدوات: critical, penthouse, إضافات webpack</li>
+            </ul>
+            
+            <h3>تقليل CSS غير المستخدم:</h3>
+            <ul>
+                <li>أزل الكود الميت مع PurgeCSS</li>
+                <li>استخدم أداة التغطية في أدوات المطور</li>
+                <li>نمطية CSS مع المكونات</li>
+                <li>تجنب المحددات العامة بشكل مفرط</li>
+            </ul>
+            
+            <h3>تقنيات التحسين:</h3>
+            <ul>
+                <li><strong>التصغير</strong>: إزالة المسافات والتعليقات</li>
+                <li><strong>الضغط</strong>: ضغط Gzip/Brotli</li>
+                <li><strong>الدمج</strong>: اجمع ملفات متعددة</li>
+                <li><strong>توصيل CDN</strong>: توزيع عالمي أسرع</li>
+                <li><strong>التخزين المؤقت</strong>: رؤوس تخزين مؤقت مناسبة</li>
+            </ul>
+            
+            <h3>تحسين توصيل CSS:</h3>
+            <ul>
+                <li>حمّل مسبقًا الموارد المهمة</li>
+                <li>استخدم سمات الوسائط للتحميل الشرطي</li>
+                <li>نفذ التحميل المتأخر لـ CSS غير الحرجة</li>
+                <li>قلل استخدام @import (يسبب عرقلة التقديم)</li>
+            </ul>
+        </div>
+    `,
+    examples: [
+        {
+            title: "Performance Optimization Examples",
+            content: `
+                <pre class="code-block">
+/* Critical CSS Inlining */
+&lt;style&gt;
+/* Above-the-fold styles only */
+.header { background: #fff; }
+.hero { background: url('hero.jpg'); }
+/* ... other critical styles */
+&lt;/style&gt;
+
+&lt;link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"&gt;
+&lt;noscript&gt;&lt;link rel="stylesheet" href="styles.css"&gt;&lt;/noscript&gt;
+
+/* Media Attribute for Conditional Loading */
+&lt;link rel="stylesheet" href="print.css" media="print"&gt;
+&lt;link rel="stylesheet" href="mobile.css" media="(max-width: 768px)"&gt;
+&lt;link rel="stylesheet" href="desktop.css" media="(min-width: 769px)"&gt;
+
+/* CSS Minification Example */
+/* Before */
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+/* After */
+.button{background-color:#007bff;color:#fff;padding:10px 20px;border-radius:4px}
+
+/* Efficient Selectors */
+/* Inefficient */
+div nav ul li a { color: blue; }
+
+/* Efficient */
+.nav-link { color: blue; }
+
+/* Reduce Recalculation with transforms/opacity */
+/* Good for performance */
+.animate-fast {
+    transform: translateX(100px);
+    opacity: 0.5;
+}
+
+/* May cause layout recalc */
+.animate-slow {
+    margin-left: 100px;
+    width: 200px;
+}
+
+/* CSS Containment for Performance */
+.isolated-component {
+    contain: layout style paint;
+    /* Browser can optimize rendering */
+}
+
+/* Reduce CSS Complexity */
+/* Complex - harder to parse */
+.card :not(.disabled):hover > .icon ~ .text {
+    color: red;
+}
+
+/* Simple - easier to parse */
+.card:hover .text {
+    color: red;
+}
+
+.card.disabled { pointer-events: none; }
+
+/* Font Loading Optimization */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('font.woff2') format('woff2');
+    font-display: swap; /* Don't block rendering */
+    font-weight: 400;
+}
+
+.optimized-font {
+    font-family: 'CustomFont', sans-serif;
+    /* Use system font until custom loads */
+}
+                </pre>
+            `
+        }
+    ],
+    practices: [
+        {
+            title: "Performance Optimization Practice",
+            content: `
+                <p>Practice CSS performance optimization:</p>
+                <ol>
+                    <li>Audit a website using Chrome DevTools Coverage tool</li>
+                    <li>Implement critical CSS extraction and inlining</li>
+                    <li>Set up PurgeCSS to remove unused styles</li>
+                    <li>Optimize font loading with font-display</li>
+                    <li>Create a performance budget and measure improvements</li>
+                </ol>
+            `
+        }
+    ],
+    questions: [
+        {
+            question: "What is the impact of CSS on Core Web Vitals?",
+            answer: "CSS affects LCP (Largest Contentful Paint) by blocking rendering until downloaded and parsed. It affects CLS (Cumulative Layout Shift) through loading of fonts, images in CSS, and layout changes. FID (First Input Delay) can be impacted if CSS parsing blocks the main thread. Optimizing CSS delivery is crucial for good scores."
+        },
+        {
+            question: "How do you identify and remove unused CSS?",
+            answer: "Use Chrome DevTools Coverage tool to see unused bytes, analyze bundle size with webpack-bundle-analyzer, implement PurgeCSS in build process, regularly audit CSS with tools like CSS Stats, remove legacy features, and use component-based architecture to naturally reduce unused CSS through modularity."
+        }
+    ]
+},
+{
+    id: "cross-browser-compatibility",
+    title: "Cross-Browser Compatibility & Vendor Prefixes (Advanced)",
+    content: `
+        <h3>Browser Compatibility Challenges:</h3>
+        <p>Different browsers implement CSS features at different times and with varying levels of support.</p>
+        
+        <h3>Vendor Prefixes:</h3>
+        <ul>
+            <li><strong>-webkit-</strong>: Chrome, Safari, newer Edge</li>
+            <li><strong>-moz-</strong>: Firefox</li>
+            <li><strong>-ms-</strong>: Internet Explorer, old Edge</li>
+            <li><strong>-o-</strong>: Opera (older versions)</li>
+        </ul>
+        
+        <h3>Progressive Enhancement Strategy:</h3>
+        <ul>
+            <li>Build for most capable browsers first</li>
+            <li>Add fallbacks for older browsers</li>
+            <li>Use feature detection (@supports)</li>
+            <li>Provide graceful degradation</li>
+        </ul>
+        
+        <h3>Common Compatibility Issues:</h3>
+        <ul>
+            <li>Flexbox and Grid in older browsers</li>
+            <li>CSS Variables support</li>
+            <li>Position: sticky behavior</li>
+            <li>CSS Grid auto-placement differences</li>
+            <li>Viewport units calculation</li>
+        </ul>
+        
+        <h3>Tools and Resources:</h3>
+        <ul>
+            <li>Can I Use (caniuse.com)</li>
+            <li>BrowserStack for testing</li>
+            <li>Autoprefixer for automatic prefixes</li>
+            <li>PostCSS with plugins</li>
+            <li>Modernizr for feature detection</li>
+        </ul>
+
+        <br><hr><br>
+        <div dir="rtl">
+            <h3>تحديات توافق المتصفحات:</h3>
+            <p>تطبق المتصفحات المختلفة ميزات CSS في أوقات مختلفة وبمستويات دعم متفاوتة.</p>
+            
+            <h3>بادئات البائعين:</h3>
+            <ul>
+                <li><strong>-webkit-</strong>: Chrome, Safari, Edge الجديد</li>
+                <li><strong>-moz-</strong>: Firefox</li>
+                <li><strong>-ms-</strong>: Internet Explorer, Edge القديم</li>
+                <li><strong>-o-</strong>: Opera (الإصدارات الأقدم)</li>
+            </ul>
+            
+            <h3>استراتيجية التحسين التدريجي:</h3>
+            <ul>
+                <li>ابنِ لأقوى المتصفحات أولاً</li>
+                <li>أضف بدائل للمتصفحات الأقدم</li>
+                <li>استخدم كشف الميزات (@supports)</li>
+                <li>وفر تدهورًا أنيقًا</li>
+            </ul>
+            
+            <h3>مشاكل التوافق الشائعة:</h3>
+            <ul>
+                <li>Flexbox و Grid في المتصفحات الأقدم</li>
+                <li>دعم متغيرات CSS</li>
+                <li>سلوك Position: sticky</li>
+                <li>اختلافات وضع CSS Grid التلقائي</li>
+                <li>حساب وحدات منطقة العرض</li>
+            </ul>
+            
+            <h3>الأدوات والموارد:</h3>
+            <ul>
+                <li>Can I Use (caniuse.com)</li>
+                <li>BrowserStack للاختبار</li>
+                <li>Autoprefixer للبادئات التلقائية</li>
+                <li>PostCSS مع الإضافات</li>
+                <li>Modernizr لكشف الميزات</li>
+            </ul>
+        </div>
+    `,
+    examples: [
+        {
+            title: "Cross-Browser Compatibility Examples",
+            content: `
+                <pre class="code-block">
+/* Vendor Prefixes for Flexbox */
+.container {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+/* Using @supports for Feature Detection */
+@supports (display: grid) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@supports not (display: grid) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .container > * {
+        flex: 1 1 300px;
+    }
+}
+
+/* Gradient with Fallbacks */
+.background {
+    background: #ccc; /* Fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f5f5f5, #ccc); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5f5f5, #ccc); /* Standard syntax */
+}
+
+/* CSS Grid with Fallback */
+.layout {
+    display: flex; /* Fallback */
+    flex-wrap: wrap;
+}
+
+@supports (display: grid) {
+    .layout {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Sticky Positioning Fallback */
+.sticky-element {
+    position: relative; /* Fallback */
+}
+
+@supports (position: sticky) {
+    .sticky-element {
+        position: sticky;
+        top: 0;
+    }
+}
+
+/* CSS Variables with Fallback */
+:root {
+    --primary-color: #007bff;
+}
+
+.button {
+    background: #007bff; /* Fallback */
+    background: var(--primary-color);
+}
+
+/* Using Autoprefixer (what it does) */
+/* Input */
+.container {
+    display: flex;
+    transform: rotate(45deg);
+    user-select: none;
+}
+
+/* Output */
+.container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Handling IE Specific Issues */
+/* IE 10+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .ie-only-fix {
+        /* IE specific styles */
+    }
+}
+
+/* Firefox Specific */
+@-moz-document url-prefix() {
+    .firefox-fix {
+        /* Firefox specific styles */
+    }
+}
+                </pre>
+            `
+        }
+    ],
+    practices: [
+        {
+            title: "Cross-Browser Testing Practice",
+            content: `
+                <p>Practice cross-browser compatibility:</p>
+                <ol>
+                    <li>Test a website in multiple browsers and identify issues</li>
+                    <li>Implement vendor prefixes for modern CSS features</li>
+                    <li>Create fallbacks for CSS Grid using Flexbox</li>
+                    <li>Use @supports for progressive enhancement</li>
+                    <li>Set up Autoprefixer in a build process</li>
+                </ol>
+            `
+        }
+    ],
+    questions: [
+        {
+            question: "Should you always use vendor prefixes for all CSS properties?",
+            answer: "No, only for properties that are still experimental or not fully standardized. Use tools like Autoprefixer to automatically add only the necessary prefixes based on your browser support requirements. For stable properties, the standard version is usually sufficient in modern browsers."
+        },
+        {
+            question: "What's the difference between progressive enhancement and graceful degradation?",
+            answer: "Progressive enhancement starts with a basic experience that works everywhere, then enhances for capable browsers. Graceful degradation starts with the full experience and provides fallbacks for older browsers. Progressive enhancement is generally preferred as it's more inclusive and future-proof."
+        }
+    ]
+},
+{
+    id: "accessibility-deep-dive",
+    title: "Accessibility (A11y) Deep Dive (Advanced)",
+    content: `
+        <h3>Why Web Accessibility Matters:</h3>
+        <p>Accessibility ensures your website can be used by people with disabilities, including visual, auditory, motor, and cognitive impairments.</p>
+        
+        <h3>WCAG Guidelines (Web Content Accessibility Guidelines):</h3>
+        <ul>
+            <li><strong>Perceivable</strong>: Content must be presentable to users in ways they can perceive</li>
+            <li><strong>Operable</strong>: Interface components must be operable by all users</li>
+            <li><strong>Understandable</strong>: Content and operation must be understandable</li>
+            <li><strong>Robust</strong>: Content must be robust enough to work with current and future tools</li>
+        </ul>
+        
+        <h3>CSS Accessibility Features:</h3>
+        <ul>
+            <li><strong>Focus Indicators</strong>: Visible focus styles for keyboard navigation</li>
+            <li><strong>Reduced Motion</strong>: Respect user motion preferences</li>
+            <li><strong>High Contrast</strong>: Support for high contrast modes</li>
+            <li><strong>Text Scaling</strong: Flexible layouts that support text zoom</li>
+            <li><strong>Semantic Structure</strong>: Proper heading hierarchy and landmarks</li>
+        </ul>
+        
+        <h3>Common Accessibility Issues:</h3>
+        <ul>
+            <li>Insufficient color contrast</li>
+            <li>Missing focus styles</li>
+            <li>Poor text scaling support</li>
+            <li>Inaccessible form labels</li>
+            <li>Non-descriptive link text</li>
+            <li>Auto-playing media without controls</li>
+        </ul>
+        
+        <h3>Testing for Accessibility:</h3>
+        <ul>
+            <li>Keyboard navigation testing</li>
+            <li>Screen reader testing</li>
+            <li>Color contrast checkers</li>
+            <li>Automated accessibility scanners</li>
+            <li>Manual testing with disabilities</li>
+        </ul>
+
+        <br><hr><br>
+        <div dir="rtl">
+            <h3>لماذا إمكانية الوصول على الويب مهمة:</h3>
+            <p>تضمن إمكانية الوصول أن موقعك الإلكتروني يمكن استخدامه من قبل الأشخاص ذوي الإعاقات، بما في ذلك الإعاقات البصرية والسمعية والحركية والإدراكية.</p>
+            
+            <h3>إرشادات WCAG (إرشادات إمكانية الوصول لمحتوى الويب):</h3>
+            <ul>
+                <li><strong>يمكن إدراكه</strong>: يجب أن يكون المحتوى قابلاً للتقديم للمستخدمين بطرق يمكنهم إدراكها</li>
+                <li><strong>قابل للتشغيل</strong>: يجب أن تكون مكونات الواجهة قابلة للتشغيل من قبل جميع المستخدمين</li>
+                <li><strong>يمكن فهمه</strong>: يجب أن يكون المحتوى والتشغيل مفهومين</li>
+                <li><strong>قوي</strong>: يجب أن يكون المحتوى قويًا بما يكفي للعمل مع الأدوات الحالية والمستقبلية</li>
+            </ul>
+            
+            <h3>ميزات إمكانية الوصول في CSS:</h3>
+            <ul>
+                <li><strong>مؤشرات التركيز</strong>: أنماط تركيز مرئية للتنقل بلوحة المفاتيح</li>
+                <li><strong>الحركة المخفضة</strong>: احترام تفضيلات حركة المستخدم</li>
+                <li><strong>التباين العالي</strong>: الدعم لأنماط التباين العالي</li>
+                <li><strong>تحجيم النص</strong>: تخطيطات مرنة تدعم تكبير النص</li>
+                <li><strong>الهيكل الدلالي</strong>: تسلسل عناوين سليم ومعالم</li>
+            </ul>
+            
+            <h3>مشاكل إمكانية الوصول الشائعة:</h3>
+            <ul>
+                <li>تباين لوني غير كافٍ</li>
+                <li>أنماط تركيز مفقودة</li>
+                <li>دعم ضعيف لتحجيم النص</li>
+                <li>تسميات نماذج غير قابلة للوصول</li>
+                <li>نص رابط غير وصفي</li>
+                <li>وسائط تشغيل تلقائي بدون ضوابط</li>
+            </ul>
+            
+            <h3>الاختبار من أجل إمكانية الوصول:</h3>
+            <ul>
+                <li>اختبار التنقل بلوحة المفاتيح</li>
+                <li>اختبار قارئ الشاشة</li>
+                <li>مدققات تباين الألوان</li>
+                <li>ماسحات إمكانية الوصول الآلية</li>
+                <li>اختبار يدوي مع الإعاقات</li>
+            </ul>
+        </div>
+    `,
+    examples: [
+        {
+            title: "Accessibility Implementation Examples",
+            content: `
+                <pre class="code-block">
+/* Focus Styles */
+.button:focus {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Don't remove outline completely */
+.button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.button:focus-visible {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Reduced Motion Support */
+.animation {
+    animation: slideIn 0.5s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animation {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+    }
+}
+
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+    .button {
+        border: 2px solid currentColor;
+        background: white;
+        color: black;
+    }
+}
+
+/* Text Scaling Support */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Use rem/em for scalable spacing */
+.text-element {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    line-height: 1.5;
+}
+
+/* Skip Links for Keyboard Users */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 10000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Accessible Form Styling */
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-input:invalid {
+    border-color: #e74c3c;
+}
+
+.form-input:valid {
+    border-color: #27ae60;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Hide content visually but keep for screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Accessible Color Contrast */
+.good-contrast {
+    color: #000000;
+    background: #ffffff;
+}
+
+.bad-contrast {
+    color: #888888;
+    background: #f0f0f0;
+}
+
+/* Print Styles for Accessibility */
+@media print {
+    .no-print {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: black;
+        background: white;
+    }
+    
+    a::after {
+        content: " (" attr(href) ")";
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #1a1a1a;
+        --text: #ffffff;
+        --primary: #4dabf7;
+    }
+}
+
+.theme-auto {
+    background: var(--background);
+    color: var(--text);
+}
+                </pre>
+            `
+        }
+    ],
+    practices: [
+        {
+            title: "Accessibility Practice",
+            content: `
+                <p>Practice web accessibility implementation:</p>
+                <ol>
+                    <li>Test a website using only keyboard navigation</li>
+                    <li>Implement proper focus indicators for all interactive elements</li>
+                    <li>Add reduced motion support for animations</li>
+                    <li>Ensure color contrast meets WCAG guidelines</li>
+                    <li>Create accessible form validation with clear error messages</li>
+                </ol>
+            `
+        }
+    ],
+    questions: [
+        {
+            question: "What are the minimum WCAG compliance levels and what do they mean?",
+            answer: "WCAG has three levels: A (minimum accessibility), AA (standard compliance including color contrast and navigation), and AAA (enhanced accessibility including sign language and extended color contrast). Most organizations aim for AA compliance as it addresses the major barriers for disabled users while being practically achievable."
+        },
+        {
+            question: "Why is it important to test with actual screen readers rather than just automated tools?",
+            answer: "Automated tools can only catch about 30-40% of accessibility issues. Screen reader testing reveals how users actually experience and navigate your site, uncovering issues with reading order, context, dynamic content updates, and complex interactions that automated tools miss. It provides the real user experience perspective."
         }
     ]
 }
