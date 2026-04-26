@@ -115,7 +115,7 @@ const lectures = [
         title: "Project 1",
         description: "Project 1",
         image: "./assets/images/logos/Project.webp",
-        status: "not-started",
+        status: "completed",
         hidden: true,
         content: "HTML, CSS, Tailwind"
     },
@@ -125,7 +125,7 @@ const lectures = [
         title: "Project 2",
         description: "Project 2",
         image: "./assets/images/logos/Project.webp",
-        status: "not-started",
+        status: "completed",
         hidden: true,
         content: "HTML, CSS, Tailwind"
     },
@@ -135,7 +135,7 @@ const lectures = [
         title: "Tailwind CSS",
         description: "Tailwind classes for flex (flex, justify, items), grid (grid-cols, gap), responsive prefixes (sm:, md:, lg:), and building mobile-first components with hover/focus states",
         image: "./assets/images/logos/tailwind-css.webp",
-        status: "not-started",
+        status: "completed",
         content: "Tailwind"
     },
     {
