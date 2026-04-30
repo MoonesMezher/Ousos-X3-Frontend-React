@@ -144,7 +144,7 @@ const lectures = [
         title: "Project 3",
         description: "Project 3",
         image: "./assets/images/logos/Project.webp",
-        status: "not-started",
+        status: "completed",
         hidden: true,
         content: "HTML, CSS, Tailwind"
     },
@@ -154,7 +154,7 @@ const lectures = [
         title: "JavaScript Syntax: Variables, Data Types, and Operators, Control Flow, Scope, Intro to Functions",
         description: "Intro, Logs, Declaring variables (var, let, const), primitive types (string, number, boolean, null, undefined, symbol, bigint), objects/arrays literals, type coercion, and operators (arithmetic, assignment, comparison, logical, ternary), if else, while, do while, for, switch, , scope (global, function, block)",
         image: "./assets/images/logos/JS.webp",
-        status: "not-started",
+        status: "completed",
         content: "JS"
     },
     {
