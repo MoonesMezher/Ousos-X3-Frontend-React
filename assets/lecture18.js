@@ -6,6 +6,370 @@ const courseData = {
         center: "Ousos"
     },
     topics: [
+         {
+            id: "strings-numbers-booleans",
+            title: "Working with Strings, Numbers, and Booleans",
+            content: `
+                <h3>String Manipulation</h3>
+                <p>Strings are sequences of characters used to represent text. JavaScript provides many methods to work with strings.</p>
+                
+                <h3>Common String Methods:</h3>
+                <ul>
+                    <li><strong>length</strong>: Get string length</li>
+                    <li><strong>toUpperCase() / toLowerCase()</strong>: Change case</li>
+                    <li><strong>trim()</strong>: Remove whitespace from ends</li>
+                    <li><strong>includes()</strong>: Check if string contains substring</li>
+                    <li><strong>startsWith() / endsWith()</strong>: Check beginning/end</li>
+                    <li><strong>slice() / substring()</strong>: Extract parts of string</li>
+                    <li><strong>split()</strong>: Split string into array</li>
+                    <li><strong>replace()</strong>: Replace parts of string</li>
+                </ul>
+                
+                <h3>Number Operations and Methods:</h3>
+                <ul>
+                    <li><strong>Math operations</strong>: +, -, *, /, %, **</li>
+                    <li><strong>Math object</strong>: Math.round(), Math.floor(), Math.ceil()</li>
+                    <li><strong>parseInt() / parseFloat()</strong>: Convert strings to numbers</li>
+                    <li><strong>Number()</strong>: Convert to number</li>
+                    <li><strong>toFixed()</strong>: Format decimal places</li>
+                    <li><strong>isNaN()</strong>: Check if value is Not-a-Number</li>
+                </ul>
+                
+                <h3>Boolean Logic and Operations:</h3>
+                <ul>
+                    <li><strong>Truthy and Falsy values</strong>: All values have inherent boolean meaning</li>
+                    <li><strong>Logical operators</strong>: &&, ||, !</li>
+                    <li><strong>Comparison operators</strong>: ==, ===, !=, !==, >, <, >=, <=</li>
+                    <li><strong>Boolean conversion</strong>: Using Boolean() or !! operator</li>
+                </ul>
+
+                <br><hr><br>
+                <div dir="rtl">
+                    <h3>التعامل مع النصوص</h3>
+                    <p>النصوص هي تسلسلات من الأحرف تستخدم لتمثيل النص. توفر JavaScript العديد من الطرق للعمل مع النصوص.</p>
+                    
+                    <h3>الطرق الشائعة للنصوص:</h3>
+                    <ul>
+                        <li><strong>length</strong>: الحصول على طول النص</li>
+                        <li><strong>toUpperCase() / toLowerCase()</strong>: تغيير حالة الأحرف</li>
+                        <li><strong>trim()</strong>: إزالة المسافات من الأطراف</li>
+                        <li><strong>includes()</strong>: التحقق إذا كان النص يحتوي على جزء معين</li>
+                        <li><strong>startsWith() / endsWith()</strong>: التحقق من البداية/النهاية</li>
+                        <li><strong>slice() / substring()</strong>: استخراج أجزاء من النص</li>
+                        <li><strong>split()</strong>: تقسيم النص إلى مصفوفة</li>
+                        <li><strong>replace()</strong>: استبدال أجزاء من النص</li>
+                    </ul>
+                    
+                    <h3>عمليات وطرق الأرقام:</h3>
+                    <ul>
+                        <li><strong>العمليات الحسابية</strong>: +, -, *, /, %, **</li>
+                        <li><strong>كائن Math</strong>: Math.round(), Math.floor(), Math.ceil()</li>
+                        <li><strong>parseInt() / parseFloat()</strong>: تحويل النصوص إلى أرقام</li>
+                        <li><strong>Number()</strong>: التحويل إلى رقم</li>
+                        <li><strong>toFixed()</strong>: تنسيق المنازل العشرية</li>
+                        <li><strong>isNaN()</strong>: التحقق إذا كانت القيمة ليست رقمًا</li>
+                    </ul>
+                    
+                    <h3>المنطق القيمي والعمليات:</h3>
+                    <ul>
+                        <li><strong>القيم الحقيقية والزائفة</strong>: جميع القيم لها معنى منطقي inherent</li>
+                        <li><strong>العوامل المنطقية</strong>: &&, ||, !</li>
+                        <li><strong>عوامل المقارنة</strong>: ==, ===, !=, !==, >, <, >=, <=</li>
+                        <li><strong>التحويل المنطقي</strong>: استخدام Boolean() أو عامل !!</li>
+                    </ul>
+                </div>
+            `,
+            examples: [
+                {
+                    title: "String, Number, and Boolean Examples",
+                    content: `
+                        <pre class="code-block">
+// String examples
+let text = "  Hello JavaScript World!  ";
+console.log(text.length);           // 25
+console.log(text.trim());           // "Hello JavaScript World!"
+console.log(text.toUpperCase());    // "  HELLO JAVASCRIPT WORLD!  "
+console.log(text.includes("Java")); // true
+console.log(text.startsWith("  He")); // true
+console.log(text.slice(2, 7));      // "Hello"
+console.log(text.split(" "));       // ["", "", "Hello", "JavaScript", "World!", "", ""]
+console.log(text.replace("World", "Universe")); // "  Hello JavaScript Universe!  "
+
+// Number examples
+let num = 3.14159;
+console.log(Math.round(num));       // 3
+console.log(Math.floor(num));       // 3
+console.log(Math.ceil(num));        // 4
+console.log(num.toFixed(2));        // "3.14"
+
+let price = "19.99";
+console.log(parseFloat(price));     // 19.99
+console.log(parseInt(price));       // 19
+console.log(Number(price));         // 19.99
+
+console.log(isNaN("hello"));        // true
+console.log(isNaN("123"));          // false
+
+// Boolean examples
+console.log(Boolean("hello"));      // true
+console.log(Boolean(""));           // false
+console.log(Boolean(0));            // false
+console.log(Boolean(1));            // true
+console.log(Boolean(null));         // false
+console.log(Boolean(undefined));    // false
+
+// Using !! for boolean conversion
+console.log(!!"hello");             // true
+console.log(!!0);                   // false
+
+// String template literals
+let name = "Alice";
+let age = 25;
+let message = \`\${name} is \${age} years old and will be \${age + 1} next year.\`;
+console.log(message); // "Alice is 25 years old and will be 26 next year."
+                        </pre>
+                    `
+                }
+            ],
+            practices: [
+                {
+                    title: "String, Number, Boolean Practice",
+                    content: `
+                        <p>Practice working with strings, numbers, and booleans:</p>
+                        <ol>
+                            <li>Create a string and practice using different string methods</li>
+                            <li>Convert between strings and numbers using different methods</li>
+                            <li>Practice mathematical operations and using Math object methods</li>
+                            <li>Test different values for truthiness and falsiness</li>
+                            <li>Create a function that validates email format using string methods</li>
+                            <li>Build a simple calculator that handles decimal numbers</li>
+                        </ol>
+                    `
+                }
+            ],
+            questions: [
+                {
+                    question: "What's the difference between slice() and substring() for strings?",
+                    answer: "Both extract parts of strings, but slice() can accept negative indexes (counting from the end), while substring() treats negative indexes as 0. Also, if start > end, substring() will swap them, while slice() returns an empty string. Generally, slice() is more commonly used."
+                },
+                {
+                    question: "When should I use parseInt() vs Number()?",
+                    answer: "Use parseInt() when you want to convert a string to an integer and ignore decimal parts. It also allows you to specify a radix (number base). Use Number() when you want strict conversion that includes decimals and will return NaN if the entire string cannot be converted to a number."
+                }
+            ]
+        },
+         {
+            id: "functions-scope",
+            title: "Functions and Scope",
+            content: `
+                <h3>What are Functions?</h3>
+                <p>Functions are reusable blocks of code that perform specific tasks. They help organize code, avoid repetition, and make programs easier to understand.</p>
+                
+                <h3>Function Declaration Types:</h3>
+                <ul>
+                    <li><strong>Function Declaration</strong>: function name() { }</li>
+                    <li><strong>Function Expression</strong>: const name = function() { }</li>
+                    <li><strong>Arrow Function</strong>: const name = () => { }</li>
+                    <li><strong>Immediately Invoked Function Expression (IIFE)</strong>: (function() { })()</li>
+                </ul>
+                
+                <h3>Function Parameters and Return Values:</h3>
+                <ul>
+                    <li><strong>Parameters</strong>: Variables listed in function definition</li>
+                    <li><strong>Arguments</strong>: Actual values passed to function</li>
+                    <li><strong>Return statement</strong>: Sends value back from function</li>
+                    <li><strong>Default parameters</strong>: Values used if no argument provided</li>
+                </ul>
+                
+                <h3>Understanding Scope:</h3>
+                <ul>
+                    <li><strong>Global Scope</strong>: Accessible everywhere in code</li>
+                    <li><strong>Function Scope</strong>: Accessible only within function</li>
+                    <li><strong>Block Scope</strong>: Accessible only within { } blocks (let/const)</li>
+                    <li><strong>Lexical Scope</strong>: Inner functions access outer function variables</li>
+                </ul>
+                
+                <h3>Advanced Function Concepts:</h3>
+                <ul>
+                    <li><strong>Callback Functions</strong>: Functions passed as arguments</li>
+                    <li><strong>Higher-Order Functions</strong>: Functions that take other functions as parameters</li>
+                    <li><strong>Closures</strong>: Functions that remember their lexical scope</li>
+                    <li><strong>Recursion</strong>: Functions that call themselves</li>
+                </ul>
+
+                <br><hr><br>
+                <div dir="rtl">
+                    <h3>ما هي الدوال؟</h3>
+                    <p>الدوال هي كتل كود قابلة لإعادة الاستخدام تؤدي مهام محددة. تساعد في تنظيم الكود، وتجنب التكرار، وتجعل البرامج أسهل للفهم.</p>
+                    
+                    <h3>أنواع تصريح الدوال:</h3>
+                    <ul>
+                        <li><strong>تصريح الدالة</strong>: function name() { }</li>
+                        <li><strong>تعبير الدالة</strong>: const name = function() { }</li>
+                        <li><strong>الدالة السهمية</strong>: const name = () => { }</li>
+                        <li><strong>تعبير الدالة المستدعى فوراً (IIFE)</strong>: (function() { })()</li>
+                    </ul>
+                    
+                    <h3>معاملات الدالة وقيم الإرجاع:</h3>
+                    <ul>
+                        <li><strong>المعاملات</strong>: المتغيرات المدرجة في تعريف الدالة</li>
+                        <li><strong>الوسيطات</strong>: القيم الفعلية الممررة للدالة</li>
+                        <li><strong>عبارة return</strong>: ترسل قيمة back من الدالة</li>
+                        <li><strong>المعاملات الافتراضية</strong>: القيم المستخدمة إذا لم يتم توفير وسيطة</li>
+                    </ul>
+                    
+                    <h3>فهم النطاق:</h3>
+                    <ul>
+                        <li><strong>النطاق العام</strong>: يمكن الوصول إليه في كل مكان في الكود</li>
+                        <li><strong>نطاق الدالة</strong>: يمكن الوصول إليه فقط داخل الدالة</li>
+                        <li><strong>نطاق الكتلة</strong>: يمكن الوصول إليه فقط داخل كتل { } (let/const)</li>
+                        <li><strong>النطاق المعجمي</strong>: الدوال الداخلية تصل إلى متغيرات الدالة الخارجية</li>
+                    </ul>
+                    
+                    <h3>مفاهيم الدوال المتقدمة:</h3>
+                    <ul>
+                        <li><strong>دوال الرد</strong>: الدوال الممررة كوسيطات</li>
+                        <li><strong>الدوال ذات الرتبة الأعلى</strong>: الدوال التي تأخذ دوال أخرى كمعاملات</li>
+                        <li><strong>الإغلاقات</strong>: الدوال التي تتذكر نطاقها المعجمي</li>
+                        <li><strong>التكرار</strong>: الدوال التي تستدعي نفسها</li>
+                    </ul>
+                </div>
+            `,
+            examples: [
+                {
+                    title: "Functions and Scope Examples",
+                    content: `
+                        <pre class="code-block">
+// Function declaration (hoisted - can be called before declaration)
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+// Function expression (not hoisted)
+const calculateArea = function(width, height) {
+    return width * height;
+};
+
+// Arrow function (not hoisted, no 'this' binding)
+const multiply = (a, b) => a * b;
+
+// Arrow function with multiple statements
+const createUser = (name, age) => {
+    const user = {
+        name: name,
+        age: age,
+        isAdult: age >= 18
+    };
+    return user;
+};
+
+// Default parameters
+function introduce(name = "Guest", age = 0) {
+    return \`I'm \${name} and I'm \${age} years old\`;
+}
+
+// Function with rest parameters
+function sum(...numbers) {
+    return numbers.reduce((total, num) => total + num, 0);
+}
+
+// Scope examples
+let globalVar = "I'm global";
+
+function scopeDemo() {
+    let functionVar = "I'm in function scope";
+    
+    if (true) {
+        let blockVar = "I'm in block scope";
+        console.log(globalVar);        // Accessible
+        console.log(functionVar);      // Accessible
+        console.log(blockVar);         // Accessible
+    }
+    
+    console.log(globalVar);            // Accessible
+    console.log(functionVar);          // Accessible
+    // console.log(blockVar);         // Error: not accessible
+}
+
+// Closure example
+function createCounter() {
+    let count = 0;
+    
+    return function() {
+        count++;
+        return count;
+    };
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
+
+// Callback function example
+function processUserInput(callback) {
+    const name = "John";
+    callback(name);
+}
+
+processUserInput(function(name) {
+    console.log("Hello, " + name);
+});
+
+// Higher-order function example
+function multiplyBy(factor) {
+    return function(number) {
+        return number * factor;
+    };
+}
+
+const double = multiplyBy(2);
+const triple = multiplyBy(3);
+
+console.log(double(5));  // 10
+console.log(triple(5));  // 15
+
+// Recursive function
+function factorial(n) {
+    if (n === 0 || n === 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+console.log(factorial(5)); // 120
+                        </pre>
+                    `
+                }
+            ],
+            practices: [
+                {
+                    title: "Functions Practice",
+                    content: `
+                        <p>Practice creating and using functions:</p>
+                        <ol>
+                            <li>Create functions using all declaration types (declaration, expression, arrow)</li>
+                            <li>Write functions that take parameters and return values</li>
+                            <li>Create functions with default parameters</li>
+                            <li>Practice scope by creating variables in different scopes</li>
+                            <li>Create a closure that maintains state</li>
+                            <li>Write a recursive function to solve a problem</li>
+                            <li>Create higher-order functions and use callbacks</li>
+                        </ol>
+                    `
+                }
+            ],
+            questions: [
+                {
+                    question: "What is hoisting in JavaScript?",
+                    answer: "Hoisting is JavaScript's behavior of moving declarations to the top of their scope before code execution. Function declarations are fully hoisted (can be called before declaration), while var variables are hoisted but initialized as undefined. let and const variables are hoisted but not initialized (temporal dead zone). Function expressions and arrow functions are not hoisted."
+                },
+                {
+                    question: "What are closures and why are they useful?",
+                    answer: "Closures are functions that remember the environment in which they were created, even after that environment has exited. They're useful for: 1) Creating private variables, 2) Maintaining state between function calls, 3) Implementing function factories, 4) Event handlers and callbacks that need access to outer scope variables."
+                }
+            ]
+        },
         {
             id: "arrays-objects",
             title: "Arrays and Objects - Data Structures",
@@ -229,374 +593,6 @@ const updatedPerson = { ...person, age: 32 }; // Copy with updated age
                 {
                     question: "When should I use arrays vs objects?",
                     answer: "Use arrays when you need an ordered collection of items, usually of the same type, and you need to maintain order. Use objects when you need to store key-value pairs representing properties of an entity, and the order doesn't matter. Arrays are for lists, objects are for things with properties."
-                }
-            ]
-        },
-        {
-            id: "strings-numbers-booleans",
-            title: "Working with Strings, Numbers, and Booleans",
-            content: `
-                <h3>String Manipulation</h3>
-                <p>Strings are sequences of characters used to represent text. JavaScript provides many methods to work with strings.</p>
-                
-                <h3>Common String Methods:</h3>
-                <ul>
-                    <li><strong>length</strong>: Get string length</li>
-                    <li><strong>toUpperCase() / toLowerCase()</strong>: Change case</li>
-                    <li><strong>trim()</strong>: Remove whitespace from ends</li>
-                    <li><strong>includes()</strong>: Check if string contains substring</li>
-                    <li><strong>startsWith() / endsWith()</strong>: Check beginning/end</li>
-                    <li><strong>slice() / substring()</strong>: Extract parts of string</li>
-                    <li><strong>split()</strong>: Split string into array</li>
-                    <li><strong>replace()</strong>: Replace parts of string</li>
-                </ul>
-                
-                <h3>Number Operations and Methods:</h3>
-                <ul>
-                    <li><strong>Math operations</strong>: +, -, *, /, %, **</li>
-                    <li><strong>Math object</strong>: Math.round(), Math.floor(), Math.ceil()</li>
-                    <li><strong>parseInt() / parseFloat()</strong>: Convert strings to numbers</li>
-                    <li><strong>Number()</strong>: Convert to number</li>
-                    <li><strong>toFixed()</strong>: Format decimal places</li>
-                    <li><strong>isNaN()</strong>: Check if value is Not-a-Number</li>
-                </ul>
-                
-                <h3>Boolean Logic and Operations:</h3>
-                <ul>
-                    <li><strong>Truthy and Falsy values</strong>: All values have inherent boolean meaning</li>
-                    <li><strong>Logical operators</strong>: &&, ||, !</li>
-                    <li><strong>Comparison operators</strong>: ==, ===, !=, !==, >, <, >=, <=</li>
-                    <li><strong>Boolean conversion</strong>: Using Boolean() or !! operator</li>
-                </ul>
-
-                <br><hr><br>
-                <div dir="rtl">
-                    <h3>التعامل مع النصوص</h3>
-                    <p>النصوص هي تسلسلات من الأحرف تستخدم لتمثيل النص. توفر JavaScript العديد من الطرق للعمل مع النصوص.</p>
-                    
-                    <h3>الطرق الشائعة للنصوص:</h3>
-                    <ul>
-                        <li><strong>length</strong>: الحصول على طول النص</li>
-                        <li><strong>toUpperCase() / toLowerCase()</strong>: تغيير حالة الأحرف</li>
-                        <li><strong>trim()</strong>: إزالة المسافات من الأطراف</li>
-                        <li><strong>includes()</strong>: التحقق إذا كان النص يحتوي على جزء معين</li>
-                        <li><strong>startsWith() / endsWith()</strong>: التحقق من البداية/النهاية</li>
-                        <li><strong>slice() / substring()</strong>: استخراج أجزاء من النص</li>
-                        <li><strong>split()</strong>: تقسيم النص إلى مصفوفة</li>
-                        <li><strong>replace()</strong>: استبدال أجزاء من النص</li>
-                    </ul>
-                    
-                    <h3>عمليات وطرق الأرقام:</h3>
-                    <ul>
-                        <li><strong>العمليات الحسابية</strong>: +, -, *, /, %, **</li>
-                        <li><strong>كائن Math</strong>: Math.round(), Math.floor(), Math.ceil()</li>
-                        <li><strong>parseInt() / parseFloat()</strong>: تحويل النصوص إلى أرقام</li>
-                        <li><strong>Number()</strong>: التحويل إلى رقم</li>
-                        <li><strong>toFixed()</strong>: تنسيق المنازل العشرية</li>
-                        <li><strong>isNaN()</strong>: التحقق إذا كانت القيمة ليست رقمًا</li>
-                    </ul>
-                    
-                    <h3>المنطق القيمي والعمليات:</h3>
-                    <ul>
-                        <li><strong>القيم الحقيقية والزائفة</strong>: جميع القيم لها معنى منطقي inherent</li>
-                        <li><strong>العوامل المنطقية</strong>: &&, ||, !</li>
-                        <li><strong>عوامل المقارنة</strong>: ==, ===, !=, !==, >, <, >=, <=</li>
-                        <li><strong>التحويل المنطقي</strong>: استخدام Boolean() أو عامل !!</li>
-                    </ul>
-                </div>
-            `,
-            examples: [
-                {
-                    title: "String, Number, and Boolean Examples",
-                    content: `
-                        <pre class="code-block">
-// String examples
-let text = "  Hello JavaScript World!  ";
-console.log(text.length);           // 25
-console.log(text.trim());           // "Hello JavaScript World!"
-console.log(text.toUpperCase());    // "  HELLO JAVASCRIPT WORLD!  "
-console.log(text.includes("Java")); // true
-console.log(text.startsWith("  He")); // true
-console.log(text.slice(2, 7));      // "Hello"
-console.log(text.split(" "));       // ["", "", "Hello", "JavaScript", "World!", "", ""]
-console.log(text.replace("World", "Universe")); // "  Hello JavaScript Universe!  "
-
-// Number examples
-let num = 3.14159;
-console.log(Math.round(num));       // 3
-console.log(Math.floor(num));       // 3
-console.log(Math.ceil(num));        // 4
-console.log(num.toFixed(2));        // "3.14"
-
-let price = "19.99";
-console.log(parseFloat(price));     // 19.99
-console.log(parseInt(price));       // 19
-console.log(Number(price));         // 19.99
-
-console.log(isNaN("hello"));        // true
-console.log(isNaN("123"));          // false
-
-// Boolean examples
-console.log(Boolean("hello"));      // true
-console.log(Boolean(""));           // false
-console.log(Boolean(0));            // false
-console.log(Boolean(1));            // true
-console.log(Boolean(null));         // false
-console.log(Boolean(undefined));    // false
-
-// Using !! for boolean conversion
-console.log(!!"hello");             // true
-console.log(!!0);                   // false
-
-// String template literals
-let name = "Alice";
-let age = 25;
-let message = \`\${name} is \${age} years old and will be \${age + 1} next year.\`;
-console.log(message); // "Alice is 25 years old and will be 26 next year."
-                        </pre>
-                    `
-                }
-            ],
-            practices: [
-                {
-                    title: "String, Number, Boolean Practice",
-                    content: `
-                        <p>Practice working with strings, numbers, and booleans:</p>
-                        <ol>
-                            <li>Create a string and practice using different string methods</li>
-                            <li>Convert between strings and numbers using different methods</li>
-                            <li>Practice mathematical operations and using Math object methods</li>
-                            <li>Test different values for truthiness and falsiness</li>
-                            <li>Create a function that validates email format using string methods</li>
-                            <li>Build a simple calculator that handles decimal numbers</li>
-                        </ol>
-                    `
-                }
-            ],
-            questions: [
-                {
-                    question: "What's the difference between slice() and substring() for strings?",
-                    answer: "Both extract parts of strings, but slice() can accept negative indexes (counting from the end), while substring() treats negative indexes as 0. Also, if start > end, substring() will swap them, while slice() returns an empty string. Generally, slice() is more commonly used."
-                },
-                {
-                    question: "When should I use parseInt() vs Number()?",
-                    answer: "Use parseInt() when you want to convert a string to an integer and ignore decimal parts. It also allows you to specify a radix (number base). Use Number() when you want strict conversion that includes decimals and will return NaN if the entire string cannot be converted to a number."
-                }
-            ]
-        },
-        {
-            id: "destructuring-falsy-truthy",
-            title: "Destructuring, Falsy & Truthy Values",
-            content: `
-                <h3>Destructuring Assignment</h3>
-                <p>Destructuring allows you to extract values from arrays or properties from objects into distinct variables.</p>
-                
-                <h3>Array Destructuring:</h3>
-                <ul>
-                    <li>Extract values by position</li>
-                    <li>Skip elements with empty commas</li>
-                    <li>Use default values</li>
-                    <li>Rest pattern to collect remaining elements</li>
-                    <li>Swap variables easily</li>
-                </ul>
-                
-                <h3>Object Destructuring:</h3>
-                <ul>
-                    <li>Extract properties by name</li>
-                    <li>Use different variable names</li>
-                    <li>Nested destructuring</li>
-                    <li>Default values for missing properties</li>
-                    <li>Rest properties</li>
-                </ul>
-                
-                <h3>Falsy and Truthy Values</h3>
-                <p>In JavaScript, values are inherently 'truthy' or 'falsy' when evaluated in a boolean context.</p>
-                
-                <h3>Falsy Values (become false):</h3>
-                <ul>
-                    <li><strong>false</strong>: The boolean false</li>
-                    <li><strong>0</strong>: The number zero</li>
-                    <li><strong>""</strong>: Empty string</li>
-                    <li><strong>null</strong>: No value</li>
-                    <li><strong>undefined</strong>: Variable not defined</li>
-                    <li><strong>NaN</strong>: Not a Number</li>
-                </ul>
-                
-                <h3>Truthy Values (become true):</h3>
-                <ul>
-                    <li>Everything that's not falsy!</li>
-                    <li><strong>true</strong>: The boolean true</li>
-                    <li><strong>1</strong>, any non-zero number</li>
-                    <li><strong>"hello"</strong>, any non-empty string</li>
-                    <li><strong>[]</strong>: Empty array</li>
-                    <li><strong>{}</strong>: Empty object</li>
-                    <li><strong>function(){}</strong>: Functions</li>
-                </ul>
-
-                <br><hr><br>
-                <div dir="rtl">
-                    <h3>التعيين بالتفكيك</h3>
-                    <p>يسمح التفكيك باستخراج القيم من المصفوفات أو الخصائص من الكائنات إلى متغيرات منفصلة.</p>
-                    
-                    <h3>تفكيك المصفوفات:</h3>
-                    <ul>
-                        <li>استخراج القيم حسب الموضع</li>
-                        <li>تخطي العناصر بفواصل فارغة</li>
-                        <li>استخدام القيم الافتراضية</li>
-                        <li>نمط الباقي لجمع العناصر المتبقية</li>
-                        <li>تبديل المتغيرات بسهولة</li>
-                    </ul>
-                    
-                    <h3>تفكيك الكائنات:</h3>
-                    <ul>
-                        <li>استخراج الخصائص حسب الاسم</li>
-                        <li>استخدام أسماء متغيرات مختلفة</li>
-                        <li>التفكيك المتداخل</li>
-                        <li>القيم الافتراضية للخصائص المفقودة</li>
-                        <li>خصائص الباقي</li>
-                    </ul>
-                    
-                    <h3>القيم الزائفة والحقيقية</h3>
-                    <p>في JavaScript، القيم تكون بشكل inherent 'حقيقية' أو 'زائفة' عند تقييمها في سياق منطقي.</p>
-                    
-                    <h3>القيم الزائفة (تصبح false):</h3>
-                    <ul>
-                        <li><strong>false</strong>: القيمة المنطقية false</li>
-                        <li><strong>0</strong>: الرقم صفر</li>
-                        <li><strong>""</strong>: نص فارغ</li>
-                        <li><strong>null</strong>: لا قيمة</li>
-                        <li><strong>undefined</strong>: متغير غير معرّف</li>
-                        <li><strong>NaN</strong>: ليس رقمًا</li>
-                    </ul>
-                    
-                    <h3>القيم الحقيقية (تصبح true):</h3>
-                    <ul>
-                        <li>كل شيء ليس زائفًا!</li>
-                        <li><strong>true</strong>: القيمة المنطقية true</li>
-                        <li><strong>1</strong>, أي رقم غير صفر</li>
-                        <li><strong>"hello"</strong>, أي نص غير فارغ</li>
-                        <li><strong>[]</strong>: مصفوفة فارغة</li>
-                        <li><strong>{}</strong>: كائن فارغ</li>
-                        <li><strong>function(){}</strong>: الدوال</li>
-                    </ul>
-                </div>
-            `,
-            examples: [
-                {
-                    title: "Destructuring and Truthy/Falsy Examples",
-                    content: `
-                        <pre class="code-block">
-// Array destructuring
-let colors = ["red", "green", "blue", "yellow"];
-let [firstColor, secondColor] = colors;
-console.log(firstColor);  // "red"
-console.log(secondColor); // "green"
-
-// Skipping elements
-let [,, thirdColor] = colors;
-console.log(thirdColor);  // "blue"
-
-// Default values
-let numbers = [1];
-let [a, b = 10] = numbers;
-console.log(a); // 1
-console.log(b); // 10
-
-// Rest pattern
-let [primary, ...otherColors] = colors;
-console.log(primary);     // "red"
-console.log(otherColors); // ["green", "blue", "yellow"]
-
-// Swapping variables
-let x = 1, y = 2;
-[x, y] = [y, x];
-console.log(x, y); // 2, 1
-
-// Object destructuring
-let person = {
-    name: "John",
-    age: 30,
-    city: "New York"
-};
-
-let { name, age } = person;
-console.log(name); // "John"
-console.log(age);  // 30
-
-// Different variable names
-let { name: personName, age: personAge } = person;
-console.log(personName); // "John"
-console.log(personAge);  // 30
-
-// Default values
-let { country = "USA" } = person;
-console.log(country); // "USA"
-
-// Nested destructuring
-let employee = {
-    id: 1,
-    info: {
-        firstName: "Jane",
-        lastName: "Doe"
-    }
-};
-
-let { info: { firstName, lastName } } = employee;
-console.log(firstName, lastName); // "Jane Doe"
-
-// Falsy values examples
-if (false) { console.log("This won't run"); }
-if (0) { console.log("This won't run"); }
-if ("") { console.log("This won't run"); }
-if (null) { console.log("This won't run"); }
-if (undefined) { console.log("This won't run"); }
-if (NaN) { console.log("This won't run"); }
-
-// Truthy values examples
-if (true) { console.log("This will run"); }
-if (1) { console.log("This will run"); }
-if ("hello") { console.log("This will run"); }
-if ([]) { console.log("This will run"); }
-if ({}) { console.log("This will run"); }
-if (function() {}) { console.log("This will run"); }
-
-// Practical truthy/falsy usage
-let userInput = "";
-let username = userInput || "Guest";
-console.log(username); // "Guest"
-
-let count = 0;
-let displayCount = count || "No items";
-console.log(displayCount); // "No items"
-                        </pre>
-                    `
-                }
-            ],
-            practices: [
-                {
-                    title: "Destructuring and Truthy/Falsy Practice",
-                    content: `
-                        <p>Practice destructuring and working with truthy/falsy values:</p>
-                        <ol>
-                            <li>Destructure arrays to extract specific elements</li>
-                            <li>Destructure objects to extract properties with different variable names</li>
-                            <li>Practice nested destructuring with complex objects</li>
-                            <li>Use default values in destructuring</li>
-                            <li>Test various values for truthiness in conditions</li>
-                            <li>Use logical operators with truthy/falsy values for default values</li>
-                            <li>Create a function that uses destructuring in parameters</li>
-                        </ol>
-                    `
-                }
-            ],
-            questions: [
-                {
-                    question: "Why are empty arrays and objects truthy?",
-                    answer: "Empty arrays ([]) and empty objects ({}) are truthy because they are objects, and all objects are truthy in JavaScript. This is by design - the only falsy values are specifically: false, 0, \"\", null, undefined, and NaN. Everything else, including all objects and arrays (even empty ones), is truthy."
-                },
-                {
-                    question: "What's the difference between destructuring and normal property access?",
-                    answer: "Destructuring provides a concise way to extract multiple values from arrays or objects into variables. It's more readable when you need multiple values, allows for default values, enables variable renaming, and supports nested extraction. Regular property access is better for single values or when you don't know which properties you'll need in advance."
                 }
             ]
         },

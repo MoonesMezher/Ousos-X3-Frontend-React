@@ -6,314 +6,204 @@ const courseData = {
         center: "Ousos"
     },
     topics: [
-        {
-            id: "events-forms",
-            title: "Events and Forms - User Interaction",
+         {
+            id: "arrays-objects",
+            title: "Arrays and Objects - Data Structures",
             content: `
-                <h3>Understanding Events:</h3>
-                <p>Events are actions that happen in the browser, such as clicks, keyboard input, or page loading. JavaScript can respond to these events to create interactive web pages.</p>
+                <h3>Arrays - Ordered Collections:</h3>
+                <p>Arrays are used to store multiple values in a single variable. They maintain order and can contain mixed data types.</p>
                 
-                <h3>Common Event Types:</h3>
+                <h3>Creating and Accessing Arrays:</h3>
                 <ul>
-                    <li><strong>Mouse Events</strong>: click, dblclick, mousedown, mouseup, mousemove</li>
-                    <li><strong>Keyboard Events</strong>: keydown, keyup, keypress</li>
-                    <li><strong>Form Events</strong>: submit, change, input, focus, blur</li>
-                    <li><strong>Window Events</strong>: load, resize, scroll, beforeunload</li>
-                    <li><strong>Touch Events</strong>: touchstart, touchmove, touchend</li>
+                    <li><strong>Literal syntax</strong>: const arr = [1, 2, 3]</li>
+                    <li><strong>Constructor</strong>: const arr = new Array(1, 2, 3)</li>
+                    <li><strong>Access elements</strong>: arr[0] (zero-based indexing)</li>
+                    <li><strong>Array length</strong>: arr.length</li>
                 </ul>
                 
-                <h3>Event Handling Methods:</h3>
+                <h3>Common Array Methods:</h3>
                 <ul>
-                    <li><strong>addEventListener</strong>: Modern way to attach events</li>
-                    <li><strong>removeEventListener</strong>: Remove event handlers</li>
-                    <li><strong>Inline event handlers</strong>: onclick=\"code\" (not recommended)</li>
-                    <li><strong>Event object properties</strong>: target, type, preventDefault(), stopPropagation()</li>
+                    <li><strong>push/pop</strong>: Add/remove from end</li>
+                    <li><strong>shift/unshift</strong>: Add/remove from beginning</li>
+                    <li><strong>slice</strong>: Copy portion of array</li>
+                    <li><strong>splice</strong>: Add/remove elements at position</li>
+                    <li><strong>concat</strong>: Combine arrays</li>
+                    <li><strong>indexOf/lastIndexOf</strong>: Find element position</li>
                 </ul>
                 
-                <h3>Working with Forms:</h3>
+                <h3>Iteration Methods:</h3>
                 <ul>
-                    <li><strong>Form elements</strong>: input, textarea, select, button</li>
-                    <li><strong>Form validation</strong>: Client-side validation</li>
-                    <li><strong>Form submission</strong>: Handling form data</li>
-                    <li><strong>Form reset</strong>: Clearing form data</li>
-                    <li><strong>Form data access</strong>: Using FormData API</li>
+                    <li><strong>forEach</strong>: Execute function for each element</li>
+                    <li><strong>map</strong>: Transform each element</li>
+                    <li><strong>filter</strong>: Create new array with filtered elements</li>
+                    <li><strong>reduce</strong>: Reduce array to single value</li>
+                    <li><strong>find/findIndex</strong>: Find element that matches condition</li>
+                    <li><strong>some/every</strong>: Check if some/all elements meet condition</li>
                 </ul>
                 
-                <h3>Event Propagation:</h3>
+                <h3>Objects - Key-Value Collections:</h3>
+                <p>Objects store collections of key-value pairs. They're perfect for representing real-world entities.</p>
+                
+                <h3>Working with Objects:</h3>
                 <ul>
-                    <li><strong>Event Bubbling</strong>: Events bubble up from target to root</li>
-                    <li><strong>Event Capturing</strong>: Events capture down from root to target</li>
-                    <li><strong>Event Delegation</strong>: Handling events on parent elements</li>
-                    <li><strong>stopPropagation()</strong>: Stop event from propagating</li>
+                    <li><strong>Object literal</strong>: const obj = { key: value }</li>
+                    <li><strong>Access properties</strong>: obj.key or obj["key"]</li>
+                    <li><strong>Add properties</strong>: obj.newKey = value</li>
+                    <li><strong>Delete properties</strong>: delete obj.key</li>
+                    <li><strong>Check existence</strong>: "key" in obj or obj.hasOwnProperty("key")</li>
                 </ul>
 
                 <br><hr><br>
                 <div dir="rtl">
-                    <h3>فهم الأحداث:</h3>
-                    <p>الأحداث هي إجراءات تحدث في المتصفح، مثل النقرات، إدخال لوحة المفاتيح، أو تحميل الصفحة. يمكن لـ JavaScript الرد على هذه الأحداث لإنشاء صفحات ويب تفاعلية.</p>
+                    <h3>المصفوفات - المجموعات المرتبة:</h3>
+                    <p>تستخدم المصفوفات لتخزين قيم متعددة في متغير واحد. تحافظ على الترتيب ويمكن أن تحتوي على أنواع بيانات مختلطة.</p>
                     
-                    <h3>أنواع الأحداث الشائعة:</h3>
+                    <h3>إنشاء المصفوفات والوصول إليها:</h3>
                     <ul>
-                        <li><strong>أحداث الفأرة</strong>: click, dblclick, mousedown, mouseup, mousemove</li>
-                        <li><strong>أحداث لوحة المفاتيح</strong>: keydown, keyup, keypress</li>
-                        <li><strong>أحداث النماذج</strong>: submit, change, input, focus, blur</li>
-                        <li><strong>أحداث النافذة</strong>: load, resize, scroll, beforeunload</li>
-                        <li><strong>أحداث اللمس</strong>: touchstart, touchmove, touchend</li>
+                        <li><strong>بناء الجملة الحرفي</strong>: const arr = [1, 2, 3]</li>
+                        <li><strong>المنشئ</strong>: const arr = new Array(1, 2, 3)</li>
+                        <li><strong>الوصول إلى العناصر</strong>: arr[0] (فهرسة قائمة على الصفر)</li>
+                        <li><strong>طول المصفوفة</strong>: arr.length</li>
                     </ul>
                     
-                    <h3>طرق معالجة الأحداث:</h3>
+                    <h3>طرق المصفوفة الشائعة:</h3>
                     <ul>
-                        <li><strong>addEventListener</strong>: الطريقة الحديثة لإرفاق الأحداث</li>
-                        <li><strong>removeEventListener</strong>: أزل معالجي الأحداث</li>
-                        <li><strong>معالجي الأحداث المضمنين</strong>: onclick=\"code\" (غير موصى به)</li>
-                        <li><strong>خصائص كائن الحدث</strong>: target, type, preventDefault(), stopPropagation()</li>
+                        <li><strong>push/pop</strong>: أضف/أزل من النهاية</li>
+                        <li><strong>shift/unshift</strong>: أضف/أزل من البداية</li>
+                        <li><strong>slice</strong>: انسخ جزءًا من المصفوفة</li>
+                        <li><strong>splice</strong>: أضف/أزل العناصر في موضع</li>
+                        <li><strong>concat</strong>: اجمع المصفوفات</li>
+                        <li><strong>indexOf/lastIndexOf</strong>: ابحث عن موضع العنصر</li>
                     </ul>
                     
-                    <h3>العمل مع النماذج:</h3>
+                    <h3>طرق التكرار:</h3>
                     <ul>
-                        <li><strong>عناصر النموذج</strong>: input, textarea, select, button</li>
-                        <li><strong>التحقق من النموذج</strong>: التحقق من جانب العميل</li>
-                        <li><strong>إرسال النموذج</strong>: معالجة بيانات النموذج</li>
-                        <li><strong>إعادة تعيين النموذج</strong>: مسح بيانات النموذج</li>
-                        <li><strong>الوصول إلى بيانات النموذج</strong>: استخدام FormData API</li>
+                        <li><strong>forEach</strong>: نفذ دالة لكل عنصر</li>
+                        <li><strong>map</strong>: حول كل عنصر</li>
+                        <li><strong>filter</strong>: أنشئ مصفوفة جديدة بعناصر filtered</li>
+                        <li><strong>reduce</strong>: قلل المصفوفة إلى قيمة واحدة</li>
+                        <li><strong>find/findIndex</strong>: ابحث عن عنصر يطابق الشرط</li>
+                        <li><strong>some/every</strong>: تحقق إذا كان بعض/كل العناصر تفي بالشرط</li>
                     </ul>
                     
-                    <h3>انتشار الحدث:</h3>
+                    <h3>الكائنات - مجموعات المفتاح-القيمة:</h3>
+                    <p>تخزن الكائنات مجموعات من أزواج المفتاح-القيمة. إنها مثالية لتمثيل الكيانات في العالم الحقيقي.</p>
+                    
+                    <h3>العمل مع الكائنات:</h3>
                     <ul>
-                        <li><strong>Event Bubbling</strong>: تنتقل الأحداث من الهدف إلى الجذر</li>
-                        <li><strong>Event Capturing</strong>: تلتقط الأحداث من الجذر إلى الهدف</li>
-                        <li><strong>تفويض الحدث</strong>: معالجة الأحداث على العناصر الأصل</li>
-                        <li><strong>stopPropagation()</strong>: أوقف الحدث من الانتشار</li>
+                        <li><strong>الكائن الحرفي</strong>: const obj = { key: value }</li>
+                        <li><strong>الوصول إلى الخصائص</strong>: obj.key أو obj["key"]</li>
+                        <li><strong>أضف الخصائص</strong>: obj.newKey = value</li>
+                        <li><strong>احذف الخصائص</strong>: delete obj.key</li>
+                        <li><strong>تحقق من الوجود</strong>: "key" in obj أو obj.hasOwnProperty("key")</li>
                     </ul>
                 </div>
             `,
             examples: [
                 {
-                    title: "Events and Forms Examples",
-                    content: `
-                        <pre class="code-block">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Events and Forms&lt;/title&gt;
-    &lt;style&gt;
-        .error { color: red; font-size: 0.9em; }
-        .success { color: green; }
-        .hidden { display: none; }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id="app"&gt;
-        &lt;h1&gt;Event Handling Examples&lt;/h1&gt;
-        
-        &lt;!-- Mouse Events --&gt;
-        &lt;div id="mouse-area" style="border: 1px solid #ccc; padding: 20px; margin: 10px;"&gt;
-            &lt;p&gt;Mouse coordinates: &lt;span id="coordinates"&gt;0, 0&lt;/span&gt;&lt;/p&gt;
-        &lt;/div&gt;
-        
-        &lt;!-- Keyboard Events --&gt;
-        &lt;div style="margin: 10px;"&gt;
-            &lt;input type="text" id="key-input" placeholder="Type something..."&gt;
-            &lt;p&gt;Last key pressed: &lt;span id="key-display"&gt;&lt;/span&gt;&lt;/p&gt;
-        &lt;/div&gt;
-        
-        &lt;!-- Form Example --&gt;
-        &lt;form id="user-form"&gt;
-            &lt;div&gt;
-                &lt;label for="name"&gt;Name:&lt;/label&gt;
-                &lt;input type="text" id="name" name="name" required&gt;
-                &lt;span id="name-error" class="error hidden"&gt;&lt;/span&gt;
-            &lt;/div&gt;
-            
-            &lt;div&gt;
-                &lt;label for="email"&gt;Email:&lt;/label&gt;
-                &lt;input type="email" id="email" name="email" required&gt;
-                &lt;span id="email-error" class="error hidden"&gt;&lt;/span&gt;
-            &lt;/div&gt;
-            
-            &lt;div&gt;
-                &lt;label for="age"&gt;Age:&lt;/label&gt;
-                &lt;input type="number" id="age" name="age" min="0" max="120"&gt;
-            &lt;/div&gt;
-            
-            &lt;button type="submit"&gt;Submit&lt;/button&gt;
-        &lt;/form&gt;
-        
-        &lt;div id="form-output"&gt;&lt;/div&gt;
-    &lt;/div&gt;
+                    title: "Objects Examples",
+                    content: `// Object creation and operations
+const person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 30,
+    isStudent: false,
+    hobbies: ["reading", "swimming"],
+    address: {
+        street: "123 Main St",
+        city: "Anytown",
+        country: "USA"
+    },
+    // Method (function in object)
+    getFullName: function() {
+        return this.firstName + " " + this.lastName;
+    },
+    // Shorthand method syntax (ES6)
+    greet() {
+        return "Hello, I'm " + this.firstName;
+    }
+};
 
-    &lt;script&gt;
-        // Mouse events
-        const mouseArea = document.getElementById('mouse-area');
-        const coordinates = document.getElementById('coordinates');
-        
-        mouseArea.addEventListener('mousemove', function(event) {
-            coordinates.textContent = \`\${event.clientX}, \${event.clientY}\`;
-        });
-        
-        mouseArea.addEventListener('click', function(event) {
-            this.style.backgroundColor = this.style.backgroundColor === 'lightblue' ? '' : 'lightblue';
-        });
-        
-        mouseArea.addEventListener('dblclick', function() {
-            this.style.backgroundColor = 'lightgreen';
-        });
-        
-        // Keyboard events
-        const keyInput = document.getElementById('key-input');
-        const keyDisplay = document.getElementById('key-display');
-        
-        keyInput.addEventListener('keydown', function(event) {
-            keyDisplay.textContent = \`Key: \${event.key}, Code: \${event.code}\`;
-        });
-        
-        keyInput.addEventListener('keyup', function() {
-            // Additional keyup logic if needed
-        });
-        
-        // Form handling
-        const userForm = document.getElementById('user-form');
-        const formOutput = document.getElementById('form-output');
-        
-        // Real-time validation
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const nameError = document.getElementById('name-error');
-        const emailError = document.getElementById('email-error');
-        
-        nameInput.addEventListener('input', function() {
-            if (this.value.length < 2) {
-                nameError.textContent = 'Name must be at least 2 characters';
-                nameError.classList.remove('hidden');
-            } else {
-                nameError.classList.add('hidden');
-            }
-        });
-        
-        emailInput.addEventListener('blur', function() {
-            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-            if (!emailRegex.test(this.value)) {
-                emailError.textContent = 'Please enter a valid email address';
-                emailError.classList.remove('hidden');
-            } else {
-                emailError.classList.add('hidden');
-            }
-        });
-        
-        // Form submission
-        userForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent actual form submission
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simple validation
-            let isValid = true;
-            
-            if (!data.name || data.name.length < 2) {
-                nameError.textContent = 'Name is required and must be at least 2 characters';
-                nameError.classList.remove('hidden');
-                isValid = false;
-            }
-            
-            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-            if (!data.email || !emailRegex.test(data.email)) {
-                emailError.textContent = 'Valid email is required';
-                emailError.classList.remove('hidden');
-                isValid = false;
-            }
-            
-            if (isValid) {
-                // Display success message
-                formOutput.innerHTML = \`
-                    &lt;div class="success"&gt;
-                        &lt;h3&gt;Form Submitted Successfully!&lt;/h3&gt;
-                        &lt;p&gt;Name: \${data.name}&lt;/p&gt;
-                        &lt;p&gt;Email: \${data.email}&lt;/p&gt;
-                        &lt;p&gt;Age: \${data.age || 'Not specified'}&lt;/p&gt;
-                    &lt;/div&gt;
-                \`;
-                
-                // Reset form
-                this.reset();
-                
-                // Clear errors
-                nameError.classList.add('hidden');
-                emailError.classList.add('hidden');
-            }
-        });
-        
-        // Event delegation example
-        document.addEventListener('click', function(event) {
-            if (event.target.matches('button')) {
-                console.log('Button clicked:', event.target.textContent);
-            }
-        });
-        
-        // Window events
-        window.addEventListener('resize', function() {
-            console.log('Window resized to:', window.innerWidth, 'x', window.innerHeight);
-        });
-        
-        window.addEventListener('scroll', function() {
-            console.log('Scrolled to:', window.scrollY);
-        });
-        
-        // Prevent context menu
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-            alert('Right-click is disabled on this page');
-        });
-        
-        // Custom events (advanced)
-        const customEvent = new CustomEvent('userRegistered', {
-            detail: { message: 'A new user has been registered' }
-        });
-        
-        // Dispatch custom event
-        document.addEventListener('userRegistered', function(event) {
-            console.log('Custom event received:', event.detail.message);
-        });
-        
-        // Trigger custom event after form submission
-        userForm.addEventListener('submit', function() {
-            setTimeout(() => {
-                document.dispatchEvent(customEvent);
-            }, 1000);
-        });
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+// Accessing object properties
+console.log(person.firstName);           // "John"
+console.log(person["lastName"]);         // "Doe"
+console.log(person.address.city);        // "Anytown"
+console.log(person.getFullName());       // "John Doe"
+
+// Modifying objects
+person.age = 31;                        // Update property
+person.email = "john@example.com";      // Add new property
+delete person.isStudent;                // Delete property
+
+// Object methods
+const keys = Object.keys(person);       // ["firstName", "lastName", "age", ...]
+const values = Object.values(person);   // ["John", "Doe", 31, ...]
+const entries = Object.entries(person); // [["firstName", "John"], ["lastName", "Doe"], ...]
+
+// Checking properties
+console.log("firstName" in person);     // true
+console.log(person.hasOwnProperty("age")); // true
+
+// Object iteration
+for (let key in person) {
+    if (person.hasOwnProperty(key)) {
+        console.log(key + ": " + person[key]);
+    }
+}
+
+// Array of objects (common pattern)
+const users = [
+    { id: 1, name: "Alice", age: 25 },
+    { id: 2, name: "Bob", age: 30 },
+    { id: 3, name: "Charlie", age: 35 }
+];
+
+// Find user by id
+const user = users.find(u => u.id === 2); // { id: 2, name: "Bob", age: 30 }
+
+// Get array of names
+const userNames = users.map(u => u.name); // ["Alice", "Bob", "Charlie"]
+
+// Filter users by age
+const youngUsers = users.filter(u => u.age < 30); // [{ id: 1, name: "Alice", age: 25 }]
+
+// Destructuring arrays and objects (ES6)
+const [firstFruit, secondFruit] = fruits; // firstFruit = "apple", secondFruit = "banana"
+const { firstName, age } = person;        // firstName = "John", age = 31
+
+// Spread operator with arrays and objects
+const newFruits = [...fruits, "mango"];   // ["apple", "banana", "orange", "mango"]
+const updatedPerson = { ...person, age: 32 }; // Copy with updated age
                         </pre>
                     `
                 }
             ],
             practices: [
                 {
-                    title: "Events and Forms Practice",
+                    title: "Arrays and Objects Practice",
                     content: `
-                        <p>Practice event handling and form manipulation:</p>
+                        <p>Practice working with arrays and objects:</p>
                         <ol>
-                            <li>Create a drag-and-drop interface for reordering items</li>
-                            <li>Build a real-time character counter for text inputs</li>
-                            <li>Create a custom dropdown menu with keyboard navigation</li>
-                            <li>Build a form with complex validation rules</li>
-                            <li>Create a drawing application using mouse events</li>
-                            <li>Build a keyboard shortcut system for your application</li>
-                            <li>Create a file upload interface with preview functionality</li>
+                            <li>Create arrays with different data types and practice basic operations</li>
+                            <li>Use array methods (map, filter, reduce, forEach) to transform data</li>
+                            <li>Create objects representing real-world entities</li>
+                            <li>Practice accessing, adding, and modifying object properties</li>
+                            <li>Create an array of objects and practice filtering and mapping</li>
+                            <li>Use object methods (keys, values, entries) to work with objects</li>
+                            <li>Practice destructuring arrays and objects</li>
+                            <li>Use spread operator to copy and combine arrays/objects</li>
                         </ol>
                     `
                 }
             ],
             questions: [
                 {
-                    question: "What's the difference between event.preventDefault() and event.stopPropagation()?",
-                    answer: "event.preventDefault() prevents the default browser behavior for that event (like form submission or link navigation). event.stopPropagation() stops the event from bubbling up the DOM tree, preventing parent elements from receiving the event. Use preventDefault() when you want to handle the event completely yourself, and stopPropagation() when you want to contain the event to a specific element."
+                    question: "What's the difference between array methods that mutate vs return new arrays?",
+                    answer: "Mutating methods change the original array (push, pop, shift, unshift, splice, sort, reverse). Non-mutating methods return a new array without changing the original (map, filter, slice, concat, reduce). It's generally better to use non-mutating methods to avoid unexpected side effects and make code more predictable."
                 },
                 {
-                    question: "Why is event delegation important for dynamic content?",
-                    answer: "Event delegation allows you to handle events for elements that don't exist yet when the page loads. By attaching the event listener to a parent element that does exist, you can handle events from dynamically added child elements. This is more efficient than attaching individual event listeners to each new element and prevents memory leaks from forgotten event listeners."
+                    question: "When should I use arrays vs objects?",
+                    answer: "Use arrays when you need an ordered collection of items, usually of the same type, and you need to maintain order. Use objects when you need to store key-value pairs representing properties of an entity, and the order doesn't matter. Arrays are for lists, objects are for things with properties."
                 }
             ]
         },

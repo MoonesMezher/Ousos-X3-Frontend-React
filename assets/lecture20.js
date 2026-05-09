@@ -7,761 +7,228 @@ const courseData = {
     },
     topics: [
         {
-            id: "nullish-other-operators",
-            title: "Nullish and Other Modern Operators",
+            id: "arrays-objects",
+            title: "Arrays and Objects - Data Structures",
             content: `
-                <h3>Nullish Coalescing Operator (??)</h3>
-                <p>The ?? operator returns the right-hand operand when the left-hand operand is null or undefined, otherwise returns the left-hand operand.</p>
+                <h3>Arrays - Ordered Collections:</h3>
+                <p>Arrays are used to store multiple values in a single variable. They maintain order and can contain mixed data types.</p>
                 
-                <h3>Optional Chaining Operator (?.)</h3>
-                <p>The ?. operator allows you to safely access nested object properties without causing errors if a reference is null or undefined.</p>
-                
-                <h3>Logical Assignment Operators</h3>
-                <p>Combine logical operations with assignment in a concise way.</p>
-                
-                <h3>Nullish Coalescing (??):</h3>
+                <h3>Creating and Accessing Arrays:</h3>
                 <ul>
-                    <li>Returns right value only if left is null or undefined</li>
-                    <li>Different from || which returns right for any falsy value</li>
-                    <li>Useful for providing defaults without overriding empty strings or 0</li>
+                    <li><strong>Literal syntax</strong>: const arr = [1, 2, 3]</li>
+                    <li><strong>Constructor</strong>: const arr = new Array(1, 2, 3)</li>
+                    <li><strong>Access elements</strong>: arr[0] (zero-based indexing)</li>
+                    <li><strong>Array length</strong>: arr.length</li>
                 </ul>
                 
-                <h3>Optional Chaining (?.):</h3>
+                <h3>Common Array Methods:</h3>
                 <ul>
-                    <li>Safely access nested properties</li>
-                    <li>Works with object properties, array elements, and function calls</li>
-                    <li>Returns undefined if any part of the chain is null/undefined</li>
-                    <li>Prevents TypeError when accessing properties of null/undefined</li>
+                    <li><strong>push/pop</strong>: Add/remove from end</li>
+                    <li><strong>shift/unshift</strong>: Add/remove from beginning</li>
+                    <li><strong>slice</strong>: Copy portion of array</li>
+                    <li><strong>splice</strong>: Add/remove elements at position</li>
+                    <li><strong>concat</strong>: Combine arrays</li>
+                    <li><strong>indexOf/lastIndexOf</strong>: Find element position</li>
                 </ul>
                 
-                <h3>Logical Assignment Operators:</h3>
+                <h3>Iteration Methods:</h3>
                 <ul>
-                    <li><strong>||=</strong>: Assign if left is falsy</li>
-                    <li><strong>&&=</strong>: Assign if left is truthy</li>
-                    <li><strong>??=</strong>: Assign if left is nullish</li>
+                    <li><strong>forEach</strong>: Execute function for each element</li>
+                    <li><strong>map</strong>: Transform each element</li>
+                    <li><strong>filter</strong>: Create new array with filtered elements</li>
+                    <li><strong>reduce</strong>: Reduce array to single value</li>
+                    <li><strong>find/findIndex</strong>: Find element that matches condition</li>
+                    <li><strong>some/every</strong>: Check if some/all elements meet condition</li>
                 </ul>
                 
-                <h3>Other Useful Operators:</h3>
+                <h3>Objects - Key-Value Collections:</h3>
+                <p>Objects store collections of key-value pairs. They're perfect for representing real-world entities.</p>
+                
+                <h3>Working with Objects:</h3>
                 <ul>
-                    <li><strong>Ternary operator</strong>: condition ? expr1 : expr2</li>
-                    <li><strong>Spread operator (...)</strong>: Expand arrays/objects</li>
-                    <li><strong>typeof</strong>: Check variable type</li>
-                    <li><strong>instanceof</strong>: Check object type</li>
-                    <li><strong>in</strong>: Check if property exists in object</li>
+                    <li><strong>Object literal</strong>: const obj = { key: value }</li>
+                    <li><strong>Access properties</strong>: obj.key or obj["key"]</li>
+                    <li><strong>Add properties</strong>: obj.newKey = value</li>
+                    <li><strong>Delete properties</strong>: delete obj.key</li>
+                    <li><strong>Check existence</strong>: "key" in obj or obj.hasOwnProperty("key")</li>
                 </ul>
 
                 <br><hr><br>
                 <div dir="rtl">
-                    <h3>عامل التوحيد الفارغ (??)</h3>
-                    <p>يعيد العامل ?? المعامل الأيمن عندما يكون المعامل الأيسر null أو undefined، وإلا يعيد المعامل الأيسر.</p>
+                    <h3>المصفوفات - المجموعات المرتبة:</h3>
+                    <p>تستخدم المصفوفات لتخزين قيم متعددة في متغير واحد. تحافظ على الترتيب ويمكن أن تحتوي على أنواع بيانات مختلطة.</p>
                     
-                    <h3>عامل السلسلة الاختيارية (?.)</h3>
-                    <p>يسمح العامل ?. بالوصول الآمن إلى خصائص الكائنات المتداخلة دون التسبب في أخطاء إذا كان المرجع null أو undefined.</p>
-                    
-                    <h3>عوامل التعيين المنطقية</h3>
-                    <p>اجمع العمليات المنطقية مع التعيين بطريقة موجزة.</p>
-                    
-                    <h3>التوحيد الفارغ (??):</h3>
+                    <h3>إنشاء المصفوفات والوصول إليها:</h3>
                     <ul>
-                        <li>يعيد القيمة اليمنى فقط إذا كانت اليسرى null أو undefined</li>
-                        <li>يختلف عن || الذي يعيد اليمنى لأي قيمة زائفة</li>
-                        <li>مفيد لتوفير القيم الافتراضية دون تجاوز النصوص الفارغة أو 0</li>
+                        <li><strong>بناء الجملة الحرفي</strong>: const arr = [1, 2, 3]</li>
+                        <li><strong>المنشئ</strong>: const arr = new Array(1, 2, 3)</li>
+                        <li><strong>الوصول إلى العناصر</strong>: arr[0] (فهرسة قائمة على الصفر)</li>
+                        <li><strong>طول المصفوفة</strong>: arr.length</li>
                     </ul>
                     
-                    <h3>السلسلة الاختيارية (?.):</h3>
+                    <h3>طرق المصفوفة الشائعة:</h3>
                     <ul>
-                        <li>الوصول الآمن إلى الخصائص المتداخلة</li>
-                        <li>يعمل مع خصائص الكائنات وعناصر المصفوفات واستدعاءات الدوال</li>
-                        <li>يعيد undefined إذا كان أي جزء من السلسلة null/undefined</li>
-                        <li>يمنع TypeError عند الوصول إلى خصائص null/undefined</li>
+                        <li><strong>push/pop</strong>: أضف/أزل من النهاية</li>
+                        <li><strong>shift/unshift</strong>: أضف/أزل من البداية</li>
+                        <li><strong>slice</strong>: انسخ جزءًا من المصفوفة</li>
+                        <li><strong>splice</strong>: أضف/أزل العناصر في موضع</li>
+                        <li><strong>concat</strong>: اجمع المصفوفات</li>
+                        <li><strong>indexOf/lastIndexOf</strong>: ابحث عن موضع العنصر</li>
                     </ul>
                     
-                    <h3>عوامل التعيين المنطقية:</h3>
+                    <h3>طرق التكرار:</h3>
                     <ul>
-                        <li><strong>||=</strong>: عيّن إذا كانت القيمة اليسرى زائفة</li>
-                        <li><strong>&&=</strong>: عيّن إذا كانت القيمة اليسرى حقيقية</li>
-                        <li><strong>??=</strong>: عيّن إذا كانت القيمة اليسرى فارغة</li>
+                        <li><strong>forEach</strong>: نفذ دالة لكل عنصر</li>
+                        <li><strong>map</strong>: حول كل عنصر</li>
+                        <li><strong>filter</strong>: أنشئ مصفوفة جديدة بعناصر filtered</li>
+                        <li><strong>reduce</strong>: قلل المصفوفة إلى قيمة واحدة</li>
+                        <li><strong>find/findIndex</strong>: ابحث عن عنصر يطابق الشرط</li>
+                        <li><strong>some/every</strong>: تحقق إذا كان بعض/كل العناصر تفي بالشرط</li>
                     </ul>
                     
-                    <h3>عوامل أخرى مفيدة:</h3>
+                    <h3>الكائنات - مجموعات المفتاح-القيمة:</h3>
+                    <p>تخزن الكائنات مجموعات من أزواج المفتاح-القيمة. إنها مثالية لتمثيل الكيانات في العالم الحقيقي.</p>
+                    
+                    <h3>العمل مع الكائنات:</h3>
                     <ul>
-                        <li><strong>العامل الثلاثي</strong>: condition ? expr1 : expr2</li>
-                        <li><strong>عامل الانتشار (...)</strong>: توسيع المصفوفات/الكائنات</li>
-                        <li><strong>typeof</strong>: التحقق من نوع المتغير</li>
-                        <li><strong>instanceof</strong>: التحقق من نوع الكائن</li>
-                        <li><strong>in</strong>: التحقق إذا كانت الخاصية موجودة في الكائن</li>
+                        <li><strong>الكائن الحرفي</strong>: const obj = { key: value }</li>
+                        <li><strong>الوصول إلى الخصائص</strong>: obj.key أو obj["key"]</li>
+                        <li><strong>أضف الخصائص</strong>: obj.newKey = value</li>
+                        <li><strong>احذف الخصائص</strong>: delete obj.key</li>
+                        <li><strong>تحقق من الوجود</strong>: "key" in obj أو obj.hasOwnProperty("key")</li>
                     </ul>
                 </div>
             `,
             examples: [
                 {
-                    title: "Nullish and Modern Operators Examples",
+                    title: "Arrays and Objects Examples",
                     content: `
                         <pre class="code-block">
-// Nullish coalescing operator (??)
-let userName = null;
-let displayName = userName ?? "Anonymous";
-console.log(displayName); // "Anonymous"
+// Array creation and basic operations
+const fruits = ["apple", "banana", "orange"];
+const numbers = [1, 2, 3, 4, 5];
+const mixed = [1, "hello", true, null];
 
-let count = 0;
-let result1 = count || 10;  // 10 (0 is falsy)
-let result2 = count ?? 10;  // 0 (0 is not nullish)
-console.log(result1, result2);
+// Array methods
+fruits.push("grape");           // Add to end: ["apple", "banana", "orange", "grape"]
+fruits.pop();                   // Remove from end: ["apple", "banana", "orange"]
+fruits.unshift("strawberry");   // Add to start: ["strawberry", "apple", "banana", "orange"]
+fruits.shift();                 // Remove from start: ["apple", "banana", "orange"]
 
-let emptyString = "";
-let text1 = emptyString || "default"; // "default" ("" is falsy)
-let text2 = emptyString ?? "default"; // "" ("" is not nullish)
-console.log(text1, text2);
+// Array iteration methods
+const doubled = numbers.map(num => num * 2);        // [2, 4, 6, 8, 10]
+const evenNumbers = numbers.filter(num => num % 2 === 0); // [2, 4]
+const sum = numbers.reduce((total, num) => total + num, 0); // 15
+const hasEven = numbers.some(num => num % 2 === 0); // true
+const allEven = numbers.every(num => num % 2 === 0); // false
 
-// Optional chaining operator (?.)
-let user = {
-    profile: {
-        name: "John",
-        address: {
-            city: "New York"
-        }
+// Finding elements
+console.log(fruits.indexOf("banana"));    // 1
+console.log(fruits.includes("apple"));    // true
+console.log(numbers.find(num => num > 3)); // 4
+
+// Object creation and operations
+const person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 30,
+    isStudent: false,
+    hobbies: ["reading", "swimming"],
+    address: {
+        street: "123 Main St",
+        city: "Anytown",
+        country: "USA"
+    },
+    // Method (function in object)
+    getFullName: function() {
+        return this.firstName + " " + this.lastName;
+    },
+    // Shorthand method syntax (ES6)
+    greet() {
+        return "Hello, I'm " + this.firstName;
     }
 };
 
-console.log(user.profile?.name);           // "John"
-console.log(user.profile?.age);            // undefined
-console.log(user.settings?.theme);         // undefined (settings doesn't exist)
-console.log(user.profile?.address?.city);  // "New York"
+// Accessing object properties
+console.log(person.firstName);           // "John"
+console.log(person["lastName"]);         // "Doe"
+console.log(person.address.city);        // "Anytown"
+console.log(person.getFullName());       // "John Doe"
 
-// With arrays
-let arr = null;
-console.log(arr?.[0]);     // undefined
-console.log(arr?.[0]?.x);  // undefined
+// Modifying objects
+person.age = 31;                        // Update property
+person.email = "john@example.com";      // Add new property
+delete person.isStudent;                // Delete property
 
-// With function calls
-let obj = {
-    method: function() { return "hello"; }
-};
-console.log(obj.method?.());     // "hello"
-console.log(obj.otherMethod?.()); // undefined
+// Object methods
+const keys = Object.keys(person);       // ["firstName", "lastName", "age", ...]
+const values = Object.values(person);   // ["John", "Doe", 31, ...]
+const entries = Object.entries(person); // [["firstName", "John"], ["lastName", "Doe"], ...]
 
-// Logical assignment operators
-let a = 0;
-let b = 5;
+// Checking properties
+console.log("firstName" in person);     // true
+console.log(person.hasOwnProperty("age")); // true
 
-// OR assignment (||=)
-a ||= 10;  // a = a || 10 → a becomes 10 (0 is falsy)
-b ||= 10;  // b = b || 10 → b stays 5 (5 is truthy)
-console.log(a, b); // 10, 5
+// Object iteration
+for (let key in person) {
+    if (person.hasOwnProperty(key)) {
+        console.log(key + ": " + person[key]);
+    }
+}
 
-// AND assignment (&&=)
-let x = 0;
-let y = 5;
-x &&= 10;  // x = x && 10 → x stays 0 (0 is falsy)
-y &&= 10;  // y = y && 10 → y becomes 10 (5 is truthy)
-console.log(x, y); // 0, 10
+// Array of objects (common pattern)
+const users = [
+    { id: 1, name: "Alice", age: 25 },
+    { id: 2, name: "Bob", age: 30 },
+    { id: 3, name: "Charlie", age: 35 }
+];
 
-// Nullish assignment (??=)
-let value1 = null;
-let value2 = 0;
-value1 ??= 100;  // value1 = value1 ?? 100 → becomes 100
-value2 ??= 100;  // value2 = value2 ?? 100 → stays 0
-console.log(value1, value2); // 100, 0
+// Find user by id
+const user = users.find(u => u.id === 2); // { id: 2, name: "Bob", age: 30 }
 
-// Other useful operators
-// Ternary operator
-let age = 20;
-let status = age >= 18 ? "Adult" : "Minor";
-console.log(status); // "Adult"
+// Get array of names
+const userNames = users.map(u => u.name); // ["Alice", "Bob", "Charlie"]
 
-// Spread operator
-let numbers = [1, 2, 3];
-let newNumbers = [...numbers, 4, 5];
-console.log(newNumbers); // [1, 2, 3, 4, 5]
+// Filter users by age
+const youngUsers = users.filter(u => u.age < 30); // [{ id: 1, name: "Alice", age: 25 }]
 
-let obj1 = { a: 1, b: 2 };
-let obj2 = { ...obj1, c: 3 };
-console.log(obj2); // {a: 1, b: 2, c: 3}
+// Destructuring arrays and objects (ES6)
+const [firstFruit, secondFruit] = fruits; // firstFruit = "apple", secondFruit = "banana"
+const { firstName, age } = person;        // firstName = "John", age = 31
 
-// typeof and instanceof
-console.log(typeof "hello");    // "string"
-console.log(typeof 42);         // "number"
-console.log([] instanceof Array); // true
-
-// in operator
-let car = { make: "Toyota", model: "Camry" };
-console.log("make" in car);    // true
-console.log("year" in car);    // false
+// Spread operator with arrays and objects
+const newFruits = [...fruits, "mango"];   // ["apple", "banana", "orange", "mango"]
+const updatedPerson = { ...person, age: 32 }; // Copy with updated age
                         </pre>
                     `
                 }
             ],
             practices: [
                 {
-                    title: "Modern Operators Practice",
+                    title: "Arrays and Objects Practice",
                     content: `
-                        <p>Practice using modern JavaScript operators:</p>
+                        <p>Practice working with arrays and objects:</p>
                         <ol>
-                            <li>Use ?? to provide defaults without overriding 0 or empty strings</li>
-                            <li>Use ?. to safely access nested object properties</li>
-                            <li>Practice with logical assignment operators (||=, &&=, ??=)</li>
-                            <li>Compare the behavior of ?? vs || with different values</li>
-                            <li>Use optional chaining with function calls and array access</li>
-                            <li>Create a function that uses multiple modern operators</li>
-                            <li>Practice with spread operator for arrays and objects</li>
+                            <li>Create arrays with different data types and practice basic operations</li>
+                            <li>Use array methods (map, filter, reduce, forEach) to transform data</li>
+                            <li>Create objects representing real-world entities</li>
+                            <li>Practice accessing, adding, and modifying object properties</li>
+                            <li>Create an array of objects and practice filtering and mapping</li>
+                            <li>Use object methods (keys, values, entries) to work with objects</li>
+                            <li>Practice destructuring arrays and objects</li>
+                            <li>Use spread operator to copy and combine arrays/objects</li>
                         </ol>
                     `
                 }
             ],
             questions: [
                 {
-                    question: "When should I use ?? instead of ||?",
-                    answer: "Use ?? when you want to provide a default value but want to preserve falsy values like 0, false, or empty strings (\"\"). Use || when you want to provide a default for any falsy value. For example, if you have a count that could be 0, using count || 10 would replace 0 with 10, while count ?? 10 would keep 0."
+                    question: "What's the difference between array methods that mutate vs return new arrays?",
+                    answer: "Mutating methods change the original array (push, pop, shift, unshift, splice, sort, reverse). Non-mutating methods return a new array without changing the original (map, filter, slice, concat, reduce). It's generally better to use non-mutating methods to avoid unexpected side effects and make code more predictable."
                 },
                 {
-                    question: "What's the difference between ?. and && for safe property access?",
-                    answer: "Both can be used for safe property access, but ?. is more concise and readable. For example: user?.profile?.name vs user && user.profile && user.profile.name. The ?. operator also works with function calls and array access, and it's specifically designed for this purpose. However, && gives you more control and can be used for more complex conditions."
-                }
-            ]
-        },
-        {
-            id: "dom-manipulation",
-            title: "DOM Manipulation - Interacting with Web Pages",
-            content: `
-                <h3>What is the DOM?</h3>
-                <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content.</p>
-                
-                <h3>DOM Tree Structure:</h3>
-                <ul>
-                    <li><strong>Document</strong>: The root of the DOM tree</li>
-                    <li><strong>Elements</strong>: HTML tags as nodes</li>
-                    <li><strong>Text Nodes</strong>: Text content within elements</li>
-                    <li><strong>Attributes</strong>: HTML attributes as nodes</li>
-                    <li><strong>Comments</strong>: HTML comments as nodes</li>
-                </ul>
-                
-                <h3>Selecting DOM Elements:</h3>
-                <ul>
-                    <li><strong>getElementById</strong>: Select by ID</li>
-                    <li><strong>getElementsByClassName</strong>: Select by class name</li>
-                    <li><strong>getElementsByTagName</strong>: Select by tag name</li>
-                    <li><strong>querySelector</strong>: Select first matching element</li>
-                    <li><strong>querySelectorAll</strong>: Select all matching elements</li>
-                </ul>
-                
-                <h3>Manipulating Elements:</h3>
-                <ul>
-                    <li><strong>textContent</strong>: Get/set text content</li>
-                    <li><strong>innerHTML</strong>: Get/set HTML content</li>
-                    <li><strong>innerText</strong>: Get/set visible text</li>
-                    <li><strong>setAttribute</strong>: Set element attributes</li>
-                    <li><strong>getAttribute</strong>: Get element attributes</li>
-                    <li><strong>classList</strong>: Add/remove/toggle CSS classes</li>
-                </ul>
-                
-                <h3>Creating and Modifying Elements:</h3>
-                <ul>
-                    <li><strong>createElement</strong>: Create new element</li>
-                    <li><strong>createTextNode</strong>: Create text node</li>
-                    <li><strong>appendChild</strong>: Add child element</li>
-                    <li><strong>removeChild</strong>: Remove child element</li>
-                    <li><strong>replaceChild</strong>: Replace child element</li>
-                    <li><strong>insertBefore</strong>: Insert element before another</li>
-                </ul>
-
-                <br><hr><br>
-                <div dir="rtl">
-                    <h3>ما هو الـ DOM؟</h3>
-                    <p>نموذج كائن المستند (DOM) هو واجهة برمجة لمستندات الويب. إنه يمثل الصفحة حتى تتمكن البرامج من تغيير هيكل المستند ونمطه ومحتواه.</p>
-                    
-                    <h3>هيكل شجرة الـ DOM:</h3>
-                    <ul>
-                        <li><strong>المستند</strong>: جذر شجرة الـ DOM</li>
-                        <li><strong>العناصر</strong>: علامات HTML كعقد</li>
-                        <li><strong>عقد النص</strong>: محتوى النص داخل العناصر</li>
-                        <li><strong>السمات</strong>: سمات HTML كعقد</li>
-                        <li><strong>التعليقات</strong>: تعليقات HTML كعقد</li>
-                    </ul>
-                    
-                    <h3>اختيار عناصر الـ DOM:</h3>
-                    <ul>
-                        <li><strong>getElementById</strong>: اختر بواسطة ID</li>
-                        <li><strong>getElementsByClassName</strong>: اختر بواسطة اسم الفئة</li>
-                        <li><strong>getElementsByTagName</strong>: اختر بواسطة اسم الوسم</li>
-                        <li><strong>querySelector</strong>: اختر أول عنصر مطابق</li>
-                        <li><strong>querySelectorAll</strong>: اختر كل العناصر المطابقة</li>
-                    </ul>
-                    
-                    <h3>معالجة العناصر:</h3>
-                    <ul>
-                        <li><strong>textContent</strong>: احصل/اضبط محتوى النص</li>
-                        <li><strong>innerHTML</strong>: احصل/اضبط محتوى HTML</li>
-                        <li><strong>innerText</strong>: احصل/اضبط النص المرئي</li>
-                        <li><strong>setAttribute</strong>: اضبط سمات العنصر</li>
-                        <li><strong>getAttribute</strong>: احصل على سمات العنصر</li>
-                        <li><strong>classList</strong>: أضف/أزل/بدل فئات CSS</li>
-                    </ul>
-                    
-                    <h3>إنشاء وتعديل العناصر:</h3>
-                    <ul>
-                        <li><strong>createElement</strong>: أنشئ عنصرًا جديدًا</li>
-                        <li><strong>createTextNode</strong>: أنشئ عقدة نص</li>
-                        <li><strong>appendChild</strong>: أضف عنصرًا فرعيًا</li>
-                        <li><strong>removeChild</strong>: أزل عنصرًا فرعيًا</li>
-                        <li><strong>replaceChild</strong>: استبدل عنصرًا فرعيًا</li>
-                        <li><strong>insertBefore</strong>: أدخل عنصرًا قبل آخر</li>
-                    </ul>
-                </div>
-            `,
-            examples: [
-                {
-                    title: "DOM Manipulation Examples",
-                    content: `
-                        <pre class="code-block">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;DOM Manipulation&lt;/title&gt;
-    &lt;style&gt;
-        .highlight { background-color: yellow; }
-        .hidden { display: none; }
-        .error { color: red; }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id="container"&gt;
-        &lt;h1 id="main-title"&gt;Hello DOM&lt;/h1&gt;
-        &lt;p class="description"&gt;This is a paragraph&lt;/p&gt;
-        &lt;ul id="item-list"&gt;
-            &lt;li&gt;Item 1&lt;/li&gt;
-            &lt;li&gt;Item 2&lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;button id="click-btn"&gt;Click Me&lt;/button&gt;
-        &lt;div id="output"&gt;&lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;script&gt;
-        // Selecting elements
-        const title = document.getElementById('main-title');
-        const descriptions = document.getElementsByClassName('description');
-        const listItems = document.getElementsByTagName('li');
-        const button = document.querySelector('#click-btn');
-        const allParagraphs = document.querySelectorAll('p');
-
-        // Manipulating content
-        title.textContent = "Hello Updated DOM!";
-        title.innerHTML = "Hello &lt;em&gt;Updated&lt;/em&gt; DOM!";
-        
-        // Working with attributes
-        title.setAttribute('data-custom', 'value');
-        console.log(title.getAttribute('data-custom')); // "value"
-        
-        // Working with classes
-        title.classList.add('highlight');
-        title.classList.remove('highlight');
-        title.classList.toggle('highlight'); // Adds if not present, removes if present
-        
-        // Creating new elements
-        const newParagraph = document.createElement('p');
-        newParagraph.textContent = 'This is a new paragraph';
-        newParagraph.className = 'description';
-        
-        // Adding elements to DOM
-        document.getElementById('container').appendChild(newParagraph);
-        
-        // Creating and adding multiple elements
-        const newItem = document.createElement('li');
-        newItem.textContent = 'Item 3';
-        document.getElementById('item-list').appendChild(newItem);
-        
-        // Removing elements
-        // document.getElementById('item-list').removeChild(newItem);
-        
-        // Event handling
-        button.addEventListener('click', function() {
-            const output = document.getElementById('output');
-            output.innerHTML = 'Button was clicked!';
-            output.classList.add('highlight');
-            
-            // Create and add new element on click
-            const timeStamp = document.createElement('p');
-            timeStamp.textContent = 'Clicked at: ' + new Date().toLocaleTimeString();
-            output.appendChild(timeStamp);
-        });
-        
-        // Event delegation example
-        document.getElementById('item-list').addEventListener('click', function(event) {
-            if (event.target.tagName === 'LI') {
-                event.target.classList.toggle('highlight');
-            }
-        });
-        
-        // Form handling example
-        const form = document.createElement('form');
-        form.innerHTML = \`
-            &lt;input type="text" id="name-input" placeholder="Enter your name"&gt;
-            &lt;button type="submit"&gt;Submit&lt;/button&gt;
-        \`;
-        
-        document.body.appendChild(form);
-        
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-            const name = document.getElementById('name-input').value;
-            alert('Hello, ' + name);
-        });
-        
-        // Dynamic styling
-        const dynamicStyle = document.createElement('style');
-        dynamicStyle.textContent = \`
-            .dynamic-class { 
-                border: 2px solid blue; 
-                padding: 10px; 
-                margin: 5px;
-            }
-        \`;
-        document.head.appendChild(dynamicStyle);
-        
-        // Apply dynamic class
-        title.classList.add('dynamic-class');
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-                        </pre>
-                    `
-                }
-            ],
-            practices: [
-                {
-                    title: "DOM Manipulation Practice",
-                    content: `
-                        <p>Practice DOM manipulation techniques:</p>
-                        <ol>
-                            <li>Create a dynamic todo list that allows adding and removing items</li>
-                            <li>Build a color changer that changes background color when buttons are clicked</li>
-                            <li>Create a simple calculator with a visual interface</li>
-                            <li>Build an image gallery that shows different images when clicked</li>
-                            <li>Create a form validation system that shows error messages</li>
-                            <li>Build a dynamic table that can be sorted and filtered</li>
-                            <li>Create a modal/popup that appears when a button is clicked</li>
-                        </ol>
-                    `
-                }
-            ],
-            questions: [
-                {
-                    question: "What's the difference between textContent, innerHTML, and innerText?",
-                    answer: "textContent gets/sets all text content, including hidden text. innerHTML gets/sets HTML content, allowing you to insert HTML elements. innerText gets/sets only visible text and is aware of CSS styling. Use textContent for performance and security (avoids XSS attacks), innerHTML when you need to insert HTML, and avoid innerText due to performance issues."
-                },
-                {
-                    question: "What is event delegation and why is it useful?",
-                    answer: "Event delegation attaches a single event listener to a parent element instead of multiple listeners to child elements. Events bubble up from the target element to the parent. This improves performance (fewer listeners), works for dynamically added elements, and reduces memory usage. It's especially useful for lists where items are frequently added/removed."
-                }
-            ]
-        },
-        {
-            id: "events-forms",
-            title: "Events and Forms - User Interaction",
-            content: `
-                <h3>Understanding Events:</h3>
-                <p>Events are actions that happen in the browser, such as clicks, keyboard input, or page loading. JavaScript can respond to these events to create interactive web pages.</p>
-                
-                <h3>Common Event Types:</h3>
-                <ul>
-                    <li><strong>Mouse Events</strong>: click, dblclick, mousedown, mouseup, mousemove</li>
-                    <li><strong>Keyboard Events</strong>: keydown, keyup, keypress</li>
-                    <li><strong>Form Events</strong>: submit, change, input, focus, blur</li>
-                    <li><strong>Window Events</strong>: load, resize, scroll, beforeunload</li>
-                    <li><strong>Touch Events</strong>: touchstart, touchmove, touchend</li>
-                </ul>
-                
-                <h3>Event Handling Methods:</h3>
-                <ul>
-                    <li><strong>addEventListener</strong>: Modern way to attach events</li>
-                    <li><strong>removeEventListener</strong>: Remove event handlers</li>
-                    <li><strong>Inline event handlers</strong>: onclick=\"code\" (not recommended)</li>
-                    <li><strong>Event object properties</strong>: target, type, preventDefault(), stopPropagation()</li>
-                </ul>
-                
-                <h3>Working with Forms:</h3>
-                <ul>
-                    <li><strong>Form elements</strong>: input, textarea, select, button</li>
-                    <li><strong>Form validation</strong>: Client-side validation</li>
-                    <li><strong>Form submission</strong>: Handling form data</li>
-                    <li><strong>Form reset</strong>: Clearing form data</li>
-                    <li><strong>Form data access</strong>: Using FormData API</li>
-                </ul>
-                
-                <h3>Event Propagation:</h3>
-                <ul>
-                    <li><strong>Event Bubbling</strong>: Events bubble up from target to root</li>
-                    <li><strong>Event Capturing</strong>: Events capture down from root to target</li>
-                    <li><strong>Event Delegation</strong>: Handling events on parent elements</li>
-                    <li><strong>stopPropagation()</strong>: Stop event from propagating</li>
-                </ul>
-
-                <br><hr><br>
-                <div dir="rtl">
-                    <h3>فهم الأحداث:</h3>
-                    <p>الأحداث هي إجراءات تحدث في المتصفح، مثل النقرات، إدخال لوحة المفاتيح، أو تحميل الصفحة. يمكن لـ JavaScript الرد على هذه الأحداث لإنشاء صفحات ويب تفاعلية.</p>
-                    
-                    <h3>أنواع الأحداث الشائعة:</h3>
-                    <ul>
-                        <li><strong>أحداث الفأرة</strong>: click, dblclick, mousedown, mouseup, mousemove</li>
-                        <li><strong>أحداث لوحة المفاتيح</strong>: keydown, keyup, keypress</li>
-                        <li><strong>أحداث النماذج</strong>: submit, change, input, focus, blur</li>
-                        <li><strong>أحداث النافذة</strong>: load, resize, scroll, beforeunload</li>
-                        <li><strong>أحداث اللمس</strong>: touchstart, touchmove, touchend</li>
-                    </ul>
-                    
-                    <h3>طرق معالجة الأحداث:</h3>
-                    <ul>
-                        <li><strong>addEventListener</strong>: الطريقة الحديثة لإرفاق الأحداث</li>
-                        <li><strong>removeEventListener</strong>: أزل معالجي الأحداث</li>
-                        <li><strong>معالجي الأحداث المضمنين</strong>: onclick=\"code\" (غير موصى به)</li>
-                        <li><strong>خصائص كائن الحدث</strong>: target, type, preventDefault(), stopPropagation()</li>
-                    </ul>
-                    
-                    <h3>العمل مع النماذج:</h3>
-                    <ul>
-                        <li><strong>عناصر النموذج</strong>: input, textarea, select, button</li>
-                        <li><strong>التحقق من النموذج</strong>: التحقق من جانب العميل</li>
-                        <li><strong>إرسال النموذج</strong>: معالجة بيانات النموذج</li>
-                        <li><strong>إعادة تعيين النموذج</strong>: مسح بيانات النموذج</li>
-                        <li><strong>الوصول إلى بيانات النموذج</strong>: استخدام FormData API</li>
-                    </ul>
-                    
-                    <h3>انتشار الحدث:</h3>
-                    <ul>
-                        <li><strong>Event Bubbling</strong>: تنتقل الأحداث من الهدف إلى الجذر</li>
-                        <li><strong>Event Capturing</strong>: تلتقط الأحداث من الجذر إلى الهدف</li>
-                        <li><strong>تفويض الحدث</strong>: معالجة الأحداث على العناصر الأصل</li>
-                        <li><strong>stopPropagation()</strong>: أوقف الحدث من الانتشار</li>
-                    </ul>
-                </div>
-            `,
-            examples: [
-                {
-                    title: "Events and Forms Examples",
-                    content: `
-                        <pre class="code-block">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Events and Forms&lt;/title&gt;
-    &lt;style&gt;
-        .error { color: red; font-size: 0.9em; }
-        .success { color: green; }
-        .hidden { display: none; }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id="app"&gt;
-        &lt;h1&gt;Event Handling Examples&lt;/h1&gt;
-        
-        &lt;!-- Mouse Events --&gt;
-        &lt;div id="mouse-area" style="border: 1px solid #ccc; padding: 20px; margin: 10px;"&gt;
-            &lt;p&gt;Mouse coordinates: &lt;span id="coordinates"&gt;0, 0&lt;/span&gt;&lt;/p&gt;
-        &lt;/div&gt;
-        
-        &lt;!-- Keyboard Events --&gt;
-        &lt;div style="margin: 10px;"&gt;
-            &lt;input type="text" id="key-input" placeholder="Type something..."&gt;
-            &lt;p&gt;Last key pressed: &lt;span id="key-display"&gt;&lt;/span&gt;&lt;/p&gt;
-        &lt;/div&gt;
-        
-        &lt;!-- Form Example --&gt;
-        &lt;form id="user-form"&gt;
-            &lt;div&gt;
-                &lt;label for="name"&gt;Name:&lt;/label&gt;
-                &lt;input type="text" id="name" name="name" required&gt;
-                &lt;span id="name-error" class="error hidden"&gt;&lt;/span&gt;
-            &lt;/div&gt;
-            
-            &lt;div&gt;
-                &lt;label for="email"&gt;Email:&lt;/label&gt;
-                &lt;input type="email" id="email" name="email" required&gt;
-                &lt;span id="email-error" class="error hidden"&gt;&lt;/span&gt;
-            &lt;/div&gt;
-            
-            &lt;div&gt;
-                &lt;label for="age"&gt;Age:&lt;/label&gt;
-                &lt;input type="number" id="age" name="age" min="0" max="120"&gt;
-            &lt;/div&gt;
-            
-            &lt;button type="submit"&gt;Submit&lt;/button&gt;
-        &lt;/form&gt;
-        
-        &lt;div id="form-output"&gt;&lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;script&gt;
-        // Mouse events
-        const mouseArea = document.getElementById('mouse-area');
-        const coordinates = document.getElementById('coordinates');
-        
-        mouseArea.addEventListener('mousemove', function(event) {
-            coordinates.textContent = \`\${event.clientX}, \${event.clientY}\`;
-        });
-        
-        mouseArea.addEventListener('click', function(event) {
-            this.style.backgroundColor = this.style.backgroundColor === 'lightblue' ? '' : 'lightblue';
-        });
-        
-        mouseArea.addEventListener('dblclick', function() {
-            this.style.backgroundColor = 'lightgreen';
-        });
-        
-        // Keyboard events
-        const keyInput = document.getElementById('key-input');
-        const keyDisplay = document.getElementById('key-display');
-        
-        keyInput.addEventListener('keydown', function(event) {
-            keyDisplay.textContent = \`Key: \${event.key}, Code: \${event.code}\`;
-        });
-        
-        keyInput.addEventListener('keyup', function() {
-            // Additional keyup logic if needed
-        });
-        
-        // Form handling
-        const userForm = document.getElementById('user-form');
-        const formOutput = document.getElementById('form-output');
-        
-        // Real-time validation
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const nameError = document.getElementById('name-error');
-        const emailError = document.getElementById('email-error');
-        
-        nameInput.addEventListener('input', function() {
-            if (this.value.length < 2) {
-                nameError.textContent = 'Name must be at least 2 characters';
-                nameError.classList.remove('hidden');
-            } else {
-                nameError.classList.add('hidden');
-            }
-        });
-        
-        emailInput.addEventListener('blur', function() {
-            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-            if (!emailRegex.test(this.value)) {
-                emailError.textContent = 'Please enter a valid email address';
-                emailError.classList.remove('hidden');
-            } else {
-                emailError.classList.add('hidden');
-            }
-        });
-        
-        // Form submission
-        userForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent actual form submission
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simple validation
-            let isValid = true;
-            
-            if (!data.name || data.name.length < 2) {
-                nameError.textContent = 'Name is required and must be at least 2 characters';
-                nameError.classList.remove('hidden');
-                isValid = false;
-            }
-            
-            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-            if (!data.email || !emailRegex.test(data.email)) {
-                emailError.textContent = 'Valid email is required';
-                emailError.classList.remove('hidden');
-                isValid = false;
-            }
-            
-            if (isValid) {
-                // Display success message
-                formOutput.innerHTML = \`
-                    &lt;div class="success"&gt;
-                        &lt;h3&gt;Form Submitted Successfully!&lt;/h3&gt;
-                        &lt;p&gt;Name: \${data.name}&lt;/p&gt;
-                        &lt;p&gt;Email: \${data.email}&lt;/p&gt;
-                        &lt;p&gt;Age: \${data.age || 'Not specified'}&lt;/p&gt;
-                    &lt;/div&gt;
-                \`;
-                
-                // Reset form
-                this.reset();
-                
-                // Clear errors
-                nameError.classList.add('hidden');
-                emailError.classList.add('hidden');
-            }
-        });
-        
-        // Event delegation example
-        document.addEventListener('click', function(event) {
-            if (event.target.matches('button')) {
-                console.log('Button clicked:', event.target.textContent);
-            }
-        });
-        
-        // Window events
-        window.addEventListener('resize', function() {
-            console.log('Window resized to:', window.innerWidth, 'x', window.innerHeight);
-        });
-        
-        window.addEventListener('scroll', function() {
-            console.log('Scrolled to:', window.scrollY);
-        });
-        
-        // Prevent context menu
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-            alert('Right-click is disabled on this page');
-        });
-        
-        // Custom events (advanced)
-        const customEvent = new CustomEvent('userRegistered', {
-            detail: { message: 'A new user has been registered' }
-        });
-        
-        // Dispatch custom event
-        document.addEventListener('userRegistered', function(event) {
-            console.log('Custom event received:', event.detail.message);
-        });
-        
-        // Trigger custom event after form submission
-        userForm.addEventListener('submit', function() {
-            setTimeout(() => {
-                document.dispatchEvent(customEvent);
-            }, 1000);
-        });
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-                        </pre>
-                    `
-                }
-            ],
-            practices: [
-                {
-                    title: "Events and Forms Practice",
-                    content: `
-                        <p>Practice event handling and form manipulation:</p>
-                        <ol>
-                            <li>Create a drag-and-drop interface for reordering items</li>
-                            <li>Build a real-time character counter for text inputs</li>
-                            <li>Create a custom dropdown menu with keyboard navigation</li>
-                            <li>Build a form with complex validation rules</li>
-                            <li>Create a drawing application using mouse events</li>
-                            <li>Build a keyboard shortcut system for your application</li>
-                            <li>Create a file upload interface with preview functionality</li>
-                        </ol>
-                    `
-                }
-            ],
-            questions: [
-                {
-                    question: "What's the difference between event.preventDefault() and event.stopPropagation()?",
-                    answer: "event.preventDefault() prevents the default browser behavior for that event (like form submission or link navigation). event.stopPropagation() stops the event from bubbling up the DOM tree, preventing parent elements from receiving the event. Use preventDefault() when you want to handle the event completely yourself, and stopPropagation() when you want to contain the event to a specific element."
-                },
-                {
-                    question: "Why is event delegation important for dynamic content?",
-                    answer: "Event delegation allows you to handle events for elements that don't exist yet when the page loads. By attaching the event listener to a parent element that does exist, you can handle events from dynamically added child elements. This is more efficient than attaching individual event listeners to each new element and prevents memory leaks from forgotten event listeners."
+                    question: "When should I use arrays vs objects?",
+                    answer: "Use arrays when you need an ordered collection of items, usually of the same type, and you need to maintain order. Use objects when you need to store key-value pairs representing properties of an entity, and the order doesn't matter. Arrays are for lists, objects are for things with properties."
                 }
             ]
         },

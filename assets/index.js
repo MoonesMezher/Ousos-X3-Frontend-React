@@ -151,43 +151,52 @@ const lectures = [
     {
         id: "JS-1",
         number: 17,
-        title: "JavaScript Syntax: Variables, Data Types, and Operators, Control Flow, Scope, Intro to Functions",
+        title: "JavaScript Syntax: Variables, Data Types, and Operators, Control Flow, Scopes",
         description: "Intro, Logs, Declaring variables (var, let, const), primitive types (string, number, boolean, null, undefined, symbol, bigint), objects/arrays literals, type coercion, and operators (arithmetic, assignment, comparison, logical, ternary), if else, while, do while, for, switch, , scope (global, function, block)",
         image: "./assets/images/logos/JS.webp",
         status: "completed",
         content: "JS"
     },
     {
-        id: "JS-2",
+        id: "Exam",
         number: 18,
+        title: "Exam",
+        description: "Exam",
+        image: "./assets/images/logos/Project.webp",
+        status: "completed",
+        content: "Exam",
+        hidden: true
+    },
+    {
+        id: "JS-2",
+        number: 19,
         title: "Functions, Arrays",
-        description: "Function declarations vs. expressions vs. arrow functions, parameters/rest/spread, default values, hoisting behavior, HOF, Common Array Methods",
+        description: "Working with Strings, Numbers, and Booleans, Function declarations vs. expressions vs. arrow functions, parameters/rest/spread, default values, hoisting behavior, HOF, Common Array Methods",
         image: "./assets/images/logos/JS.webp",
-        status: "not-started",
+        status: "completed",
         content: "JS"
     },
     {
         id: "JS-3",
-        number: 19,
-        title: "Arrays, Objects & Working with Strings, Numbers, and Booleans, Destructuring, Falsy & Truthy Values",
-        description: "Arrays and Objects - Data Structures, Common Array Methods, Iteration Methods, Objects - Key-Value Collections, Working with Objects, Working with Strings, Numbers, and Booleans, Destructuring, Falsy & Truthy Values",
+        number: 20,
+        title: "Arrays",
+        description: "Arrays, Common Array Methods, Iteration Methods",
         image: "./assets/images/logos/JS.webp",
-        status: "not-started",
+        status: "completed",
         content: "JS"
     },
     {
         id: "JS-4",
-        number: 20,
-        title: "Problem Solving",
-        description: "Solve 10 Methods",
+        number: 21,
+        title: "Objects, Recap",
+        description: "Objects, Recap JS Fundamentals",
         image: "./assets/images/logos/JS.webp",
-        status: "not-started",
-        hidden: true,
+        status: "in-progress",
         content: "JS"
     },
     {
         id: "JS-5",
-        number: 21,
+        number: 22,
         title: "Nullish and Other Modern Operators, DOM Manipulation - Interacting with Web Pages - Events",
         description: "Nullish and Other Modern Operators, What is the DOM, DOM Tree Structure, Selecting DOM Elements, Manipulating Elements, Creating and Modifying Elements, Events and Forms - User Interaction",
         image: "./assets/images/logos/JS.webp",
@@ -196,7 +205,7 @@ const lectures = [
     },
     {
         id: "JS-6",
-        number: 22,
+        number: 23,
         title: "Events and Forms - User Interaction",
         description: "Understanding Events, Common Event Types, Event Handling Methods, Working with Forms, Event Propagation",
         image: "./assets/images/logos/JS.webp",
@@ -205,7 +214,7 @@ const lectures = [
     },
     {
         id: "JS-7",
-        number: 23,
+        number: 24,
         title: "Events and Forms - User Interaction - BOM",
         description: "Understanding Events, Common Event Types, Event Handling Methods, Working with Forms, Event Propagation, Browser Object Model (BOM), Window Object, Other BOM Objects",
         image: "./assets/images/logos/JS.webp",
@@ -214,7 +223,7 @@ const lectures = [
     },
     {
         id: "JS-8",
-        number: 24,
+        number: 25,
         title: "Asynchronous JavaScript",
         description: "Asynchronous JavaScript, Async Techniques, Working with Time, Fetch, JSON, and Async Data Handling",
         image: "./assets/images/logos/JS.webp",
@@ -223,7 +232,7 @@ const lectures = [
     },
     {
         id: "GIT",
-        number: 25,
+        number: 26,
         title: "Git & Github",
         description: "Git Basics - Version Control Fundamentals, GitHub & Git Hosting Platforms, Terminal & Command Line Essentials, Git Setup & Configuration, Git Workflow & Areas - Understanding Git's Architecture, Essential Git Commands & Daily Workflow",
         image: "./assets/images/logos/github.webp",
@@ -232,7 +241,7 @@ const lectures = [
     },
     {
         id: "GIT",
-        number: 26,
+        number: 27,
         title: "Branching in Git & Serverless Deployment",
         description: "Git Branching & Merging Strategies, README Files & Markdown Documentation, Gitignore Files - Ignoring Files in Git, Serverless Deployment - Deploy Frontend Projects to Production",
         image: "./assets/images/logos/github.webp",
@@ -241,7 +250,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 27,
+        number: 28,
         title: "React Fundamentals: Setup, Components, and JSX",
         description: "React Introduction - What is React and Why Choose It?, Modern React Setup & Development Environment, React Fundamentals: Components, JSX & Props",
         image: "./assets/images/logos/React.webp",
@@ -250,7 +259,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 28,
+        number: 29,
         title: "Recap",
         description: "Recap React Fundamentals",
         image: "./assets/images/logos/React.webp",
@@ -260,7 +269,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 29,
+        number: 30,
         title: "React Hooks (useState)",
         description: "State Management & Event Handling, React Hooks: useState",
         image: "./assets/images/logos/React.webp",
@@ -269,7 +278,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 30,
+        number: 31,
         title: "useEffect, Advanced Hooks",
         description: "React Hooks: useEffect, Advanced Hooks & Performance Optimization",
         image: "./assets/images/logos/React.webp",
@@ -278,7 +287,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 31,
+        number: 32,
         title: "React Router",
         description: "React Router & Navigation",
         image: "./assets/images/logos/React.webp",
@@ -287,7 +296,7 @@ const lectures = [
     },
     {
         id: "API",
-        number: 32,
+        number: 33,
         title: "Understanding APIs and Web Communication",
         description: "APIs and JSON Data Format, Backend Role (Server), Frontend Role (User Interface), Request Components, Response Components",
         image: "./assets/images/logos/API.webp",
@@ -296,7 +305,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 33,
+        number: 34,
         title: "Context API, and State Management System, External Libraries",
         description: "Context API for global state (createContext, Provider, useContext), State Management wit Zustand, External Libraries & Ecosystem",
         image: "./assets/images/logos/React.webp",
@@ -305,7 +314,7 @@ const lectures = [
     },
     {
         id: "PROJECT",
-        number: 34,
+        number: 35,
         title: "Anime Project - Part 1",
         description: "",
         image: "./assets/images/logos/project.webp",
@@ -315,7 +324,7 @@ const lectures = [
     },
     {
         id: "PROJECT",
-        number: 35,
+        number: 36,
         title: "Anime Project - Part 2",
         description: "",
         image: "./assets/images/logos/project.webp",
@@ -325,7 +334,7 @@ const lectures = [
     },
     {
         id: "PROJECT",
-        number: 36,
+        number: 37,
         title: "Anime Project - Part 3",
         description: "",
         image: "./assets/images/logos/project.webp",
@@ -357,7 +366,7 @@ function initPortal() {
 function renderLecturesTable(lecturesToRender) {
     lecturesTableBody.innerHTML = '';
     
-    lecturesToRender.forEach(lecture => {
+    lecturesToRender.forEach((lecture, index) => {
         const row = document.createElement('tr');
         
         // Determine status badge class
@@ -454,7 +463,7 @@ function filterLectures() {
 }
 
 // View lecture details
-function viewLecture(lectureId) {        
+function viewLecture(lectureId) {     
     if(!lectureId) {
         alert(`Invalid Lecture Id`);
         return;
