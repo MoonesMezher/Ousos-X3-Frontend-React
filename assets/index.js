@@ -188,24 +188,34 @@ const lectures = [
     {
         id: "JS-4",
         number: 21,
+        title: "Recap",
+        description: "Recap",
+        image: "./assets/images/logos/JS.webp",
+        status: "completed",
+        content: "JS",
+        hidden: true
+    },
+    {
+        id: "JS-4",
+        number: 22,
         title: "Objects, Recap",
-        description: "Objects, Recap JS Fundamentals",
+        description: "Objects, Truthy & Falsy, Recap JS Fundamentals",
+        image: "./assets/images/logos/JS.webp",
+        status: "completed",
+        content: "JS"
+    },
+    {
+        id: "JS-5",
+        number: 23,
+        title: "Nullish and Other Modern Operators, DOM Manipulation - Interacting with Web Pages - Events",
+        description: "Nullish and Other Modern Operators, What is the DOM, DOM Tree Structure, Selecting DOM Elements, Manipulating Elements, Creating and Modifying Elements, Events and Forms - User Interaction",
         image: "./assets/images/logos/JS.webp",
         status: "in-progress",
         content: "JS"
     },
     {
-        id: "JS-5",
-        number: 22,
-        title: "Nullish and Other Modern Operators, DOM Manipulation - Interacting with Web Pages - Events",
-        description: "Nullish and Other Modern Operators, What is the DOM, DOM Tree Structure, Selecting DOM Elements, Manipulating Elements, Creating and Modifying Elements, Events and Forms - User Interaction",
-        image: "./assets/images/logos/JS.webp",
-        status: "not-started",
-        content: "JS"
-    },
-    {
         id: "JS-6",
-        number: 23,
+        number: 24,
         title: "Events and Forms - User Interaction",
         description: "Understanding Events, Common Event Types, Event Handling Methods, Working with Forms, Event Propagation",
         image: "./assets/images/logos/JS.webp",
@@ -214,7 +224,7 @@ const lectures = [
     },
     {
         id: "JS-7",
-        number: 24,
+        number: 25,
         title: "Events and Forms - User Interaction - BOM",
         description: "Understanding Events, Common Event Types, Event Handling Methods, Working with Forms, Event Propagation, Browser Object Model (BOM), Window Object, Other BOM Objects",
         image: "./assets/images/logos/JS.webp",
@@ -223,7 +233,7 @@ const lectures = [
     },
     {
         id: "JS-8",
-        number: 25,
+        number: 26,
         title: "Asynchronous JavaScript",
         description: "Asynchronous JavaScript, Async Techniques, Working with Time, Fetch, JSON, and Async Data Handling",
         image: "./assets/images/logos/JS.webp",
@@ -232,7 +242,7 @@ const lectures = [
     },
     {
         id: "GIT",
-        number: 26,
+        number: 27,
         title: "Git & Github",
         description: "Git Basics - Version Control Fundamentals, GitHub & Git Hosting Platforms, Terminal & Command Line Essentials, Git Setup & Configuration, Git Workflow & Areas - Understanding Git's Architecture, Essential Git Commands & Daily Workflow",
         image: "./assets/images/logos/github.webp",
@@ -241,7 +251,7 @@ const lectures = [
     },
     {
         id: "GIT",
-        number: 27,
+        number: 28,
         title: "Branching in Git & Serverless Deployment",
         description: "Git Branching & Merging Strategies, README Files & Markdown Documentation, Gitignore Files - Ignoring Files in Git, Serverless Deployment - Deploy Frontend Projects to Production",
         image: "./assets/images/logos/github.webp",
@@ -250,7 +260,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 28,
+        number: 29,
         title: "React Fundamentals: Setup, Components, and JSX",
         description: "React Introduction - What is React and Why Choose It?, Modern React Setup & Development Environment, React Fundamentals: Components, JSX & Props",
         image: "./assets/images/logos/React.webp",
@@ -259,7 +269,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 29,
+        number: 30,
         title: "Recap",
         description: "Recap React Fundamentals",
         image: "./assets/images/logos/React.webp",
@@ -269,7 +279,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 30,
+        number: 31,
         title: "React Hooks (useState)",
         description: "State Management & Event Handling, React Hooks: useState",
         image: "./assets/images/logos/React.webp",
@@ -278,7 +288,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 31,
+        number: 32,
         title: "useEffect, Advanced Hooks",
         description: "React Hooks: useEffect, Advanced Hooks & Performance Optimization",
         image: "./assets/images/logos/React.webp",
@@ -287,7 +297,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 32,
+        number: 33,
         title: "React Router",
         description: "React Router & Navigation",
         image: "./assets/images/logos/React.webp",
@@ -296,7 +306,7 @@ const lectures = [
     },
     {
         id: "API",
-        number: 33,
+        number: 34,
         title: "Understanding APIs and Web Communication",
         description: "APIs and JSON Data Format, Backend Role (Server), Frontend Role (User Interface), Request Components, Response Components",
         image: "./assets/images/logos/API.webp",
@@ -305,43 +315,13 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 34,
+        number: 35,
         title: "Context API, and State Management System, External Libraries",
         description: "Context API for global state (createContext, Provider, useContext), State Management wit Zustand, External Libraries & Ecosystem",
         image: "./assets/images/logos/React.webp",
         status: "not-started",
         content: "REACT"
-    },
-    {
-        id: "PROJECT",
-        number: 35,
-        title: "Anime Project - Part 1",
-        description: "",
-        image: "./assets/images/logos/project.webp",
-        hidden: true,
-        status: "not-started",
-        content: "PROJECT"
-    },
-    {
-        id: "PROJECT",
-        number: 36,
-        title: "Anime Project - Part 2",
-        description: "",
-        image: "./assets/images/logos/project.webp",
-        hidden: true,
-        status: "not-started",
-        content: "PROJECT"
-    },
-    {
-        id: "PROJECT",
-        number: 37,
-        title: "Anime Project - Part 3",
-        description: "",
-        image: "./assets/images/logos/project.webp",
-        hidden: true,
-        status: "not-started",
-        content: "PROJECT"
-    },
+    }
 ];
 
 // DOM Elements
