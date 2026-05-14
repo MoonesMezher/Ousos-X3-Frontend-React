@@ -207,10 +207,10 @@ const lectures = [
     {
         id: "JS-5",
         number: 23,
-        title: "Nullish and Other Modern Operators, DOM Manipulation - Interacting with Web Pages - Events",
+        title: "DOM Manipulation - Interacting with Web Pages - Events",
         description: "Nullish and Other Modern Operators, What is the DOM, DOM Tree Structure, Selecting DOM Elements, Manipulating Elements, Creating and Modifying Elements, Events and Forms - User Interaction",
         image: "./assets/images/logos/JS.webp",
-        status: "in-progress",
+        status: "completed",
         content: "JS"
     },
     {
@@ -219,7 +219,7 @@ const lectures = [
         title: "Events and Forms - User Interaction",
         description: "Understanding Events, Common Event Types, Event Handling Methods, Working with Forms, Event Propagation",
         image: "./assets/images/logos/JS.webp",
-        status: "not-started",
+        status: "in-progress",
         content: "JS"
     },
     {
