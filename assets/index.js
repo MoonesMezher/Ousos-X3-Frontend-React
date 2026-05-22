@@ -219,48 +219,39 @@ const lectures = [
         title: "Events and Forms - User Interaction",
         description: "Understanding Events, Common Event Types, Event Handling Methods, Working with Forms, Event Propagation",
         image: "./assets/images/logos/JS.webp",
-        status: "in-progress",
+        status: "completed",
         content: "JS"
     },
     {
-        id: "JS-7",
+        id: "GIT",
         number: 25,
-        title: "Events and Forms - User Interaction - BOM",
-        description: "Understanding Events, Common Event Types, Event Handling Methods, Working with Forms, Event Propagation, Browser Object Model (BOM), Window Object, Other BOM Objects",
-        image: "./assets/images/logos/JS.webp",
-        status: "not-started",
-        content: "JS"
+        title: "Git & Github 1",
+        description: "Git Basics - Version Control Fundamentals, GitHub & Git Hosting Platforms, Terminal & Command Line Essentials, Git Setup & Configuration, Git Workflow & Areas - Understanding Git's Architecture, Essential Git Commands & Daily Workflow, Serverless Deployment - Deploy Frontend Projects to Production",
+        image: "./assets/images/logos/github.webp",
+        status: "completed",
+        content: "GIT"
+    },
+    {
+        id: "GIT",
+        number: 26,
+        title: "Git & Github 2",
+        description: "Git Branching & Merging Strategies, README Files & Markdown Documentation, Gitignore Files - Ignoring Files in Git",
+        image: "./assets/images/logos/github.webp",
+        status: "completed",
+        content: "GIT"
     },
     {
         id: "JS-8",
-        number: 26,
-        title: "Asynchronous JavaScript",
+        number: 27,
+        title: "BOM - Asynchronous JavaScript",
         description: "Asynchronous JavaScript, Async Techniques, Working with Time, Fetch, JSON, and Async Data Handling",
         image: "./assets/images/logos/JS.webp",
         status: "not-started",
         content: "JS."
     },
     {
-        id: "GIT",
-        number: 27,
-        title: "Git & Github",
-        description: "Git Basics - Version Control Fundamentals, GitHub & Git Hosting Platforms, Terminal & Command Line Essentials, Git Setup & Configuration, Git Workflow & Areas - Understanding Git's Architecture, Essential Git Commands & Daily Workflow",
-        image: "./assets/images/logos/github.webp",
-        status: "not-started",
-        content: "GIT"
-    },
-    {
-        id: "GIT",
-        number: 28,
-        title: "Branching in Git & Serverless Deployment",
-        description: "Git Branching & Merging Strategies, README Files & Markdown Documentation, Gitignore Files - Ignoring Files in Git, Serverless Deployment - Deploy Frontend Projects to Production",
-        image: "./assets/images/logos/github.webp",
-        status: "not-started",
-        content: "GIT"
-    },
-    {
         id: "REACT",
-        number: 29,
+        number: 28,
         title: "React Fundamentals: Setup, Components, and JSX",
         description: "React Introduction - What is React and Why Choose It?, Modern React Setup & Development Environment, React Fundamentals: Components, JSX & Props",
         image: "./assets/images/logos/React.webp",
@@ -269,7 +260,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 30,
+        number: 29,
         title: "Recap",
         description: "Recap React Fundamentals",
         image: "./assets/images/logos/React.webp",
@@ -279,7 +270,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 31,
+        number: 30,
         title: "React Hooks (useState)",
         description: "State Management & Event Handling, React Hooks: useState",
         image: "./assets/images/logos/React.webp",
@@ -288,7 +279,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 32,
+        number: 31,
         title: "useEffect, Advanced Hooks",
         description: "React Hooks: useEffect, Advanced Hooks & Performance Optimization",
         image: "./assets/images/logos/React.webp",
@@ -297,7 +288,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 33,
+        number: 32,
         title: "React Router",
         description: "React Router & Navigation",
         image: "./assets/images/logos/React.webp",
@@ -306,7 +297,7 @@ const lectures = [
     },
     {
         id: "API",
-        number: 34,
+        number: 33,
         title: "Understanding APIs and Web Communication",
         description: "APIs and JSON Data Format, Backend Role (Server), Frontend Role (User Interface), Request Components, Response Components",
         image: "./assets/images/logos/API.webp",
@@ -315,7 +306,7 @@ const lectures = [
     },
     {
         id: "REACT",
-        number: 35,
+        number: 34,
         title: "Context API, and State Management System, External Libraries",
         description: "Context API for global state (createContext, Provider, useContext), State Management wit Zustand, External Libraries & Ecosystem",
         image: "./assets/images/logos/React.webp",

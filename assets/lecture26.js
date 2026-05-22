@@ -1,697 +1,653 @@
 // Course data structure
 const courseData = {
     courseInfo: {
-        name: "Complete React Mastery 2025 - From Zero to Hero",
+        name: "Complete Git Mastery - Version Control Fundamentals",
         coach: "Moones Mezher",
         center: "Ousos"
     },
     topics: [
         {
-    id: "react-introduction",
-    title: "React Introduction - What is React and Why Choose It?",
-    content: `
-        <h3>What is React?</h3>
-        <p>React is a JavaScript library for building user interfaces, particularly web applications. Created by Facebook (now Meta) in 2013, it has revolutionized how developers build modern, interactive web experiences.</p>
-        
-        <h3>React: Library vs Framework</h3>
-        <ul>
-            <li><strong>React is a Library</strong>: It focuses specifically on building user interfaces</li>
-            <li><strong>Frameworks vs Libraries</strong>: Frameworks provide complete solutions, libraries solve specific problems</li>
-            <li><strong>Flexibility</strong>: As a library, React gives you freedom to choose other tools</li>
-            <li><strong>Ecosystem</strong>: React has a rich ecosystem that complements its library nature</li>
-        </ul>
-        
-        <h3>Why Choose React in 2025?</h3>
-        <ul>
-            <li><strong>Massive Adoption</strong>: Used by 8+ million developers worldwide</li>
-            <li><strong>Industry Standard</strong>: Trusted by Facebook, Netflix, Airbnb, Uber, and thousands of companies</li>
-            <li><strong>Job Market</strong>: Highest demand in the frontend job market</li>
-            <li><strong>Stability & Maturity</strong>: 10+ years of continuous development and improvement</li>
-            <li><strong>Rich Ecosystem</strong>: Vast collection of libraries, tools, and resources</li>
-        </ul>
-        
-        <h3>Key Features That Make React Special:</h3>
-        <ul>
-            <li><strong>Component-Based Architecture</strong>: Build encapsulated components that manage their own state</li>
-            <li><strong>Virtual DOM</strong>: Optimized rendering performance</li>
-            <li><strong>Declarative Syntax</strong>: Describe what you want, not how to do it</li>
-            <li><strong>Learn Once, Write Anywhere</strong>: React Native for mobile, React for web</li>
-            <li><strong>Strong Community</strong>: Active community with continuous innovation</li>
-        </ul>
-        
-        <h3>What is the Virtual DOM?</h3>
-        <p>The Virtual DOM is React's secret weapon for performance. It's a lightweight JavaScript representation of the actual DOM that allows React to efficiently update the user interface.</p>
-        
-        <h3>How Virtual DOM Works:</h3>
-        <ol>
-            <li><strong>Virtual Representation</strong>: React creates a virtual representation of the UI</li>
-            <li><strong>State Changes</strong>: When data changes, React creates a new virtual DOM</li>
-            <li><strong>Diffing Algorithm</strong>: React compares new and old virtual DOMs</li>
-            <li><strong>Efficient Updates</strong>: Only the changed parts are updated in the real DOM</li>
-            <li><strong>Performance Optimization</strong>: Minimizes expensive DOM operations</li>
-        </ol>
-        
-        <h3>React vs Other Frameworks:</h3>
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Framework/Library</th>
-                    <th>Type</th>
-                    <th>Learning Curve</th>
-                    <th>Best For</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>React</strong></td>
-                    <td>Library</td>
-                    <td>Moderate</td>
-                    <td>Large applications, flexibility needed</td>
-                </tr>
-                <tr>
-                    <td>Vue.js</td>
-                    <td>Framework</td>
-                    <td>Gentle</td>
-                    <td>Progressive enhancement, small teams</td>
-                </tr>
-                <tr>
-                    <td>Angular</td>
-                    <td>Framework</td>
-                    <td>Steep</td>
-                    <td>Enterprise applications, structured teams</td>
-                </tr>
-                <tr>
-                    <td>Svelte</td>
-                    <td>Compiler</td>
-                    <td>Easy</td>
-                    <td>Performance-critical applications</td>
-                </tr>
-            </tbody>
-        </table>
-    `,
-    examples: [
-        {
-            title: "Real-World React Examples & Virtual DOM Demonstration",
+            id: "git-branching-merging",
+            title: "Git Branching & Merging Strategies",
             content: `
+                <h3>Working with Branches</h3>
+                <p>Branches enable parallel development and are fundamental to collaborative Git workflows.</p>
+                
+                <h3>Branch Operations:</h3>
                 <pre class="code-block">
-// Example 1: Simple React Component vs Vanilla JavaScript
-
-// Vanilla JavaScript approach (imperative)
-const container = document.getElementById('app');
-const button = document.createElement('button');
-button.textContent = 'Click me: 0';
-let count = 0;
-
-button.addEventListener('click', function() {
-    count++;
-    button.textContent = 'Click me: ' + count;
-});
-
-container.appendChild(button);
-
-// React approach (declarative)
-import { useState } from 'react';
-
-function Counter() {
-    const [count, setCount] = useState(0);
-    
-    return (
-        <button onClick={() => setCount(count + 1)}>
-            Click me: {count}
-        </button>
-    );
-}
-
-// Example 2: Virtual DOM in Action
-// When state changes, here's what happens:
-
-// 1. Current Virtual DOM
-const currentVDOM = {
-    type: 'div',
-    props: {
-        className: 'container',
-        children: [
-            {
-                type: 'h1',
-                props: {
-                    children: 'Hello, World!'
-                }
-            },
-            {
-                type: 'p',
-                props: {
-                    children: 'Count: 0'
-                }
-            }
-        ]
-    }
-};
-
-// 2. New Virtual DOM after state change
-const newVDOM = {
-    type: 'div',
-    props: {
-        className: 'container',
-        children: [
-            {
-                type: 'h1',
-                props: {
-                    children: 'Hello, World!'
-                }
-            },
-            {
-                type: 'p',
-                props: {
-                    children: 'Count: 1'  // Only this changed
-                }
-            }
-        ]
-    }
-};
-
-// 3. React's diffing algorithm detects only the text changed
-// 4. React updates only the text node in real DOM, not the entire structure
-
-// Example 3: Component Reusability
-// Reusable Button Component
-function Button({ children, variant = 'primary', onClick }) {
-    return (
-        <button 
-            className={\`btn btn-\${variant}\`}
-            onClick={onClick}
-        >
-            {children}
-        </button>
-    );
-}
-
-// Using the reusable component
-function App() {
-    return (
-        <div>
-            <Button variant="primary" onClick={() => alert('Hello!')}>
-                Primary Button
-            </Button>
-            <Button variant="secondary">
-                Secondary Button
-            </Button>
-        </div>
-    );
-}
-
-// Example 4: Large Companies Using React
-
-// Facebook - The creator
-// Uses React for their entire web interface
-
-// Instagram - Fully built with React
-// Complex features like stories, feeds, direct messages
-
-// Netflix - Uses React for their TV UI
-// Handles complex animations and user interactions
-
-// Airbnb - Entire booking platform
-// Manages complex state and user flows
-
-// Uber - Web dashboard and customer apps
-// Real-time updates and complex interfaces
-
-// WhatsApp Web - Real-time messaging
-// Handles millions of concurrent users
-
-// Example 5: React Ecosystem Demonstration
-
-// With React, you can choose your preferred tools:
-// - State Management: Redux, Zustand, Context API
-// - Routing: React Router, Next.js routing
-// - Styling: CSS Modules, Styled Components, Tailwind CSS
-// - Testing: Jest, React Testing Library
-// - Build Tools: Vite, Webpack, Create React App
-
-// This flexibility is possible because React is a library, not a framework
-
-// Example 6: Performance Benefits Demonstration
-
-// Without Virtual DOM (expensive operations)
-function updateWithoutVDOM() {
-    // Direct DOM manipulation - can be slow
-    const element = document.getElementById('myElement');
-    element.style.color = 'red';
-    element.textContent = 'Updated text';
-    element.className = 'updated-class';
-    // Each line causes a reflow/repaint
-}
-
-// With Virtual DOM (optimized)
-function updateWithVDOM() {
-    // React batches updates
-    // 1. Update virtual DOM
-    // 2. Compare with previous virtual DOM
-    // 3. Calculate minimal DOM operations
-    // 4. Apply batch update to real DOM
-    // Result: Better performance
-}
-
-// Example 7: React's Declarative Nature
-
-// Imperative approach (how to do it)
-function imperativeUpdate() {
-    const container = document.getElementById('container');
-    container.innerHTML = ''; // Clear container
-    
-    users.forEach(user => {
-        const div = document.createElement('div');
-        div.textContent = user.name;
-        div.className = user.isActive ? 'active' : 'inactive';
-        container.appendChild(div);
-    });
-}
-
-// Declarative approach with React (what you want)
-function UserList({ users }) {
-    return (
-        <div id="container">
-            {users.map(user => (
-                <div key={user.id} className={user.isActive ? 'active' : 'inactive'}>
-                    {user.name}
-                </div>
-            ))}
-        </div>
-    );
-}
-
-// The declarative approach is easier to read, maintain, and debug
+git branch                 # List all branches
+git branch [name]         # Create new branch
+git checkout [branch]     # Switch to branch
+git checkout -b [branch]  # Create and switch to new branch
+git switch [branch]       # Modern way to switch branches
+git switch -c [branch]    # Create and switch (modern)
+git merge [branch]        # Merge branch into current branch
+git branch -d [branch]    # Delete branch (if merged)
+git branch -D [branch]    # Force delete branch (even if not merged)
+git branch -m [new-name]  # Rename current branch
                 </pre>
-            `
-        }
-    ],
-    practices: [
-        {
-            title: "React Fundamentals Practice",
-            content: `
-                <p>Practice understanding React's core concepts:</p>
-                <ol>
-                    <li>Research and compare React with two other popular frameworks (Vue.js and Angular)</li>
-                    <li>Create a simple counter using both vanilla JavaScript and React to compare approaches</li>
-                    <li>Draw a diagram showing how the Virtual DOM works with diffing and reconciliation</li>
-                    <li>List 10 major companies using React and what parts of their applications use it</li>
-                    <li>Explain the difference between imperative and declarative programming to a beginner</li>
-                    <li>Create a presentation explaining why React is a library, not a framework</li>
-                    <li>Build a simple component that demonstrates reusability with different props</li>
-                    <li>Research and list the key advantages React had when it was first introduced in 2013</li>
-                </ol>
-            `
-        }
-    ],
-    questions: [
-        {
-            question: "Is React a library or a framework, and what's the difference?",
-            answer: "React is a library, not a framework. The key difference is that a library provides specific functionality that you call, while a framework provides a complete structure that calls your code. With React (library), you decide how to structure your application, what routing to use, and how to manage state. With frameworks like Angular, the framework makes these decisions for you. React's library nature gives developers more flexibility but requires more decisions about architecture."
-        },
-        {
-            question: "What problem does the Virtual DOM solve?",
-            answer: "The Virtual DOM solves performance issues with direct DOM manipulation. Directly updating the DOM is slow, especially with frequent changes. The Virtual DOM creates a lightweight JavaScript representation of the actual DOM. When changes occur, React compares the new Virtual DOM with the previous one (diffing) and calculates the most efficient way to update the real DOM. This minimizes expensive DOM operations and improves performance, especially in complex applications with frequent updates."
-        },
-        {
-            question: "Why has React remained so popular for over a decade?",
-            answer: "React has maintained popularity due to: 1) Component reusability that speeds up development, 2) Virtual DOM for excellent performance, 3) Strong backing from Facebook/Meta with continuous improvement, 4) Huge ecosystem and community support, 5) Flexibility to integrate with other libraries, 6) React Native for mobile development, 7) Excellent developer experience with tools like React DevTools, 8) Strong job market demand, and 9) Continuous evolution with new features like Hooks and Concurrent Features."
-        },
-        {
-            question: "What does 'learn once, write anywhere' mean in React?",
-            answer: "This React philosophy means that after learning React concepts and patterns, you can apply them to different platforms. React for web, React Native for mobile apps (iOS and Android), React 360 for VR applications, and even React for desktop with Electron. The mental model and component architecture remain consistent across platforms, reducing the learning curve when moving between different types of applications. This contrasts with 'write once, run anywhere' approaches that try to use the same code everywhere."
-        },
-        {
-            question: "How does React's declarative approach benefit developers?",
-            answer: "Declarative programming in React means you describe WHAT the UI should look like for any given state, rather than HOW to achieve that state (imperative). Benefits include: 1) More predictable code that's easier to debug, 2) Easier to understand and maintain, 3) Less prone to bugs from manual DOM manipulation, 4) Better for team collaboration with consistent patterns, 5) Easier testing since components are pure functions of their props and state. You focus on the desired outcome rather than the step-by-step process to get there."
-        }
-    ]
-},
-        {
-            id: "react-modern-setup",
-            title: "Modern React Setup & Development Environment",
-            content: `
-                <h3>Setting Up React in 2025</h3>
-                <p>Modern React development starts with choosing the right tools and setup for optimal performance and developer experience.</p>
                 
-                <h3>Project Setup Options:</h3>
+                <h3>Branch Strategies:</h3>
                 <ul>
-                    <li><strong>Vite</strong>: Lightning-fast build tool with instant HMR</li>
-                    <li><strong>Create React App</strong>: Official boilerplate (traditional)</li>
-                    <li><strong>Next.js</strong>: Full-stack framework with SSR/SSG</li>
-                    <li><strong>Remix</strong>: Focused on web fundamentals and performance</li>
+                    <li><strong>Feature Branches</strong>: One branch per feature/task</li>
+                    <li><strong>Release Branches</strong>: Prepare code for production releases</li>
+                    <li><strong>Hotfix Branches</strong>: Emergency fixes for production issues</li>
+                    <li><strong>Development Branch</strong>: Integration branch before main</li>
                 </ul>
                 
-                <h3>Why Vite is Recommended in 2025:</h3>
+                <h3>Merging Types:</h3>
                 <ul>
-                    <li><strong>Instant Server Start</strong>: Uses native ES modules</li>
-                    <li><strong>Lightning HMR</strong>: Hot Module Replacement that's incredibly fast</li>
-                    <li><strong>Optimized Build</strong>: Uses Rollup for production</li>
-                    <li><strong>Rich Features</strong>: TypeScript, JSX, CSS preprocessors out of the box</li>
-                    <li><strong>Framework Agnostic</strong>: Works with React, Vue, Svelte</li>
+                    <li><strong>Fast-forward Merge</strong>: Linear history when no divergence</li>
+                    <li><strong>3-way Merge</strong>: Creates merge commit when branches have diverged</li>
+                    <li><strong>Rebase</strong>: Rewrites history for linear timeline</li>
+                    <li><strong>Squash Merge</strong>: Combines multiple commits into one</li>
                 </ul>
                 
-                <h3>Essential Development Tools:</h3>
+                <h3>Rebase Operations:</h3>
+                <pre class="code-block">
+git rebase [branch]       # Rebase current branch onto target
+git rebase -i [commit]    # Interactive rebase (squash, edit, reorder)
+git rebase --abort        # Abort rebase in progress
+git rebase --continue     # Continue after resolving conflicts
+                </pre>
+                
+                <h3>Best Practices:</h3>
                 <ul>
-                    <li><strong>VS Code</strong>: With React extension pack</li>
-                    <li><strong>React Developer Tools</strong>: Browser extension for debugging</li>
-                    <li><strong>ESLint & Prettier</strong>: Code formatting and linting</li>
-                    <li><strong>Git</strong>: Version control</li>
+                    <li>Create descriptive branch names (feature/user-auth, bugfix/login-error)</li>
+                    <li>Keep branches focused and small</li>
+                    <li>Merge frequently to avoid large conflicts</li>
+                    <li>Delete merged branches to keep repository clean</li>
+                    <li>Use pull requests for code review</li>
                 </ul>
+
+                <br><hr><br>
+                <div dir="rtl">
+                    <h3>العمل مع الفروع</h3>
+                    <p>تمكن الفروع التطوير المتوازي وهي أساسية لسير عمل Git التعاوني.</p>
+                    
+                    <h3>ممارسات أفضل:</h3>
+                    <ul>
+                        <li>أنشئ أسماء فروع وصفيّة (feature/user-auth, bugfix/login-error)</li>
+                        <li>احتفظ بالفروع مركزة وصغيرة</li>
+                        <li>ادمج frequently لتجنب التعارضات الكبيرة</li>
+                        <li>احذف الفروع المدمجة للحفاظ على نظافة المستودع</li>
+                        <li>استخدم طلبات السحب لمراجعة الكود</li>
+                    </ul>
+                </div>
             `,
             examples: [
                 {
-                    title: "Vite React Setup Examples",
+                    title: "Branching and Merging Examples",
                     content: `
                         <pre class="code-block">
-// Creating a new React project with Vite
-npm create vite@latest my-react-app -- --template react
-cd my-react-app
-npm install
-npm run dev
+# Create and work with feature branch
+git checkout -b feature/user-authentication
+# Make changes...
+git add .
+git commit -m "Implement user login functionality"
+git push -u origin feature/user-authentication
 
-// Project structure after setup:
-my-react-app/
-├── public/
-│   └── vite.svg
-├── src/
-│   ├── assets/
-│   ├── App.css
-│   ├── App.jsx
-│   ├── index.css
-│   ├── main.jsx
-│   └── components/
-├── index.html
-├── package.json
-├── vite.config.js
-└── README.md
+# Meanwhile, on main branch
+git checkout main
+# Make some changes...
+git add .
+git commit -m "Update documentation"
+git push origin main
 
-// vite.config.js - Basic configuration
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+# Merge feature branch
+git checkout main
+git pull origin main
+git merge feature/user-authentication
+git push origin main
 
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: 3000,
-    open: true // Automatically open browser
-  }
-})
+# Delete feature branch after merge
+git branch -d feature/user-authentication
+git push origin --delete feature/user-authentication
 
-// Setting up Tailwind CSS with Vite
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
+# Handling merge conflicts
+git merge feature/some-branch
+# If conflicts occur:
+# 1. Edit files to resolve conflicts (look for <<<<<<<, =======, >>>>>>> markers)
+# 2. Stage resolved files: git add resolved-file.js
+# 3. Complete merge: git commit
 
-// tailwind.config.js
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+# Rebasing example
+git checkout feature/some-feature
+git rebase main
+# Resolve any conflicts during rebase
+git rebase --continue
+git checkout main
+git merge feature/some-feature  # Now fast-forward merge
 
-// Add to src/index.css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+# Interactive rebase (squash multiple commits)
+git rebase -i HEAD~3
+# In editor: change "pick" to "squash" for commits to combine
 
-// Setting up ESLint and Prettier
-npm install -D eslint eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
-npm install -D prettier eslint-config-prettier eslint-plugin-prettier
+# Stashing changes before switching branches
+git stash                      # Save uncommitted changes
+git checkout other-branch
+# Do some work...
+git checkout original-branch
+git stash pop                 # Restore saved changes
 
-// .eslintrc.js
-module.exports = {
-  env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    '@vue/eslint-config-prettier/skip-formatting'
-  ],
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': 'warn',
-  },
-}
-
-// package.json scripts
-{
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  }
-}
+# Comparing branches
+git diff main..feature-branch  # Compare two branches
+git log main..feature-branch   # See commits in feature not in main
                         </pre>
                     `
                 }
             ],
             practices: [
                 {
-                    title: "Environment Setup Practice",
+                    title: "Branching Practice",
                     content: `
-                        <p>Practice setting up modern React development environments:</p>
+                        <p>Practice branching and merging strategies:</p>
                         <ol>
-                            <li>Create a new React project using Vite with TypeScript</li>
-                            <li>Set up Tailwind CSS and configure it for your project</li>
-                            <li>Install and configure ESLint and Prettier for code formatting</li>
-                            <li>Set up React Developer Tools in your browser</li>
-                            <li>Create a basic component structure with proper folder organization</li>
-                            <li>Configure path aliases in Vite for cleaner imports</li>
-                            <li>Set up environment variables for different deployment stages</li>
-                            <li>Create a custom Vite configuration for your specific needs</li>
+                            <li>Create multiple feature branches for different tasks</li>
+                            <li>Practice merging branches with both fast-forward and 3-way merges</li>
+                            <li>Create and resolve merge conflicts intentionally</li>
+                            <li>Use git stash to save work in progress</li>
+                            <li>Practice rebasing branches for a cleaner history</li>
+                            <li>Use interactive rebase to squash multiple commits</li>
+                            <li>Set up a branching strategy for a sample project</li>
                         </ol>
                     `
                 }
             ],
             questions: [
                 {
-                    question: "What are the main differences between Vite and Create React App?",
-                    answer: "Vite uses native ES modules for instant server start and faster HMR, while CRA uses Webpack which bundles everything upfront. Vite has better performance, faster builds, and more flexible configuration. CRA is more established but slower. Vite is recommended for new projects due to superior developer experience and faster tooling."
+                    question: "When should I use merge vs rebase?",
+                    answer: "Use merge when you want to preserve the complete history and context of feature development, especially for public branches or when multiple developers are working on the same branch. Use rebase when you want a cleaner, linear history and are working on a private feature branch. Rebase rewrites history, so avoid it on shared branches. Merge preserves history but can create complex merge commits, while rebase creates a linear history but can be dangerous if misused."
                 },
                 {
-                    question: "Why should I use TypeScript with React?",
-                    answer: "TypeScript provides static type checking, better IDE support, improved code quality, easier refactoring, and early error detection. It helps catch bugs during development, makes code more self-documenting, and improves collaboration in teams. For large applications, TypeScript is essential for maintainability."
+                    question: "What are the advantages of feature branches?",
+                    answer: "Feature branches isolate development work, allowing multiple features to be developed simultaneously without interfering with each other. They enable code review through pull requests, provide a safe space for experimentation, make it easy to abandon failed experiments, allow focused testing of specific features, and facilitate parallel development across teams. Each feature can be developed, tested, and reviewed independently before integration."
                 }
             ]
         },
         {
-            id: "react-fundamentals-jsx",
-            title: "React Fundamentals: Components, JSX & Props",
+            id: "git-documentation",
+            title: "README Files & Markdown Documentation",
             content: `
-                <h3>React Core Concepts</h3>
-                <p>Understanding React's fundamental building blocks: components, JSX, and props is essential for building modern UIs.</p>
+                <h3>Project Documentation Essentials</h3>
+                <p>Proper documentation is crucial for project understanding, maintenance, and collaboration.</p>
                 
-                <h3>Functional Components:</h3>
+                <h3>What is README.md?</h3>
                 <ul>
-                    <li><strong>Modern Approach</strong>: Use functions instead of classes</li>
-                    <li><strong>Simpler Syntax</strong>: Easier to read and write</li>
-                    <li><strong>Hooks Compatible</strong>: Works with all React hooks</li>
-                    <li><strong>Better Performance</strong>: Less boilerplate code</li>
+                    <li>Primary documentation file for projects</li>
+                    <li>First thing users see in your repository</li>
+                    <li>Written in Markdown (.md extension)</li>
+                    <li>Auto-rendered by GitHub/GitLab</li>
                 </ul>
                 
-                <h3>JSX Syntax Features:</h3>
+                <h3>Why README is Crucial:</h3>
                 <ul>
-                    <li><strong>JavaScript XML</strong>: HTML-like syntax in JavaScript</li>
-                    <li><strong>Expressions</strong>: Embed JavaScript with {}</li>
-                    <li><strong>Attributes</strong>: className instead of class, htmlFor instead of for</li>
-                    <li><strong>Fragments</strong>: &lt;&gt;&lt;/&gt; to group elements without extra DOM nodes</li>
-                    <li><strong>Conditional Rendering</strong>: &&, ternary operators, and if statements</li>
+                    <li>Project overview and purpose</li>
+                    <li>Installation instructions</li>
+                    <li>Usage examples</li>
+                    <li>Contribution guidelines</li>
+                    <li>License information</li>
                 </ul>
                 
-                <h3>Props System:</h3>
+                <h3>Markdown Basics:</h3>
+                <pre class="code-block">
+# Heading 1
+## Heading 2
+### Heading 3
+
+**Bold Text**
+*Italic Text*
+~~Strikethrough~~
+
+- List item 1
+- List item 2
+
+1. Numbered item 1
+2. Numbered item 2
+
+[Link Text](https://example.com)
+![Image Alt](image.jpg)
+
+\`Inline Code\`
+
+\`\`\`
+Code Block
+\`\`\`
+
+> Blockquote
+
+| Header 1 | Header 2 |
+|----------|----------|
+| Cell 1   | Cell 2   |
+
+- [ ] Task list item
+- [x] Completed task
+                </pre>
+                
+                <h3>README Structure:</h3>
+                <ol>
+                    <li>Project Title & Badges</li>
+                    <li>Project Description</li>
+                    <li>Installation</li>
+                    <li>Usage</li>
+                    <li>Features</li>
+                    <li>Contributing</li>
+                    <li>License</li>
+                    <li>Contact</li>
+                </ol>
+                
+                <h3>Advanced Markdown Features:</h3>
                 <ul>
-                    <li><strong>Data Passing</strong>: Pass data from parent to child components</li>
-                    <li><strong>Immutable</strong>: Props are read-only in child components</li>
-                    <li><strong>Destructuring</strong>: Extract props directly in function parameters</li>
-                    <li><strong>Default Values</strong>: Provide fallback values for optional props</li>
-                    <li><strong>Prop Types</strong>: Type checking for better reliability</li>
+                    <li><strong>Tables</strong>: Using | syntax</li>
+                    <li><strong>Task lists</strong>: - [ ] and - [x]</li>
+                    <li><strong>Emoji</strong>: :emoji_name:</li>
+                    <li><strong>Mathematical formulas</strong>: LaTeX syntax</li>
+                    <li><strong>Mermaid diagrams</strong>: Flowcharts and diagrams</li>
                 </ul>
                 
-                <h3>Component Composition:</h3>
+                <h3>Best Practices:</h3>
                 <ul>
-                    <li><strong>Children Prop</strong>: Pass components as children</li>
-                    <li><strong>Higher-Order Components</strong>: Component wrappers for reuse</li>
-                    <li><strong>Component Patterns</strong>: Container vs Presentational components</li>
+                    <li>Write clear, concise documentation</li>
+                    <li>Include code examples</li>
+                    <li>Use screenshots/GIFs</li>
+                    <li>Keep it updated</li>
+                    <li>Consider multiple languages if needed</li>
                 </ul>
+
+                <br><hr><br>
+                <div dir="rtl">
+                    <h3>أساسيات توثيق المشروع</h3>
+                    <p>التوثيق المناسب ضروري لفهم المشروع وصيانته والتعاون عليه.</p>
+                    
+                    <h3>هيكل README:</h3>
+                    <ol>
+                        <li>عنوان المشروع والشارات</li>
+                        <li>وصف المشروع</li>
+                        <li>التثبيت</li>
+                        <li>الاستخدام</li>
+                        <li>الميزات</li>
+                        <li>المساهمة</li>
+                        <li>الترخيص</li>
+                        <li>الاتصال</li>
+                    </ol>
+                </div>
             `,
             examples: [
                 {
-                    title: "Components, JSX & Props Examples",
+                    title: "Complete README Example",
                     content: `
                         <pre class="code-block">
-// Example 1: Basic Functional Component
-function Welcome() {
-  return <h1>Hello, World!</h1>;
-}
+# Project Name
 
-// Example 2: Component with Props
-function UserCard({ name, age, email, isOnline = false }) {
-  return (
-    <div className="user-card">
-      <h2>{name}</h2>
-      <p>Age: {age}</p>
-      <p>Email: {email}</p>
-      {isOnline && <span className="online-badge">Online</span>}
-    </div>
-  );
-}
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
 
-// Usage
-<UserCard name="John Doe" age={25} email="john@example.com" isOnline />
+A brief description of what your project does and why it's useful.
 
-// Example 3: JSX Expressions and Conditional Rendering
-function Product({ product, showPrice = true }) {
-  return (
-    <div className="product">
-      <h3>{product.name}</h3>
-      <p>{product.description}</p>
-      
-      {/* Conditional rendering with && */}
-      {product.isNew && <span className="new-badge">New!</span>}
-      
-      {/* Conditional rendering with ternary */}
-      {showPrice ? (
-        <p className="price">\${product.price}</p>
-      ) : (
-        <p>Price hidden</p>
-      )}
-      
-      {/* Multiple expressions */}
-      <p>
-        Category: {product.category}
-        {product.tags && (
-          <span> - Tags: {product.tags.join(', ')}</span>
-        )}
-      </p>
-    </div>
-  );
-}
+## 🚀 Features
 
-// Example 4: Lists and Keys
-function ProductList({ products }) {
-  return (
-    <div className="product-list">
-      {products.map(product => (
-        <Product 
-          key={product.id} // Important for React's reconciliation
-          product={product}
-        />
-      ))}
-    </div>
-  );
-}
+- Feature 1: Description of feature
+- Feature 2: Description of feature
+- Feature 3: Description of feature
 
-// Example 5: Fragments
-function UserProfile() {
-  return (
-    <>
-      <header>
-        <h1>User Profile</h1>
-      </header>
-      <main>
-        <UserCard name="Alice" age={30} />
-      </main>
-    </>
-  );
-}
+## 📦 Installation
 
-// Example 6: Children Prop and Composition
-function Card({ title, children, variant = "default" }) {
-  return (
-    <div className={\`card card-\${variant}\`}>
-      {title && <h3 className="card-title">{title}</h3>}
-      <div className="card-content">
-        {children}
-      </div>
-    </div>
-  );
-}
+\`\`\`bash
+# Clone the repository
+git clone https://github.com/username/project-name.git
 
-// Usage with children
-<Card title="User Information" variant="primary">
-  <p>This is the card content</p>
-  <button>Click me</button>
-</Card>
+# Navigate to directory
+cd project-name
 
-// Example 7: Prop Types with TypeScript
-interface ButtonProps {
-  children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'danger';
-  size?: 'small' | 'medium' | 'large';
-  disabled?: boolean;
-  onClick?: () => void;
-}
+# Install dependencies
+npm install
 
-function Button({ 
-  children, 
-  variant = 'primary',
-  size = 'medium',
-  disabled = false,
-  onClick 
-}: ButtonProps) {
-  return (
-    <button
-      className={\`btn btn-\${variant} btn-\${size}\`}
-      disabled={disabled}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-}
+# Start development server
+npm start
+\`\`\`
 
-// Example 8: Default Props and Destructuring
-function Avatar({ 
-  src, 
-  alt = "User avatar", 
-  size = 40,
-  fallback = "https://via.placeholder.com/40"
-}) {
-  return (
-    <img 
-      src={src || fallback} 
-      alt={alt}
-      width={size}
-      height={size}
-      className="avatar"
-    />
-  );
-}
+## 💻 Usage
+
+\`\`\`javascript
+// Example code usage
+const example = new Example();
+example.doSomething();
+\`\`\`
+
+## 🛠️ Development
+
+### Prerequisites
+- Node.js 14+
+- npm or yarn
+
+### Building
+\`\`\`bash
+npm run build
+\`\`\`
+
+### Testing
+\`\`\`bash
+npm test
+\`\`\`
+
+## 🤝 Contributing
+
+1. Fork the project
+2. Create your feature branch (\`git checkout -b feature/AmazingFeature\`)
+3. Commit your changes (\`git commit -m 'Add some AmazingFeature'\`)
+4. Push to the branch (\`git push origin feature/AmazingFeature\`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
+
+Project Link: [https://github.com/username/project-name](https://github.com/username/project-name)
                         </pre>
                     `
                 }
             ],
             practices: [
                 {
-                    title: "Components & JSX Practice",
+                    title: "Documentation Practice",
                     content: `
-                        <p>Practice React fundamentals with these exercises:</p>
+                        <p>Practice creating comprehensive documentation:</p>
                         <ol>
-                            <li>Create a UserProfile component that displays user information with props</li>
-                            <li>Build a ProductCard component that conditionally shows sale badges</li>
-                            <li>Create a List component that renders arrays of items with proper keys</li>
-                            <li>Build a Modal component that uses children prop for content</li>
-                            <li>Create a Button component with different variants and sizes</li>
-                            <li>Practice using fragments to group elements without extra divs</li>
-                            <li>Build a complex component that uses multiple conditional rendering techniques</li>
-                            <li>Create a component library with TypeScript prop definitions</li>
+                            <li>Create a detailed README.md for one of your projects</li>
+                            <li>Practice using all Markdown formatting features</li>
+                            <li>Add badges to show build status and version</li>
+                            <li>Create installation and usage instructions</li>
+                            <li>Write contribution guidelines for your project</li>
+                            <li>Add code examples with proper syntax highlighting</li>
+                            <li>Include screenshots or GIFs demonstrating your project</li>
                         </ol>
                     `
                 }
             ],
             questions: [
                 {
-                    question: "What's the difference between elements and components in React?",
-                    answer: "Elements are plain objects describing what you want to see on the screen. They are immutable and cheap to create. Components are functions or classes that return elements. They can have state, props, and lifecycle methods. Elements are the building blocks, while components are the templates that generate elements."
+                    question: "Why is a good README file so important for open source projects?",
+                    answer: "A good README serves as the front door to your project. It helps potential users understand what your project does, how to install it, and how to use it. It reduces the barrier to entry for new contributors, showcases your project's value, provides essential documentation, and can significantly impact adoption rates. Many users decide whether to use a project based solely on the quality of its README."
                 },
                 {
-                    question: "Why do we need keys in lists and what makes a good key?",
-                    answer: "Keys help React identify which items have changed, are added, or are removed. They should be unique and stable. Good keys are unique IDs from your data, not array indices. Using indices can cause performance issues and bugs when the list order changes. Keys should be consistent across re-renders."
+                    question: "What are the most important sections to include in a README?",
+                    answer: "The most critical sections are: Project title and description, installation instructions, basic usage examples, features list, and contribution guidelines. Additional valuable sections include: badges (build status, version, license), API documentation, FAQ, troubleshooting, development setup, testing instructions, license information, and contact details. The exact sections depend on the project type and audience."
+                }
+            ]
+        },
+        {
+            id: "git-ignore",
+            title: "Gitignore Files - Ignoring Files in Git",
+            content: `
+                <h3>Ignoring Files in Git</h3>
+                <p>Gitignore files tell Git which files and directories to ignore in your repository.</p>
+                
+                <h3>Purpose of .gitignore:</h3>
+                <ul>
+                    <li>Exclude files from version control</li>
+                    <li>Prevent committing sensitive data</li>
+                    <li>Avoid unnecessary binary files</li>
+                    <li>Keep repository clean and focused</li>
+                </ul>
+                
+                <h3>Common Ignored Files:</h3>
+                <pre class="code-block">
+# Dependencies
+node_modules/
+vendor/
+*.jar
+*.war
+
+# Environment variables and configs
+.env
+.env.local
+.env.production
+.config
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build outputs
+/dist
+/build
+/target
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+.nyc_output/
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+                </pre>
+                
+                <h3>Usage and Patterns:</h3>
+                <ul>
+                    <li>Create .gitignore in root directory</li>
+                    <li>One pattern per line</li>
+                    <li>Supports wildcards (*) and directories (/)</li>
+                    <li>Can have global .gitignore for all projects</li>
+                    <li>Comments start with #</li>
+                </ul>
+                
+                <h3>Pattern Examples:</h3>
+                <pre class="code-block">
+# Ignore all .log files
+*.log
+
+# But keep important.log
+!important.log
+
+# Ignore entire directory
+build/
+
+# Ignore specific file in any directory
+*/temp.txt
+
+# Ignore all .txt files in docs/ directory
+docs/*.txt
+
+# Ignore all .pdf files in any directory
+**/*.pdf
+                </pre>
+                
+                <h3>Best Practices:</h3>
+                <ul>
+                    <li>Ignore OS-specific files</li>
+                    <li>Exclude dependencies and build outputs</li>
+                    <li>Never commit secrets or environment variables</li>
+                    <li>Use templates from gitignore.io</li>
+                    <li>Review .gitignore when setting up new projects</li>
+                </ul>
+
+                <br><hr><br>
+                <div dir="rtl">
+                    <h3>تجاهل الملفات في Git</h3>
+                    <p>ملفات Gitignore تخبر Git بالملفات والمجلدات التي يجب تجاهلها في مستودعك.</p>
+                    
+                    <h3>أفضل الممارسات:</h3>
+                    <ul>
+                        <li>تجاهل ملفات نظام التشغيل</li>
+                        <li>استبعد التبعيات ومخرجات البناء</li>
+                        <li>لا تلتزم بالأسرار أو متغيرات البيئة أبدًا</li>
+                        <li>استخدم قوالب من gitignore.io</li>
+                        <li>راجع .gitignore عند إعداد مشاريع جديدة</li>
+                    </ul>
+                </div>
+            `,
+            examples: [
+                {
+                    title: "Language-Specific Gitignore Examples",
+                    content: `
+                        <pre class="code-block">
+# Node.js .gitignore
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage
+.grunt
+
+# Bower dependency directory
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons
+build/Release
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Python .gitignore
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Java .gitignore
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs
+hs_err_pid*
+
+# React .gitignore
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+                        </pre>
+                    `
+                }
+            ],
+            practices: [
+                {
+                    title: "Gitignore Practice",
+                    content: `
+                        <p>Practice creating and using .gitignore files:</p>
+                        <ol>
+                            <li>Create a comprehensive .gitignore file for your project type</li>
+                            <li>Practice using different patterns and wildcards</li>
+                            <li>Set up a global .gitignore for your development environment</li>
+                            <li>Learn to use git check-ignore to debug .gitignore issues</li>
+                            <li>Practice removing accidentally committed files using .gitignore</li>
+                            <li>Explore gitignore.io to generate templates for different technologies</li>
+                            <li>Create multiple .gitignore files for different project sections</li>
+                        </ol>
+                    `
+                }
+            ],
+            questions: [
+                {
+                    question: "What's the difference between local and global .gitignore files?",
+                    answer: "Local .gitignore files are specific to a single repository and are committed to version control, so all collaborators share the same ignore rules. Global .gitignore files apply to all repositories on your local machine and are not shared with others. Use local .gitignore for project-specific ignores (like build outputs, dependencies) and global for personal ignores (like editor files, OS-specific files that everyone on your team might not have)."
+                },
+                {
+                    question: "How can I remove files that were already committed but should be ignored?",
+                    answer: "To remove files that were committed but should be ignored: 1) Add the file patterns to .gitignore, 2) Remove the files from the repository (but not disk) using 'git rm --cached filename' or 'git rm -r --cached directory/', 3) Commit the removal. The files will remain on your disk but won't be tracked by Git. For sensitive data that was committed, you may need to rewrite history using tools like BFG Repo-Cleaner or git filter-branch."
                 }
             ]
         }
