@@ -246,7 +246,7 @@ const lectures = [
         title: "BOM - Asynchronous JavaScript",
         description: "Asynchronous JavaScript, Async Techniques, Working with Time, Fetch, JSON, and Async Data Handling",
         image: "./assets/images/logos/JS.webp",
-        status: "not-started",
+        status: "completed",
         content: "JS."
     },
     {
