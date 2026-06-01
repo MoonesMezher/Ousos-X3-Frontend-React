@@ -1,7 +1,7 @@
 // Course data structure
 const courseData = {
     courseInfo: {
-        name: "Complete React Mastery 2025 - From Zero to Hero",
+        name: "Complete React Mastery 2026 - From Zero to Hero",
         coach: "Moones Mezher",
         center: "Ousos"
     },

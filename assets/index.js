@@ -253,9 +253,9 @@ const lectures = [
         id: "REACT",
         number: 28,
         title: "React Fundamentals: Setup, Components, and JSX",
-        description: "React Introduction - What is React and Why Choose It?, Modern React Setup & Development Environment, React Fundamentals: Components, JSX & Props",
+        description: "React Introduction - What is React and Why Choose It?, Modern React Setup & Development Environment, React Fundamentals: Components, JSX",
         image: "./assets/images/logos/React.webp",
-        status: "not-started",
+        status: "completed",
         content: "REACT"
     },
     {

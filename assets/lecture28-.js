@@ -6,7 +6,7 @@ const courseData = {
         center: "Ousos"
     },
     topics: [
-      {
+        {
             id: "react-state-events",
             title: "State Management & Event Handling",
             content: `
@@ -337,217 +337,164 @@ function InteractiveComponent() {
             ]
         },
         {
-            id: "react-advanced-hooks",
-            title: "Advanced Hooks & Performance Optimization",
+            id: "react-hooks-effects",
+            title: "React Hooks: useEffect & Side Effects",
             content: `
-                <h3>Advanced React Hooks Patterns</h3>
-                <p>Master advanced hooks for complex state logic, performance optimization, and reusable custom logic.</p>
+                <h3>Managing Side Effects with useEffect</h3>
+                <p>useEffect hook handles side effects in functional components, replacing lifecycle methods from class components.</p>
                 
-                <h3>useReducer Hook:</h3>
+                <h3>Side Effects Types:</h3>
                 <ul>
-                    <li><strong>Complex State Logic</strong>: Manage state with reducers</li>
-                    <li><strong>Predictable Updates</strong>: State transitions follow specific patterns</li>
-                    <li><strong>Actions & Dispatchers</strong>: Send actions to update state</li>
-                    <li><strong>Multiple State Values</strong>: Handle related state together</li>
+                    <li><strong>Data Fetching</strong>: API calls and data loading</li>
+                    <li><strong>Subscriptions</strong>: Event listeners, WebSocket connections</li>
+                    <li><strong>DOM Manipulation</strong>: Direct DOM updates when necessary</li>
+                    <li><strong>Timers</strong>: setTimeout, setInterval, animations</li>
+                    <li><strong>External Systems</strong>: Integration with third-party libraries</li>
                 </ul>
                 
-                <h3>Performance Hooks:</h3>
+                <h3>useEffect Dependencies:</h3>
                 <ul>
-                    <li><strong>useMemo</strong>: Memoize expensive computations</li>
-                    <li><strong>useCallback</strong>: Memoize functions to prevent re-renders</li>
-                    <li><strong>React.memo</strong>: Memoize components to prevent unnecessary re-renders</li>
-                    <li><strong>useRef</strong>: Access DOM elements and store mutable values</li>
+                    <li><strong>No Dependencies</strong>: Runs after every render</li>
+                    <li><strong>Empty Array</strong>: Runs once after initial render (mount)</li>
+                    <li><strong>With Dependencies</strong>: Runs when specific values change</li>
+                    <li><strong>Function in Dependencies</strong>: Use useCallback for stable references</li>
                 </ul>
                 
-                <h3>Custom Hooks:</h3>
+                <h3>Cleanup Function:</h3>
                 <ul>
-                    <li><strong>Logic Reuse</strong>: Extract and share component logic</li>
-                    <li><strong>Composition</strong>: Combine multiple hooks</li>
-                    <li><strong>Testing</strong>: Test hook logic separately from components</li>
-                    <li><strong>Abstraction</strong>: Hide complex implementation details</li>
+                    <li><strong>Prevent Memory Leaks</strong>: Clean up subscriptions and timers</li>
+                    <li><strong>Avoid State Updates</strong>: Cancel pending operations on unmount</li>
+                    <li><strong>Return Function</strong>: useEffect can return a cleanup function</li>
+                    <li><strong>Automatic Execution</strong>: Runs before re-running effect or unmount</li>
                 </ul>
                 
-                <h3>Rules of Hooks:</h3>
+                <h3>Common Patterns:</h3>
                 <ul>
-                    <li><strong>Top Level Only</strong>: Don't call hooks inside loops, conditions, or nested functions</li>
-                    <li><strong>React Functions Only</strong>: Only call hooks from React components or custom hooks</li>
-                    <li><strong>Same Order</strong>: Hooks must be called in the same order every render</li>
+                    <li><strong>Data Fetching</strong>: Combine with useState for loading states</li>
+                    <li><strong>Event Listeners</strong>: Add and remove in useEffect</li>
+                    <li><strong>API Subscriptions</strong>: Subscribe and unsubscribe pattern</li>
+                    <li><strong>Document Title Updates</strong>: Update title based on state</li>
                 </ul>
             `,
             examples: [
                 {
-                    title: "Advanced Hooks Examples",
+                    title: "useEffect & Side Effects Examples",
                     content: `
                         <pre class="code-block">
-// Example 1: useReducer for complex state
-import { useReducer } from 'react';
-
-const todoReducer = (state, action) => {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return {
-        ...state,
-        todos: [...state.todos, {
-          id: Date.now(),
-          text: action.payload,
-          completed: false
-        }]
-      };
-    case 'TOGGLE_TODO':
-      return {
-        ...state,
-        todos: state.todos.map(todo =>
-          todo.id === action.payload
-            ? { ...todo, completed: !todo.completed }
-            : todo
-        )
-      };
-    case 'DELETE_TODO':
-      return {
-        ...state,
-        todos: state.todos.filter(todo => todo.id !== action.payload)
-      };
-    case 'SET_FILTER':
-      return { ...state, filter: action.payload };
-    default:
-      return state;
-  }
-};
-
-const initialState = {
-  todos: [],
-  filter: 'all'
-};
-
-function TodoApp() {
-  const [state, dispatch] = useReducer(todoReducer, initialState);
-
-  const addTodo = (text) => {
-    dispatch({ type: 'ADD_TODO', payload: text });
-  };
-
-  const toggleTodo = (id) => {
-    dispatch({ type: 'TOGGLE_TODO', payload: id });
-  };
-
-  const deleteTodo = (id) => {
-    dispatch({ type: 'DELETE_TODO', payload: id });
-  };
-
-  return (
-    <div>
-      {/* Component implementation */}
-    </div>
-  );
-}
-
-// Example 2: useMemo for expensive calculations
-import { useMemo } from 'react';
-
-function ExpensiveComponent({ items, filter }) {
-  const filteredItems = useMemo(() => {
-    console.log('Filtering items...');
-    return items.filter(item => 
-      item.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  }, [items, filter]); // Only recalculate when items or filter change
-
-  const expensiveValue = useMemo(() => {
-    return filteredItems.reduce((acc, item) => {
-      // Some expensive computation
-      return acc + complexCalculation(item);
-    }, 0);
-  }, [filteredItems]);
-
-  return (
-    <div>
-      {filteredItems.map(item => (
-        <div key={item.id}>{item.name}</div>
-      ))}
-    </div>
-  );
-}
-
-// Example 3: useCallback for stable function references
-import { useCallback } from 'react';
-
-function ProductList({ products, onProductSelect }) {
-  // This function is recreated on every render without useCallback
-  const handleProductClick = useCallback((productId) => {
-    onProductSelect(productId);
-  }, [onProductSelect]); // Only recreate when onProductSelect changes
-
-  return (
-    <div>
-      {products.map(product => (
-        <Product
-          key={product.id}
-          product={product}
-          onClick={handleProductClick} // Stable reference
-        />
-      ))}
-    </div>
-  );
-}
-
-// Example 4: React.memo for component memoization
-import { memo } from 'react';
-
-const ExpensiveItem = memo(({ item, onUpdate }) => {
-  console.log('Rendering item:', item.id);
-  return (
-    <div>
-      <span>{item.name}</span>
-      <button onClick={() => onUpdate(item.id)}>Update</button>
-    </div>
-  );
-}, (prevProps, nextProps) => {
-  // Custom comparison function
-  return prevProps.item.id === nextProps.item.id &&
-         prevProps.item.name === nextProps.item.name;
-});
-
-// Example 5: Custom hook for API calls
+// Example 1: Basic useEffect patterns
 import { useState, useEffect } from 'react';
 
-function useApi(url) {
-  const [data, setData] = useState(null);
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Effect with dependencies - runs when userId changes
   useEffect(() => {
-    const fetchData = async () => {
+    let cancelled = false;
+
+    const fetchUser = async () => {
       try {
         setLoading(true);
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Network response was not ok');
-        const result = await response.json();
-        setData(result);
+        setError(null);
+        const response = await fetch(\`/api/users/\${userId}\`);
+        const userData = await response.json();
+        
+        if (!cancelled) {
+          setUser(userData);
+        }
       } catch (err) {
-        setError(err);
+        if (!cancelled) {
+          setError(err.message);
+        }
       } finally {
-        setLoading(false);
+        if (!cancelled) {
+          setLoading(false);
+        }
       }
     };
 
-    fetchData();
-  }, [url]);
+    fetchUser();
 
-  return { data, loading, error };
+    // Cleanup function - cancels request if component unmounts
+    return () => {
+      cancelled = true;
+    };
+  }, [userId]); // Dependency array
+
+  if (loading) return <div>Loading user...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!user) return <div>User not found</div>;
+
+  return (
+    <div>
+      <h2>{user.name}</h2>
+      <p>{user.email}</p>
+    </div>
+  );
 }
 
-// Usage
-function UserProfile({ userId }) {
-  const { data: user, loading, error } = useApi(\`/api/users/\${userId}\`);
+// Example 2: Event listeners with cleanup
+function WindowSizeTracker() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-  return <div>{user.name}</div>;
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup - remove event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // Empty array - runs only on mount and unmount
+
+  return (
+    <div>
+      Window size: {windowSize.width} x {windowSize.height}
+    </div>
+  );
 }
 
-// Example 6: Custom hook for localStorage
-import { useState, useEffect } from 'react';
+// Example 3: Timer with cleanup
+function Timer() {
+  const [seconds, setSeconds] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds(prev => prev + 1);
+    }, 1000);
+
+    // Cleanup - clear interval
+    return () => clearInterval(interval);
+  }, []); // Runs once on mount
+
+  return <div>Timer: {seconds} seconds</div>;
+}
+
+// Example 4: Document title updates
+function PageTitleUpdater({ title }) {
+  useEffect(() => {
+    document.title = title;
+    
+    // Optional cleanup - reset title when component unmounts
+    return () => {
+      document.title = 'Default Title';
+    };
+  }, [title]); // Runs when title changes
+
+  return <div>Current page title: "{title}"</div>;
+}
+
+// Example 5: Local storage synchronization
 function useLocalStorage(key, initialValue) {
   const [storedValue, setStoredValue] = useState(() => {
     try {
@@ -558,106 +505,97 @@ function useLocalStorage(key, initialValue) {
     }
   });
 
-  const setValue = (value) => {
+  useEffect(() => {
     try {
-      setStoredValue(value);
-      window.localStorage.setItem(key, JSON.stringify(value));
+      window.localStorage.setItem(key, JSON.stringify(storedValue));
     } catch (error) {
       console.error('Error saving to localStorage:', error);
     }
-  };
+  }, [key, storedValue]);
 
-  return [storedValue, setValue];
+  return [storedValue, setStoredValue];
 }
 
-// Example 7: Complex custom hook
-import { useState, useEffect, useCallback } from 'react';
-
-function useFetch(url, options = {}) {
+// Example 6: Complex effect with multiple dependencies
+function DataFetcher({ url, query, enabled = true }) {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const fetchData = useCallback(async () => {
-    try {
+  useEffect(() => {
+    if (!enabled || !url) return;
+
+    let cancelled = false;
+
+    const fetchData = async () => {
       setLoading(true);
-      setError(null);
-      const response = await fetch(url, options);
-      if (!response.ok) throw new Error('Network response was not ok');
-      const result = await response.json();
-      setData(result);
-    } catch (err) {
-      setError(err);
-    } finally {
-      setLoading(false);
-    }
-  }, [url, options]);
+      try {
+        const queryParams = query ? \`?\${new URLSearchParams(query)}\` : '';
+        const response = await fetch(\`\${url}\${queryParams}\`);
+        const result = await response.json();
+        
+        if (!cancelled) {
+          setData(result);
+        }
+      } catch (error) {
+        if (!cancelled) {
+          console.error('Fetch error:', error);
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    };
 
-  useEffect(() => {
     fetchData();
-  }, [fetchData]);
 
-  const refetch = useCallback(() => {
-    fetchData();
-  }, [fetchData]);
+    return () => {
+      cancelled = true;
+    };
+  }, [url, query, enabled]); // Re-run when any dependency changes
 
-  return { data, loading, error, refetch };
+  if (loading) return <div>Loading...</div>;
+  return <div>{JSON.stringify(data)}</div>;
 }
 
-// Example 8: useRef for DOM access and mutable values
-import { useRef, useEffect } from 'react';
+// Example 7: Combining multiple effects
+function ChatRoom({ roomId }) {
+  const [messages, setMessages] = useState([]);
+  const [isConnected, setIsConnected] = useState(false);
 
-function FocusableInput() {
-  const inputRef = useRef(null);
-
+  // Effect for connection
   useEffect(() => {
-    // Focus input on mount
-    inputRef.current?.focus();
-  }, []);
+    const connection = createConnection(roomId);
+    connection.connect();
+    setIsConnected(true);
 
-  const handleClick = () => {
-    inputRef.current?.focus();
-  };
+    return () => {
+      connection.disconnect();
+      setIsConnected(false);
+    };
+  }, [roomId]);
+
+  // Effect for messages
+  useEffect(() => {
+    if (!isConnected) return;
+
+    const handleMessage = (message) => {
+      setMessages(prev => [...prev, message]);
+    };
+
+    subscribeToMessages(roomId, handleMessage);
+
+    return () => {
+      unsubscribeFromMessages(roomId, handleMessage);
+    };
+  }, [roomId, isConnected]);
 
   return (
     <div>
-      <input ref={inputRef} placeholder="Click button to focus" />
-      <button onClick={handleClick}>Focus Input</button>
-    </div>
-  );
-}
-
-// Example 9: useImperativeHandle for component APIs
-import { forwardRef, useImperativeHandle, useRef } from 'react';
-
-const FancyInput = forwardRef((props, ref) => {
-  const inputRef = useRef();
-
-  useImperativeHandle(ref, () => ({
-    focus: () => {
-      inputRef.current.focus();
-    },
-    scrollIntoView: () => {
-      inputRef.current.scrollIntoView();
-    },
-    value: inputRef.current?.value
-  }));
-
-  return <input ref={inputRef} {...props} />;
-});
-
-// Usage
-function Parent() {
-  const inputRef = useRef();
-
-  const handleClick = () => {
-    inputRef.current.focus();
-  };
-
-  return (
-    <div>
-      <FancyInput ref={inputRef} />
-      <button onClick={handleClick}>Focus</button>
+      <h3>Room: {roomId} {isConnected ? '🟢' : '🔴'}</h3>
+      {messages.map((msg, index) => (
+        <div key={index}>{msg}</div>
+      ))}
     </div>
   );
 }
@@ -667,33 +605,33 @@ function Parent() {
             ],
             practices: [
                 {
-                    title: "Advanced Hooks Practice",
+                    title: "useEffect Practice",
                     content: `
-                        <p>Practice advanced hooks and optimization techniques:</p>
+                        <p>Practice managing side effects with useEffect:</p>
                         <ol>
-                            <li>Convert a complex useState to useReducer for better state management</li>
-                            <li>Create a custom hook for handling form state and validation</li>
-                            <li>Optimize a component with useMemo for expensive calculations</li>
-                            <li>Use useCallback to prevent unnecessary re-renders in child components</li>
-                            <li>Create a custom hook for handling API calls with loading and error states</li>
-                            <li>Build a component that uses useRef to interact with DOM elements</li>
-                            <li>Create a custom hook for managing browser localStorage</li>
-                            <li>Optimize a list component with React.memo and proper keys</li>
+                            <li>Create a component that fetches and displays user data from an API</li>
+                            <li>Build a window resize tracker that shows current dimensions</li>
+                            <li>Create a countdown timer that cleans up properly</li>
+                            <li>Build a search component that debounces API calls</li>
+                            <li>Create a theme switcher that persists in localStorage</li>
+                            <li>Build a real-time clock that updates every second</li>
+                            <li>Create a component that tracks mouse position</li>
+                            <li>Build a form autosave feature that saves on changes</li>
                         </ol>
                     `
                 }
             ],
             questions: [
                 {
-                    question: "When should I use useReducer instead of useState?",
-                    answer: "Use useReducer when: state logic is complex, next state depends on previous state, you have multiple sub-values in state, state transitions follow predictable patterns, or you need to optimize performance for deep component trees. useReducer is also better for testing as reducers are pure functions and easier to test in isolation."
+                    question: "When should I use useLayoutEffect instead of useEffect?",
+                    answer: "useLayoutEffect runs synchronously after DOM mutations but before the browser paints. Use it when you need to measure DOM elements or perform mutations that should be visible to the user at the same time as the DOM update. For most side effects (data fetching, subscriptions), useEffect is preferred because it doesn't block painting."
                 },
                 {
-                    question: "What's the difference between useMemo and useCallback?",
-                    answer: "useMemo memoizes the result of a function (the computed value), while useCallback memoizes the function itself. Use useMemo for expensive calculations that you want to cache. Use useCallback for functions that you pass to child components to prevent unnecessary re-renders. Both help with performance optimization but serve different purposes."
+                    question: "How do I prevent infinite loops in useEffect?",
+                    answer: "Infinite loops occur when an effect updates a state variable that's in its dependency array. To prevent this: 1) Ensure dependency arrays include all values that effect uses, 2) Use functional updates when state depends on previous state, 3) Consider if you really need state in dependencies, 4) Use useCallback for functions in dependencies, 5) Add proper cleanup to cancel ongoing operations."
                 }
             ]
-        }
+        },
     ]
 };
 

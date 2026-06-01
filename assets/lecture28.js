@@ -1,307 +1,450 @@
 // Course data structure
 const courseData = {
     courseInfo: {
-        name: "Complete React Mastery 2025 - From Zero to Hero",
+        name: "Complete React Mastery 2026 - From Zero to Hero",
         coach: "Moones Mezher",
         center: "Ousos"
     },
     topics: [
         {
-            id: "react-state-events",
-            title: "State Management & Event Handling",
+    id: "react-introduction",
+    title: "React Introduction - What is React and Why Choose It?",
+    content: `
+        <h3>What is React?</h3>
+        <p>React is a JavaScript library for building user interfaces, particularly web applications. Created by Facebook (now Meta) in 2013, it has revolutionized how developers build modern, interactive web experiences.</p>
+        
+        <h3>React: Library vs Framework</h3>
+        <ul>
+            <li><strong>React is a Library</strong>: It focuses specifically on building user interfaces</li>
+            <li><strong>Frameworks vs Libraries</strong>: Frameworks provide complete solutions, libraries solve specific problems</li>
+            <li><strong>Flexibility</strong>: As a library, React gives you freedom to choose other tools</li>
+            <li><strong>Ecosystem</strong>: React has a rich ecosystem that complements its library nature</li>
+        </ul>
+        
+        <h3>Why Choose React in 2026?</h3>
+        <ul>
+            <li><strong>Massive Adoption</strong>: Used by 8+ million developers worldwide</li>
+            <li><strong>Industry Standard</strong>: Trusted by Facebook, Netflix, Airbnb, Uber, and thousands of companies</li>
+            <li><strong>Job Market</strong>: Highest demand in the frontend job market</li>
+            <li><strong>Stability & Maturity</strong>: 10+ years of continuous development and improvement</li>
+            <li><strong>Rich Ecosystem</strong>: Vast collection of libraries, tools, and resources</li>
+        </ul>
+        
+        <h3>Key Features That Make React Special:</h3>
+        <ul>
+            <li><strong>Component-Based Architecture</strong>: Build encapsulated components that manage their own state</li>
+            <li><strong>Virtual DOM</strong>: Optimized rendering performance</li>
+            <li><strong>Declarative Syntax</strong>: Describe what you want, not how to do it</li>
+            <li><strong>Learn Once, Write Anywhere</strong>: React Native for mobile, React for web</li>
+            <li><strong>Strong Community</strong>: Active community with continuous innovation</li>
+        </ul>
+        
+        <h3>What is the Virtual DOM?</h3>
+        <p>The Virtual DOM is React's secret weapon for performance. It's a lightweight JavaScript representation of the actual DOM that allows React to efficiently update the user interface.</p>
+        
+        <h3>How Virtual DOM Works:</h3>
+        <ol>
+            <li><strong>Virtual Representation</strong>: React creates a virtual representation of the UI</li>
+            <li><strong>State Changes</strong>: When data changes, React creates a new virtual DOM</li>
+            <li><strong>Diffing Algorithm</strong>: React compares new and old virtual DOMs</li>
+            <li><strong>Efficient Updates</strong>: Only the changed parts are updated in the real DOM</li>
+            <li><strong>Performance Optimization</strong>: Minimizes expensive DOM operations</li>
+        </ol>
+        
+        <h3>React vs Other Frameworks:</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Framework/Library</th>
+                    <th>Type</th>
+                    <th>Learning Curve</th>
+                    <th>Best For</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>React</strong></td>
+                    <td>Library</td>
+                    <td>Moderate</td>
+                    <td>Large applications, flexibility needed</td>
+                </tr>
+                <tr>
+                    <td>Vue.js</td>
+                    <td>Framework</td>
+                    <td>Gentle</td>
+                    <td>Progressive enhancement, small teams</td>
+                </tr>
+                <tr>
+                    <td>Angular</td>
+                    <td>Framework</td>
+                    <td>Steep</td>
+                    <td>Enterprise applications, structured teams</td>
+                </tr>
+                <tr>
+                    <td>Svelte</td>
+                    <td>Compiler</td>
+                    <td>Easy</td>
+                    <td>Performance-critical applications</td>
+                </tr>
+            </tbody>
+        </table>
+    `,
+    examples: [
+        {
+            title: "Real-World React Examples & Virtual DOM Demonstration",
             content: `
-                <h3>Managing State and User Interactions</h3>
-                <p>State and events are the core of interactive React applications, enabling dynamic user experiences.</p>
+                <pre class="code-block">
+// Example 1: Simple React Component vs Vanilla JavaScript
+
+// Vanilla JavaScript approach (imperative)
+const container = document.getElementById('app');
+const button = document.createElement('button');
+button.textContent = 'Click me: 0';
+let count = 0;
+
+button.addEventListener('click', function() {
+    count++;
+    button.textContent = 'Click me: ' + count;
+});
+
+container.appendChild(button);
+
+// React approach (declarative)
+import { useState } from 'react';
+
+function Counter() {
+    const [count, setCount] = useState(0);
+    
+    return (
+        <button onClick={() => setCount(count + 1)}>
+            Click me: {count}
+        </button>
+    );
+}
+
+// Example 2: Virtual DOM in Action
+// When state changes, here's what happens:
+
+// 1. Current Virtual DOM
+const currentVDOM = {
+    type: 'div',
+    props: {
+        className: 'container',
+        children: [
+            {
+                type: 'h1',
+                props: {
+                    children: 'Hello, World!'
+                }
+            },
+            {
+                type: 'p',
+                props: {
+                    children: 'Count: 0'
+                }
+            }
+        ]
+    }
+};
+
+// 2. New Virtual DOM after state change
+const newVDOM = {
+    type: 'div',
+    props: {
+        className: 'container',
+        children: [
+            {
+                type: 'h1',
+                props: {
+                    children: 'Hello, World!'
+                }
+            },
+            {
+                type: 'p',
+                props: {
+                    children: 'Count: 1'  // Only this changed
+                }
+            }
+        ]
+    }
+};
+
+// 3. React's diffing algorithm detects only the text changed
+// 4. React updates only the text node in real DOM, not the entire structure
+
+// Example 3: Component Reusability
+// Reusable Button Component
+function Button({ children, variant = 'primary', onClick }) {
+    return (
+        <button 
+            className={\`btn btn-\${variant}\`}
+            onClick={onClick}
+        >
+            {children}
+        </button>
+    );
+}
+
+// Using the reusable component
+function App() {
+    return (
+        <div>
+            <Button variant="primary" onClick={() => alert('Hello!')}>
+                Primary Button
+            </Button>
+            <Button variant="secondary">
+                Secondary Button
+            </Button>
+        </div>
+    );
+}
+
+// Example 4: Large Companies Using React
+
+// Facebook - The creator
+// Uses React for their entire web interface
+
+// Instagram - Fully built with React
+// Complex features like stories, feeds, direct messages
+
+// Netflix - Uses React for their TV UI
+// Handles complex animations and user interactions
+
+// Airbnb - Entire booking platform
+// Manages complex state and user flows
+
+// Uber - Web dashboard and customer apps
+// Real-time updates and complex interfaces
+
+// WhatsApp Web - Real-time messaging
+// Handles millions of concurrent users
+
+// Example 5: React Ecosystem Demonstration
+
+// With React, you can choose your preferred tools:
+// - State Management: Redux, Zustand, Context API
+// - Routing: React Router, Next.js routing
+// - Styling: CSS Modules, Styled Components, Tailwind CSS
+// - Testing: Jest, React Testing Library
+// - Build Tools: Vite, Webpack, Create React App
+
+// This flexibility is possible because React is a library, not a framework
+
+// Example 6: Performance Benefits Demonstration
+
+// Without Virtual DOM (expensive operations)
+function updateWithoutVDOM() {
+    // Direct DOM manipulation - can be slow
+    const element = document.getElementById('myElement');
+    element.style.color = 'red';
+    element.textContent = 'Updated text';
+    element.className = 'updated-class';
+    // Each line causes a reflow/repaint
+}
+
+// With Virtual DOM (optimized)
+function updateWithVDOM() {
+    // React batches updates
+    // 1. Update virtual DOM
+    // 2. Compare with previous virtual DOM
+    // 3. Calculate minimal DOM operations
+    // 4. Apply batch update to real DOM
+    // Result: Better performance
+}
+
+// Example 7: React's Declarative Nature
+
+// Imperative approach (how to do it)
+function imperativeUpdate() {
+    const container = document.getElementById('container');
+    container.innerHTML = ''; // Clear container
+    
+    users.forEach(user => {
+        const div = document.createElement('div');
+        div.textContent = user.name;
+        div.className = user.isActive ? 'active' : 'inactive';
+        container.appendChild(div);
+    });
+}
+
+// Declarative approach with React (what you want)
+function UserList({ users }) {
+    return (
+        <div id="container">
+            {users.map(user => (
+                <div key={user.id} className={user.isActive ? 'active' : 'inactive'}>
+                    {user.name}
+                </div>
+            ))}
+        </div>
+    );
+}
+
+// The declarative approach is easier to read, maintain, and debug
+                </pre>
+            `
+        }
+    ],
+    practices: [
+        {
+            title: "React Fundamentals Practice",
+            content: `
+                <p>Practice understanding React's core concepts:</p>
+                <ol>
+                    <li>Research and compare React with two other popular frameworks (Vue.js and Angular)</li>
+                    <li>Create a simple counter using both vanilla JavaScript and React to compare approaches</li>
+                    <li>Draw a diagram showing how the Virtual DOM works with diffing and reconciliation</li>
+                    <li>List 10 major companies using React and what parts of their applications use it</li>
+                    <li>Explain the difference between imperative and declarative programming to a beginner</li>
+                    <li>Create a presentation explaining why React is a library, not a framework</li>
+                    <li>Build a simple component that demonstrates reusability with different props</li>
+                    <li>Research and list the key advantages React had when it was first introduced in 2013</li>
+                </ol>
+            `
+        }
+    ],
+    questions: [
+        {
+            question: "Is React a library or a framework, and what's the difference?",
+            answer: "React is a library, not a framework. The key difference is that a library provides specific functionality that you call, while a framework provides a complete structure that calls your code. With React (library), you decide how to structure your application, what routing to use, and how to manage state. With frameworks like Angular, the framework makes these decisions for you. React's library nature gives developers more flexibility but requires more decisions about architecture."
+        },
+        {
+            question: "What problem does the Virtual DOM solve?",
+            answer: "The Virtual DOM solves performance issues with direct DOM manipulation. Directly updating the DOM is slow, especially with frequent changes. The Virtual DOM creates a lightweight JavaScript representation of the actual DOM. When changes occur, React compares the new Virtual DOM with the previous one (diffing) and calculates the most efficient way to update the real DOM. This minimizes expensive DOM operations and improves performance, especially in complex applications with frequent updates."
+        },
+        {
+            question: "Why has React remained so popular for over a decade?",
+            answer: "React has maintained popularity due to: 1) Component reusability that speeds up development, 2) Virtual DOM for excellent performance, 3) Strong backing from Facebook/Meta with continuous improvement, 4) Huge ecosystem and community support, 5) Flexibility to integrate with other libraries, 6) React Native for mobile development, 7) Excellent developer experience with tools like React DevTools, 8) Strong job market demand, and 9) Continuous evolution with new features like Hooks and Concurrent Features."
+        },
+        {
+            question: "What does 'learn once, write anywhere' mean in React?",
+            answer: "This React philosophy means that after learning React concepts and patterns, you can apply them to different platforms. React for web, React Native for mobile apps (iOS and Android), React 360 for VR applications, and even React for desktop with Electron. The mental model and component architecture remain consistent across platforms, reducing the learning curve when moving between different types of applications. This contrasts with 'write once, run anywhere' approaches that try to use the same code everywhere."
+        },
+        {
+            question: "How does React's declarative approach benefit developers?",
+            answer: "Declarative programming in React means you describe WHAT the UI should look like for any given state, rather than HOW to achieve that state (imperative). Benefits include: 1) More predictable code that's easier to debug, 2) Easier to understand and maintain, 3) Less prone to bugs from manual DOM manipulation, 4) Better for team collaboration with consistent patterns, 5) Easier testing since components are pure functions of their props and state. You focus on the desired outcome rather than the step-by-step process to get there."
+        }
+    ]
+},
+        {
+            id: "react-modern-setup",
+            title: "Modern React Setup & Development Environment",
+            content: `
+                <h3>Setting Up React in 2026</h3>
+                <p>Modern React development starts with choosing the right tools and setup for optimal performance and developer experience.</p>
                 
-                <h3>useState Hook:</h3>
+                <h3>Project Setup Options:</h3>
                 <ul>
-                    <li><strong>Local State</strong>: Component-specific data that changes over time</li>
-                    <li><strong>Initial State</strong>: Pass initial value to useState()</li>
-                    <li><strong>State Updates</strong>: Always use setter function, never mutate directly</li>
-                    <li><strong>Functional Updates</strong>: Use when new state depends on previous state</li>
-                    <li><strong>Object State</strong>: Update objects immutably with spread operator</li>
+                    <li><strong>Vite</strong>: Lightning-fast build tool with instant HMR</li>
+                    <li><strong>Create React App</strong>: Official boilerplate (traditional)</li>
+                    <li><strong>Next.js</strong>: Full-stack framework with SSR/SSG</li>
+                    <li><strong>Remix</strong>: Focused on web fundamentals and performance</li>
                 </ul>
                 
-                <h3>Event Handling:</h3>
+                <h3>Why Vite is Recommended in 2026:</h3>
                 <ul>
-                    <li><strong>Synthetic Events</strong>: React's cross-browser wrapper around native events</li>
-                    <li><strong>Common Events</strong>: onClick, onChange, onSubmit, onKeyDown</li>
-                    <li><strong>Event Object</strong>: Access event data like target.value, preventDefault()</li>
-                    <li><strong>Arrow Functions</strong>: Use for proper 'this' binding</li>
+                    <li><strong>Instant Server Start</strong>: Uses native ES modules</li>
+                    <li><strong>Lightning HMR</strong>: Hot Module Replacement that's incredibly fast</li>
+                    <li><strong>Optimized Build</strong>: Uses Rollup for production</li>
+                    <li><strong>Rich Features</strong>: TypeScript, JSX, CSS preprocessors out of the box</li>
+                    <li><strong>Framework Agnostic</strong>: Works with React, Vue, Svelte</li>
                 </ul>
                 
-                <h3>Controlled Components:</h3>
+                <h3>Essential Development Tools:</h3>
                 <ul>
-                    <li><strong>Form Elements</strong>: Inputs controlled by React state</li>
-                    <li><strong>Single Source of Truth</strong>: Form data stored in component state</li>
-                    <li><strong>Validation</strong>: Real-time validation with state updates</li>
-                    <li><strong>Dynamic Forms</strong>: Handle multiple inputs efficiently</li>
-                </ul>
-                
-                <h3>State Update Patterns:</h3>
-                <ul>
-                    <li><strong>Batch Updates</strong>: Multiple state updates in event handlers</li>
-                    <li><strong>Functional Updates</strong>: For state that depends on previous state</li>
-                    <li><strong>Object Spread</strong>: Updating nested objects immutably</li>
-                    <li><strong>Array Operations</strong>: Adding, removing, updating arrays</li>
+                    <li><strong>VS Code</strong>: With React extension pack</li>
+                    <li><strong>React Developer Tools</strong>: Browser extension for debugging</li>
+                    <li><strong>ESLint & Prettier</strong>: Code formatting and linting</li>
+                    <li><strong>Git</strong>: Version control</li>
                 </ul>
             `,
             examples: [
                 {
-                    title: "State & Event Handling Examples",
+                    title: "Vite React Setup Examples",
                     content: `
                         <pre class="code-block">
-// Example 1: Basic useState
-import { useState } from 'react';
+// Creating a new React project with Vite
+npm create vite@latest my-react-app -- --template react
+cd my-react-app
+npm install
+npm run dev
 
-function Counter() {
-  const [count, setCount] = useState(0);
+// Project structure after setup:
+my-react-app/
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── assets/
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   └── components/
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
 
-  const increment = () => setCount(count + 1);
-  const decrement = () => setCount(count - 1);
-  const reset = () => setCount(0);
+// vite.config.js - Basic configuration
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
-      <button onClick={reset}>Reset</button>
-    </div>
-  );
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 3000,
+    open: true // Automatically open browser
+  }
+})
+
+// Setting up Tailwind CSS with Vite
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
 }
 
-// Example 2: Object State
-function UserProfile() {
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-    age: 0
-  });
+// Add to src/index.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  const updateName = (name) => {
-    setUser(prevUser => ({
-      ...prevUser,  // Spread previous state
-      name          // Update only the name
-    }));
-  };
+// Setting up ESLint and Prettier
+npm install -D eslint eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
+npm install -D prettier eslint-config-prettier eslint-plugin-prettier
 
-  const updateEmail = (email) => {
-    setUser(prevUser => ({
-      ...prevUser,
-      email
-    }));
-  };
-
-  return (
-    <div>
-      <input 
-        value={user.name}
-        onChange={(e) => updateName(e.target.value)}
-        placeholder="Name"
-      />
-      <input 
-        value={user.email}
-        onChange={(e) => updateEmail(e.target.value)}
-        placeholder="Email"
-      />
-    </div>
-  );
+// .eslintrc.js
+module.exports = {
+  env: { browser: true, es2020: true },
+  extends: [
+    'eslint:recommended',
+    '@vue/eslint-config-prettier/skip-formatting'
+  ],
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  plugins: ['react-refresh'],
+  rules: {
+    'react-refresh/only-export-components': 'warn',
+  },
 }
 
-// Example 3: Form Handling
-function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
-    }
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.name) newErrors.name = 'Name is required';
-    if (!formData.email) newErrors.email = 'Email is required';
-    if (!formData.message) newErrors.message = 'Message is required';
-    return newErrors;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formErrors = validateForm();
-    
-    if (Object.keys(formErrors).length > 0) {
-      setErrors(formErrors);
-      return;
-    }
-
-    setIsSubmitting(true);
-    try {
-      // Submit form data
-      console.log('Submitting:', formData);
-      // await submitForm(formData);
-    } catch (error) {
-      console.error('Submission error:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <input
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Your Name"
-        />
-        {errors.name && <span className="error">{errors.name}</span>}
-      </div>
-      
-      <div>
-        <input
-          name="email"
-          type="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Your Email"
-        />
-        {errors.email && <span className="error">{errors.email}</span>}
-      </div>
-      
-      <div>
-        <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          placeholder="Your Message"
-        />
-        {errors.message && <span className="error">{errors.message}</span>}
-      </div>
-      
-      <button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Sending...' : 'Send Message'}
-      </button>
-    </form>
-  );
-}
-
-// Example 4: Array State
-function TodoList() {
-  const [todos, setTodos] = useState([]);
-  const [inputValue, setInputValue] = useState('');
-
-  const addTodo = () => {
-    if (inputValue.trim()) {
-      setTodos(prev => [...prev, {
-        id: Date.now(),
-        text: inputValue,
-        completed: false
-      }]);
-      setInputValue('');
-    }
-  };
-
-  const toggleTodo = (id) => {
-    setTodos(prev => 
-      prev.map(todo => 
-        todo.id === id 
-          ? { ...todo, completed: !todo.completed }
-          : todo
-      )
-    );
-  };
-
-  const deleteTodo = (id) => {
-    setTodos(prev => prev.filter(todo => todo.id !== id));
-  };
-
-  return (
-    <div>
-      <input
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        onKeyPress={(e) => e.key === 'Enter' && addTodo()}
-        placeholder="Add a todo"
-      />
-      <button onClick={addTodo}>Add</button>
-      
-      <ul>
-        {todos.map(todo => (
-          <li key={todo.id}>
-            <span
-              style={{ 
-                textDecoration: todo.completed ? 'line-through' : 'none' 
-              }}
-              onClick={() => toggleTodo(todo.id)}
-            >
-              {todo.text}
-            </span>
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-// Example 5: Complex Event Handling
-function InteractiveComponent() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-
-  const handleMouseMove = (e) => {
-    if (isDragging) {
-      setPosition({
-        x: e.clientX,
-        y: e.clientY
-      });
-    }
-  };
-
-  const handleMouseDown = () => setIsDragging(true);
-  const handleMouseUp = () => setIsDragging(false);
-
-  return (
-    <div
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      style={{ height: '100vh', cursor: isDragging ? 'grabbing' : 'grab' }}
-    >
-      <div
-        style={{
-          position: 'absolute',
-          left: position.x,
-          top: position.y,
-          width: 100,
-          height: 100,
-          backgroundColor: 'blue',
-          cursor: 'move'
-        }}
-        onMouseDown={handleMouseDown}
-      >
-        Drag me
-      </div>
-    </div>
-  );
+// package.json scripts
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  }
 }
                         </pre>
                     `
@@ -309,329 +452,103 @@ function InteractiveComponent() {
             ],
             practices: [
                 {
-                    title: "State & Events Practice",
+                    title: "Environment Setup Practice",
                     content: `
-                        <p>Practice state management and event handling:</p>
+                        <p>Practice setting up modern React development environments:</p>
                         <ol>
-                            <li>Build a counter with increment, decrement, and reset functionality</li>
-                            <li>Create a todo list with add, delete, and toggle complete features</li>
-                            <li>Build a registration form with validation and error messages</li>
-                            <li>Create a drag-and-drop interface for reordering items</li>
-                            <li>Build a shopping cart with add/remove items and quantity updates</li>
-                            <li>Create a color picker that updates background color in real-time</li>
-                            <li>Build a multi-step form wizard with progress tracking</li>
-                            <li>Create a real-time search filter for a list of items</li>
+                            <li>Create a new React project using Vite with TypeScript</li>
+                            <li>Set up Tailwind CSS and configure it for your project</li>
+                            <li>Install and configure ESLint and Prettier for code formatting</li>
+                            <li>Set up React Developer Tools in your browser</li>
+                            <li>Create a basic component structure with proper folder organization</li>
+                            <li>Configure path aliases in Vite for cleaner imports</li>
+                            <li>Set up environment variables for different deployment stages</li>
+                            <li>Create a custom Vite configuration for your specific needs</li>
                         </ol>
                     `
                 }
             ],
             questions: [
                 {
-                    question: "What's the difference between controlled and uncontrolled components?",
-                    answer: "Controlled components have their value controlled by React state, while uncontrolled components store their state in the DOM. Use controlled components when you need real-time validation, conditional rendering based on input, or programmatic value changes. Use uncontrolled components for simple forms where you only need the value on submission."
+                    question: "What are the main differences between Vite and Create React App?",
+                    answer: "Vite uses native ES modules for instant server start and faster HMR, while CRA uses Webpack which bundles everything upfront. Vite has better performance, faster builds, and more flexible configuration. CRA is more established but slower. Vite is recommended for new projects due to superior developer experience and faster tooling."
                 },
                 {
-                    question: "Why shouldn't I mutate state directly in React?",
-                    answer: "Direct mutation doesn't trigger re-renders, so your UI won't update. React uses reference equality to determine when to re-render. If you mutate an object or array directly, the reference stays the same and React doesn't know it changed. Always use setter functions from useState to ensure proper re-renders and maintain predictable state updates."
+                    question: "Why should I use TypeScript with React?",
+                    answer: "TypeScript provides static type checking, better IDE support, improved code quality, easier refactoring, and early error detection. It helps catch bugs during development, makes code more self-documenting, and improves collaboration in teams. For large applications, TypeScript is essential for maintainability."
                 }
             ]
         },
         {
-            id: "react-hooks-effects",
-            title: "React Hooks: useEffect & Side Effects",
+            id: "react-fundamentals-jsx",
+            title: "React Fundamentals: Components, JSX & Props",
             content: `
-                <h3>Managing Side Effects with useEffect</h3>
-                <p>useEffect hook handles side effects in functional components, replacing lifecycle methods from class components.</p>
+                <h3>React Core Concepts</h3>
+                <p>Understanding React's fundamental building blocks: components, JSX, and props is essential for building modern UIs.</p>
                 
-                <h3>Side Effects Types:</h3>
+                <h3>Functional Components:</h3>
                 <ul>
-                    <li><strong>Data Fetching</strong>: API calls and data loading</li>
-                    <li><strong>Subscriptions</strong>: Event listeners, WebSocket connections</li>
-                    <li><strong>DOM Manipulation</strong>: Direct DOM updates when necessary</li>
-                    <li><strong>Timers</strong>: setTimeout, setInterval, animations</li>
-                    <li><strong>External Systems</strong>: Integration with third-party libraries</li>
+                    <li><strong>Modern Approach</strong>: Use functions instead of classes</li>
+                    <li><strong>Simpler Syntax</strong>: Easier to read and write</li>
+                    <li><strong>Hooks Compatible</strong>: Works with all React hooks</li>
+                    <li><strong>Better Performance</strong>: Less boilerplate code</li>
                 </ul>
                 
-                <h3>useEffect Dependencies:</h3>
+                <h3>JSX Syntax Features:</h3>
                 <ul>
-                    <li><strong>No Dependencies</strong>: Runs after every render</li>
-                    <li><strong>Empty Array</strong>: Runs once after initial render (mount)</li>
-                    <li><strong>With Dependencies</strong>: Runs when specific values change</li>
-                    <li><strong>Function in Dependencies</strong>: Use useCallback for stable references</li>
+                    <li><strong>JavaScript XML</strong>: HTML-like syntax in JavaScript</li>
+                    <li><strong>Expressions</strong>: Embed JavaScript with {}</li>
+                    <li><strong>Attributes</strong>: className instead of class, htmlFor instead of for</li>
+                    <li><strong>Fragments</strong>: &lt;&gt;&lt;/&gt; to group elements without extra DOM nodes</li>
+                    <li><strong>Conditional Rendering</strong>: &&, ternary operators, and if statements</li>
                 </ul>
                 
-                <h3>Cleanup Function:</h3>
+                <h3>Props System:</h3>
                 <ul>
-                    <li><strong>Prevent Memory Leaks</strong>: Clean up subscriptions and timers</li>
-                    <li><strong>Avoid State Updates</strong>: Cancel pending operations on unmount</li>
-                    <li><strong>Return Function</strong>: useEffect can return a cleanup function</li>
-                    <li><strong>Automatic Execution</strong>: Runs before re-running effect or unmount</li>
+                    <li><strong>Data Passing</strong>: Pass data from parent to child components</li>
+                    <li><strong>Immutable</strong>: Props are read-only in child components</li>
+                    <li><strong>Destructuring</strong>: Extract props directly in function parameters</li>
+                    <li><strong>Default Values</strong>: Provide fallback values for optional props</li>
+                    <li><strong>Prop Types</strong>: Type checking for better reliability</li>
                 </ul>
                 
-                <h3>Common Patterns:</h3>
+                <h3>Component Composition:</h3>
                 <ul>
-                    <li><strong>Data Fetching</strong>: Combine with useState for loading states</li>
-                    <li><strong>Event Listeners</strong>: Add and remove in useEffect</li>
-                    <li><strong>API Subscriptions</strong>: Subscribe and unsubscribe pattern</li>
-                    <li><strong>Document Title Updates</strong>: Update title based on state</li>
+                    <li><strong>Children Prop</strong>: Pass components as children</li>
+                    <li><strong>Higher-Order Components</strong>: Component wrappers for reuse</li>
+                    <li><strong>Component Patterns</strong>: Container vs Presentational components</li>
                 </ul>
             `,
-            examples: [
-                {
-                    title: "useEffect & Side Effects Examples",
-                    content: `
-                        <pre class="code-block">
-// Example 1: Basic useEffect patterns
-import { useState, useEffect } from 'react';
-
-function UserProfile({ userId }) {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  // Effect with dependencies - runs when userId changes
-  useEffect(() => {
-    let cancelled = false;
-
-    const fetchUser = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const response = await fetch(\`/api/users/\${userId}\`);
-        const userData = await response.json();
-        
-        if (!cancelled) {
-          setUser(userData);
-        }
-      } catch (err) {
-        if (!cancelled) {
-          setError(err.message);
-        }
-      } finally {
-        if (!cancelled) {
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchUser();
-
-    // Cleanup function - cancels request if component unmounts
-    return () => {
-      cancelled = true;
-    };
-  }, [userId]); // Dependency array
-
-  if (loading) return <div>Loading user...</div>;
-  if (error) return <div>Error: {error}</div>;
-  if (!user) return <div>User not found</div>;
-
-  return (
-    <div>
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-    </div>
-  );
-}
-
-// Example 2: Event listeners with cleanup
-function WindowSizeTracker() {
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-    };
-
-    window.addEventListener('resize', handleResize);
-    
-    // Cleanup - remove event listener
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []); // Empty array - runs only on mount and unmount
-
-  return (
-    <div>
-      Window size: {windowSize.width} x {windowSize.height}
-    </div>
-  );
-}
-
-// Example 3: Timer with cleanup
-function Timer() {
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds(prev => prev + 1);
-    }, 1000);
-
-    // Cleanup - clear interval
-    return () => clearInterval(interval);
-  }, []); // Runs once on mount
-
-  return <div>Timer: {seconds} seconds</div>;
-}
-
-// Example 4: Document title updates
-function PageTitleUpdater({ title }) {
-  useEffect(() => {
-    document.title = title;
-    
-    // Optional cleanup - reset title when component unmounts
-    return () => {
-      document.title = 'Default Title';
-    };
-  }, [title]); // Runs when title changes
-
-  return <div>Current page title: "{title}"</div>;
-}
-
-// Example 5: Local storage synchronization
-function useLocalStorage(key, initialValue) {
-  const [storedValue, setStoredValue] = useState(() => {
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      return initialValue;
-    }
-  });
-
-  useEffect(() => {
-    try {
-      window.localStorage.setItem(key, JSON.stringify(storedValue));
-    } catch (error) {
-      console.error('Error saving to localStorage:', error);
-    }
-  }, [key, storedValue]);
-
-  return [storedValue, setStoredValue];
-}
-
-// Example 6: Complex effect with multiple dependencies
-function DataFetcher({ url, query, enabled = true }) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    if (!enabled || !url) return;
-
-    let cancelled = false;
-
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const queryParams = query ? \`?\${new URLSearchParams(query)}\` : '';
-        const response = await fetch(\`\${url}\${queryParams}\`);
-        const result = await response.json();
-        
-        if (!cancelled) {
-          setData(result);
-        }
-      } catch (error) {
-        if (!cancelled) {
-          console.error('Fetch error:', error);
-        }
-      } finally {
-        if (!cancelled) {
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchData();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [url, query, enabled]); // Re-run when any dependency changes
-
-  if (loading) return <div>Loading...</div>;
-  return <div>{JSON.stringify(data)}</div>;
-}
-
-// Example 7: Combining multiple effects
-function ChatRoom({ roomId }) {
-  const [messages, setMessages] = useState([]);
-  const [isConnected, setIsConnected] = useState(false);
-
-  // Effect for connection
-  useEffect(() => {
-    const connection = createConnection(roomId);
-    connection.connect();
-    setIsConnected(true);
-
-    return () => {
-      connection.disconnect();
-      setIsConnected(false);
-    };
-  }, [roomId]);
-
-  // Effect for messages
-  useEffect(() => {
-    if (!isConnected) return;
-
-    const handleMessage = (message) => {
-      setMessages(prev => [...prev, message]);
-    };
-
-    subscribeToMessages(roomId, handleMessage);
-
-    return () => {
-      unsubscribeFromMessages(roomId, handleMessage);
-    };
-  }, [roomId, isConnected]);
-
-  return (
-    <div>
-      <h3>Room: {roomId} {isConnected ? '🟢' : '🔴'}</h3>
-      {messages.map((msg, index) => (
-        <div key={index}>{msg}</div>
-      ))}
-    </div>
-  );
-}
-                        </pre>
-                    `
-                }
-            ],
+            examples: [ ],
             practices: [
                 {
-                    title: "useEffect Practice",
+                    title: "Components & JSX Practice",
                     content: `
-                        <p>Practice managing side effects with useEffect:</p>
+                        <p>Practice React fundamentals with these exercises:</p>
                         <ol>
-                            <li>Create a component that fetches and displays user data from an API</li>
-                            <li>Build a window resize tracker that shows current dimensions</li>
-                            <li>Create a countdown timer that cleans up properly</li>
-                            <li>Build a search component that debounces API calls</li>
-                            <li>Create a theme switcher that persists in localStorage</li>
-                            <li>Build a real-time clock that updates every second</li>
-                            <li>Create a component that tracks mouse position</li>
-                            <li>Build a form autosave feature that saves on changes</li>
+                            <li>Create a UserProfile component that displays user information with props</li>
+                            <li>Build a ProductCard component that conditionally shows sale badges</li>
+                            <li>Create a List component that renders arrays of items with proper keys</li>
+                            <li>Build a Modal component that uses children prop for content</li>
+                            <li>Create a Button component with different variants and sizes</li>
+                            <li>Practice using fragments to group elements without extra divs</li>
+                            <li>Build a complex component that uses multiple conditional rendering techniques</li>
+                            <li>Create a component library with TypeScript prop definitions</li>
                         </ol>
                     `
                 }
             ],
             questions: [
                 {
-                    question: "When should I use useLayoutEffect instead of useEffect?",
-                    answer: "useLayoutEffect runs synchronously after DOM mutations but before the browser paints. Use it when you need to measure DOM elements or perform mutations that should be visible to the user at the same time as the DOM update. For most side effects (data fetching, subscriptions), useEffect is preferred because it doesn't block painting."
+                    question: "What's the difference between elements and components in React?",
+                    answer: "Elements are plain objects describing what you want to see on the screen. They are immutable and cheap to create. Components are functions or classes that return elements. They can have state, props, and lifecycle methods. Elements are the building blocks, while components are the templates that generate elements."
                 },
                 {
-                    question: "How do I prevent infinite loops in useEffect?",
-                    answer: "Infinite loops occur when an effect updates a state variable that's in its dependency array. To prevent this: 1) Ensure dependency arrays include all values that effect uses, 2) Use functional updates when state depends on previous state, 3) Consider if you really need state in dependencies, 4) Use useCallback for functions in dependencies, 5) Add proper cleanup to cancel ongoing operations."
+                    question: "Why do we need keys in lists and what makes a good key?",
+                    answer: "Keys help React identify which items have changed, are added, or are removed. They should be unique and stable. Good keys are unique IDs from your data, not array indices. Using indices can cause performance issues and bugs when the list order changes. Keys should be consistent across re-renders."
                 }
             ]
-        },
+        }
     ]
 };
 
